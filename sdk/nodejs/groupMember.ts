@@ -22,7 +22,9 @@ import * as utilities from "./utilities";
  * const exampleUser = pulumi.output(azuread.getUser({
  *     userPrincipalName: "jdoe@hashicorp.com",
  * }, { async: true }));
- * const exampleGroup = new azuread.Group("example", {});
+ * const exampleGroup = new azuread.Group("example", {
+ *     name: "myGroup",
+ * });
  * const exampleGroupMember = new azuread.GroupMember("example", {
  *     groupObjectId: exampleGroup.id,
  *     memberObjectId: exampleUser.id,

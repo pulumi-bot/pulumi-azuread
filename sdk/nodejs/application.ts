@@ -33,6 +33,7 @@ import * as utilities from "./utilities";
  *     availableToOtherTenants: false,
  *     homepage: "https://homepage",
  *     identifierUris: ["https://uri"],
+ *     name: "example",
  *     oauth2AllowImplicitFlow: true,
  *     owners: ["00000004-0000-0000-c000-000000000000"],
  *     replyUrls: ["https://replyurl"],
