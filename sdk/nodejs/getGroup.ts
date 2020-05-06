@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage (by Group Display Name)
  * 
+ * {{ % example typescript % }}
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     name: "A-AD-Group",
  * }, { async: true }));
  * ```
+ * {{ % /example % }}
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/group.html.markdown.
  */

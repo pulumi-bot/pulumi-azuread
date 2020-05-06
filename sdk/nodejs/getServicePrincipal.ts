@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage (by Application Display Name)
  * 
+ * {{ % example typescript % }}
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
@@ -21,9 +22,11 @@ import * as utilities from "./utilities";
  *     displayName: "my-awesome-application",
  * }, { async: true }));
  * ```
+ * {{ % /example % }}
  * 
  * ## Example Usage (by Application ID)
  * 
+ * {{ % example typescript % }}
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
@@ -32,9 +35,11 @@ import * as utilities from "./utilities";
  *     applicationId: "00000000-0000-0000-0000-000000000000",
  * }, { async: true }));
  * ```
+ * {{ % /example % }}
  * 
  * ## Example Usage (by Object ID)
  * 
+ * {{ % example typescript % }}
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
@@ -43,6 +48,7 @@ import * as utilities from "./utilities";
  *     objectId: "00000000-0000-0000-0000-000000000000",
  * }, { async: true }));
  * ```
+ * {{ % /example % }}
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/service_principal.html.markdown.
  */
