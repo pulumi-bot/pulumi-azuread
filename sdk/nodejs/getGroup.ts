@@ -8,21 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * Gets information about an Azure Active Directory group.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage (by Group Display Name)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const example = pulumi.output(azuread.getGroup({
  *     name: "A-AD-Group",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/group.html.markdown.
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     args = args || {};
@@ -62,6 +60,10 @@ export interface GetGroupResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Object IDs of the Azure AD Group members.
      */
     readonly members: string[];
@@ -74,8 +76,4 @@ export interface GetGroupResult {
      * The Object IDs of the Azure AD Group owners.
      */
     readonly owners: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

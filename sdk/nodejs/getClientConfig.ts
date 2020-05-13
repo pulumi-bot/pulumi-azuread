@@ -8,20 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access the configuration of the AzureRM provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const current = azuread.getClientConfig({});
  * export const accountId = current.then(current => current.clientId);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/client_config.html.markdown.
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     if (!opts) {
@@ -40,11 +38,11 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
  */
 export interface GetClientConfigResult {
     readonly clientId: string;
-    readonly objectId: string;
-    readonly subscriptionId: string;
-    readonly tenantId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly objectId: string;
+    readonly subscriptionId: string;
+    readonly tenantId: string;
 }

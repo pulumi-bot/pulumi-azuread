@@ -8,23 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Gets information about an Azure Active Directory user.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const example = pulumi.output(azuread.getUser({
  *     userPrincipalName: "user@hashicorp.com",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/user.html.markdown.
  */
 export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     args = args || {};
@@ -73,6 +71,10 @@ export interface GetUserResult {
      */
     readonly displayName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The value used to associate an on-premises Active Directory user account with their Azure AD user object.
      */
     readonly immutableId: string;
@@ -101,8 +103,4 @@ export interface GetUserResult {
      * The User Principal Name of the Azure AD User.
      */
     readonly userPrincipalName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
