@@ -2,23 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Manages a Password associated with an Application within Azure Active Directory.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const exampleApplication = new azuread.Application("example", {
  *     availableToOtherTenants: false,
  *     homepage: "http://homepage",
@@ -62,6 +60,9 @@ export class ApplicationPassword extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationPassword.__pulumiType;
     }
 
+    /**
+     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     */
     public readonly applicationId!: pulumi.Output<string>;
     /**
      * The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.
@@ -135,6 +136,9 @@ export class ApplicationPassword extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationPassword resources.
  */
 export interface ApplicationPasswordState {
+    /**
+     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     */
     readonly applicationId?: pulumi.Input<string>;
     /**
      * The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.
@@ -166,6 +170,9 @@ export interface ApplicationPasswordState {
  * The set of arguments for constructing a ApplicationPassword resource.
  */
 export interface ApplicationPasswordArgs {
+    /**
+     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     */
     readonly applicationId?: pulumi.Input<string>;
     /**
      * The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.

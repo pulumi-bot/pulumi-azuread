@@ -8,21 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing Application within Azure Active Directory.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all (or owned by) applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const example = pulumi.output(azuread.getApplication({
  *     name: "My First AzureAD Application",
  * }, { async: true }));
- * 
+ *
  * export const azureAdObjectId = example.id;
  * ```
  *
@@ -84,6 +84,10 @@ export interface GetApplicationResult {
     readonly groupMembershipClaims: string;
     readonly homepage: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
      */
     readonly identifierUris: string[];
@@ -120,8 +124,4 @@ export interface GetApplicationResult {
      * The type of the permission
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

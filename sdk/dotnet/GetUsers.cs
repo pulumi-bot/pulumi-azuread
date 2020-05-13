@@ -18,6 +18,7 @@ namespace Pulumi.AzureAD
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/users.html.markdown.
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuread:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithVersion());

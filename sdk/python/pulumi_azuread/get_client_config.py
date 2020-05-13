@@ -59,6 +59,8 @@ def get_client_config(opts=None):
     current = azuread.get_client_config()
     pulumi.export("accountId", current.client_id)
     ```
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/client_config.html.markdown.
     """
     __args__ = dict()
 

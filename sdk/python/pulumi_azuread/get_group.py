@@ -74,6 +74,7 @@ def get_group(name=None,object_id=None,opts=None):
 
     example = azuread.get_group(name="A-AD-Group")
     ```
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/group.html.markdown.
 
 
     :param str name: The Name of the AD Group we want to lookup.

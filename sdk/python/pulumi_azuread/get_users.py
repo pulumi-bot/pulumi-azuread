@@ -69,6 +69,7 @@ def get_users(mail_nicknames=None,object_ids=None,user_principal_names=None,opts
     ])
     ```
 
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/users.html.markdown.
 
 
     :param list mail_nicknames: The email aliases of the Azure AD Users.

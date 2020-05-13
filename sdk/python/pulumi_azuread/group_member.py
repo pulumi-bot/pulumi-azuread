@@ -39,6 +39,7 @@ class GroupMember(pulumi.CustomResource):
             member_object_id=example_user.id)
         ```
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/r/group_member.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

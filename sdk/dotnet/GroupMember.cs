@@ -13,6 +13,9 @@ namespace Pulumi.AzureAD
     /// Manages a single Group Membership within Azure Active Directory.
     /// 
     /// &gt; **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
+    /// 
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/r/group_member.markdown.
     /// </summary>
     public partial class GroupMember : Pulumi.CustomResource
     {

@@ -8,6 +8,9 @@ import (
 )
 
 // Use this data source to access the configuration of the AzureRM provider.
+//
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/client_config.html.markdown.
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	var rv GetClientConfigResult
 	err := ctx.Invoke("azuread:index/getClientConfig:getClientConfig", nil, &rv, opts...)

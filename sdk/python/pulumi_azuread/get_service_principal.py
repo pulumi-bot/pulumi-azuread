@@ -83,6 +83,7 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
 
     example = azuread.get_service_principal(object_id="00000000-0000-0000-0000-000000000000")
     ```
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/service_principal.html.markdown.
 
 
     :param str application_id: The ID of the Azure AD Application.

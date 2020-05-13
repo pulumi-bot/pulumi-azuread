@@ -61,6 +61,7 @@ class ApplicationPassword(pulumi.CustomResource):
             value="VT=uSgbTanZhyz@%nL9Hpd+Tfay_MRV#")
         ```
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/r/application_password.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

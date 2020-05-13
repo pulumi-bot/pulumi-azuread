@@ -145,6 +145,7 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,opts=None):
     pulumi.export("azureAdObjectId", example.id)
     ```
 
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azuread/blob/master/website/docs/d/application.html.markdown.
 
 
     :param str name: Specifies the name of the Application within Azure Active Directory.
