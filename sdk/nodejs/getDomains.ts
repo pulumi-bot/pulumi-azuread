@@ -8,19 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing Domains within Azure Active Directory.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.Read.All` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const aadDomains = pulumi.output(azuread.getDomains({ async: true }));
- * 
+ *
  * export const domains = aadDomains.domains;
  * ```
  *

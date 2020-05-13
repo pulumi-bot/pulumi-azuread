@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Gets information about an Azure Active Directory group.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage (by Group Display Name)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const example = pulumi.output(azuread.getGroup({
  *     name: "A-AD-Group",
  * }, { async: true }));
