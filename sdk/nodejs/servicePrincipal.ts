@@ -8,17 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Manages a Service Principal associated with an Application within Azure Active Directory.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API. Please see The Granting a Service Principal permission to manage AAD for the required steps.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuread from "@pulumi/azuread";
- * 
+ *
  * const exampleApplication = new azuread.Application("example", {
  *     availableToOtherTenants: false,
  *     homepage: "http://homepage",
