@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
  *
  * ## Example Usage (by Application Display Name)
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,7 +23,9 @@ import * as utilities from "./utilities";
  * }, { async: true }));
  * ```
  *
+ * {{% /example %}}
  * ## Example Usage (by Application ID)
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,7 +36,9 @@ import * as utilities from "./utilities";
  * }, { async: true }));
  * ```
  *
+ * {{% /example %}}
  * ## Example Usage (by Object ID)
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,6 +48,8 @@ import * as utilities from "./utilities";
  *     objectId: "00000000-0000-0000-0000-000000000000",
  * }, { async: true }));
  * ```
+ *
+ * {{% /example %}}
  */
 export function getServicePrincipal(args?: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
     args = args || {};

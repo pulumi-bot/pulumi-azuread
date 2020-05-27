@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
  *
  * ## Example Usage (by Group Display Name)
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,6 +22,8 @@ import * as utilities from "./utilities";
  *     name: "A-AD-Group",
  * }, { async: true }));
  * ```
+ *
+ * {{% /example %}}
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     args = args || {};
