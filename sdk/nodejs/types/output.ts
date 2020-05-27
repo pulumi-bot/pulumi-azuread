@@ -2,90 +2,91 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ApplicationAppRole {
     /**
      * Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in daemon service scenarios) by setting to `Application`, or to both.
      */
-    allowedMemberTypes: string[];
+    allowedMemberTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Permission help text that appears in the admin app assignment and consent experiences.
      */
-    description: string;
+    description: pulumi.Input<string>;
     /**
      * Display name for the permission that appears in the admin consent and app assignment experiences.
      */
-    displayName: string;
+    displayName: pulumi.Input<string>;
     /**
      * The unique identifier of the `appRole`.
      */
-    id: string;
+    id?: pulumi.Input<string>;
     /**
      * Determines if the app role is enabled: Defaults to `true`.
      */
-    isEnabled?: boolean;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value?: string;
+    value?: pulumi.Input<string>;
 }
 
 export interface ApplicationOauth2Permission {
     /**
      * The description of the admin consent.
      */
-    adminConsentDescription: string;
+    adminConsentDescription?: pulumi.Input<string>;
     /**
      * The display name of the admin consent.
      */
-    adminConsentDisplayName: string;
+    adminConsentDisplayName?: pulumi.Input<string>;
     /**
      * The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
      */
-    id: string;
+    id?: pulumi.Input<string>;
     /**
      * Determines if the app role is enabled: Defaults to `true`.
      */
-    isEnabled: boolean;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifierUris` property can not not be set.
      */
-    type: string;
+    type?: pulumi.Input<string>;
     /**
      * The description of the user consent.
      */
-    userConsentDescription: string;
+    userConsentDescription?: pulumi.Input<string>;
     /**
      * The display name of the user consent.
      */
-    userConsentDisplayName: string;
+    userConsentDisplayName?: pulumi.Input<string>;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value: string;
+    value?: pulumi.Input<string>;
 }
 
 export interface ApplicationRequiredResourceAccess {
     /**
      * A collection of `resourceAccess` blocks as documented below.
      */
-    resourceAccesses: outputs.ApplicationRequiredResourceAccessResourceAccess[];
+    resourceAccesses: pulumi.Input<pulumi.Input<outputs.ApplicationRequiredResourceAccessResourceAccess>[]>;
     /**
      * The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
      */
-    resourceAppId: string;
+    resourceAppId: pulumi.Input<string>;
 }
 
 export interface ApplicationRequiredResourceAccessResourceAccess {
     /**
      * The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
      */
-    id: string;
+    id: pulumi.Input<string>;
     /**
      * Specifies whether the id property references an `OAuth2Permission` or an `AppRole`. Possible values are `Scope` or `Role`.
      */
-    type: string;
+    type: pulumi.Input<string>;
 }
 
 export interface GetApplicationAppRole {
@@ -261,33 +262,33 @@ export interface ServicePrincipalOauth2Permission {
     /**
      * The description of the admin consent.
      */
-    adminConsentDescription: string;
+    adminConsentDescription?: pulumi.Input<string>;
     /**
      * The display name of the admin consent.
      */
-    adminConsentDisplayName: string;
+    adminConsentDisplayName?: pulumi.Input<string>;
     /**
      * The unique identifier for one of the `OAuth2Permission`.
      */
-    id: string;
+    id?: pulumi.Input<string>;
     /**
      * Is this permission enabled?
      */
-    isEnabled: boolean;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * The type of the permission.
      */
-    type: string;
+    type?: pulumi.Input<string>;
     /**
      * The description of the user consent.
      */
-    userConsentDescription: string;
+    userConsentDescription?: pulumi.Input<string>;
     /**
      * The display name of the user consent.
      */
-    userConsentDisplayName: string;
+    userConsentDisplayName?: pulumi.Input<string>;
     /**
      * The name of this permission.
      */
-    value: string;
+    value?: pulumi.Input<string>;
 }

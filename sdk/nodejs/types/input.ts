@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ApplicationAppRole {
     /**
@@ -92,70 +93,70 @@ export interface GetApplicationOauth2Permission {
     /**
      * The description of the admin consent
      */
-    adminConsentDescription?: string;
+    adminConsentDescription: string;
     /**
      * The display name of the admin consent
      */
-    adminConsentDisplayName?: string;
+    adminConsentDisplayName: string;
     /**
      * The unique identifier of the `appRole`.
      */
-    id?: string;
+    id: string;
     /**
      * Determines if the app role is enabled.
      */
-    isEnabled?: boolean;
+    isEnabled: boolean;
     /**
      * The type of the permission
      */
-    type?: string;
+    type: string;
     /**
      * The description of the user consent
      */
-    userConsentDescription?: string;
+    userConsentDescription: string;
     /**
      * The display name of the user consent
      */
-    userConsentDisplayName?: string;
+    userConsentDisplayName: string;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value?: string;
+    value: string;
 }
 
 export interface GetServicePrincipalOauth2Permission {
     /**
      * The description of the admin consent
      */
-    adminConsentDescription?: string;
+    adminConsentDescription: string;
     /**
      * The display name of the admin consent
      */
-    adminConsentDisplayName?: string;
+    adminConsentDisplayName: string;
     /**
      * The unique identifier of the `appRole`.
      */
-    id?: string;
+    id: string;
     /**
      * Determines if the app role is enabled.
      */
-    isEnabled?: boolean;
+    isEnabled: boolean;
     /**
      * The type of the permission
      */
-    type?: string;
+    type: string;
     /**
      * The description of the user consent
      */
-    userConsentDescription?: string;
+    userConsentDescription: string;
     /**
      * The display name of the user consent
      */
-    userConsentDisplayName?: string;
+    userConsentDisplayName: string;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value?: string;
+    value: string;
 }
 
 export interface ServicePrincipalOauth2Permission {
