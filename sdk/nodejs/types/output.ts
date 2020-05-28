@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface ApplicationAppRole {
@@ -20,7 +21,7 @@ export interface ApplicationAppRole {
     /**
      * The unique identifier of the `appRole`.
      */
-    id: string;
+    id?: string;
     /**
      * Determines if the app role is enabled: Defaults to `true`.
      */
@@ -35,35 +36,35 @@ export interface ApplicationOauth2Permission {
     /**
      * The description of the admin consent.
      */
-    adminConsentDescription: string;
+    adminConsentDescription?: string;
     /**
      * The display name of the admin consent.
      */
-    adminConsentDisplayName: string;
+    adminConsentDisplayName?: string;
     /**
      * The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
      */
-    id: string;
+    id?: string;
     /**
      * Determines if the app role is enabled: Defaults to `true`.
      */
-    isEnabled: boolean;
+    isEnabled?: boolean;
     /**
      * Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifierUris` property can not not be set.
      */
-    type: string;
+    type?: string;
     /**
      * The description of the user consent.
      */
-    userConsentDescription: string;
+    userConsentDescription?: string;
     /**
      * The display name of the user consent.
      */
-    userConsentDisplayName: string;
+    userConsentDisplayName?: string;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value: string;
+    value?: string;
 }
 
 export interface ApplicationRequiredResourceAccess {
@@ -261,33 +262,33 @@ export interface ServicePrincipalOauth2Permission {
     /**
      * The description of the admin consent.
      */
-    adminConsentDescription: string;
+    adminConsentDescription?: string;
     /**
      * The display name of the admin consent.
      */
-    adminConsentDisplayName: string;
+    adminConsentDisplayName?: string;
     /**
      * The unique identifier for one of the `OAuth2Permission`.
      */
-    id: string;
+    id?: string;
     /**
      * Is this permission enabled?
      */
-    isEnabled: boolean;
+    isEnabled?: boolean;
     /**
      * The type of the permission.
      */
-    type: string;
+    type?: string;
     /**
      * The description of the user consent.
      */
-    userConsentDescription: string;
+    userConsentDescription?: string;
     /**
      * The display name of the user consent.
      */
-    userConsentDisplayName: string;
+    userConsentDisplayName?: string;
     /**
      * The name of this permission.
      */
-    value: string;
+    value?: string;
 }
