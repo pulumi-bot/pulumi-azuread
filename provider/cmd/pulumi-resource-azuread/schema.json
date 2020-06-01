@@ -166,7 +166,17 @@
                 "allowedMemberTypes",
                 "description",
                 "displayName"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "allowedMemberTypes",
+                        "description",
+                        "displayName",
+                        "id"
+                    ]
+                }
+            }
         },
         "azuread:/ApplicationOauth2Permission:ApplicationOauth2Permission": {
             "properties": {
@@ -243,7 +253,21 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "adminConsentDescription",
+                        "adminConsentDisplayName",
+                        "id",
+                        "isEnabled",
+                        "type",
+                        "userConsentDescription",
+                        "userConsentDisplayName",
+                        "value"
+                    ]
+                }
+            }
         },
         "azuread:/ApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess": {
             "properties": {
@@ -377,7 +401,21 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "adminConsentDescription",
+                        "adminConsentDisplayName",
+                        "id",
+                        "isEnabled",
+                        "type",
+                        "userConsentDescription",
+                        "userConsentDisplayName",
+                        "value"
+                    ]
+                }
+            }
         },
         "azuread:/getApplicationAppRole:getApplicationAppRole": {
             "properties": {
@@ -447,7 +485,12 @@
                 "id",
                 "isEnabled",
                 "value"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getApplicationOauth2Permission:getApplicationOauth2Permission": {
             "properties": {
@@ -534,7 +577,12 @@
                 "userConsentDescription",
                 "userConsentDisplayName",
                 "value"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getApplicationRequiredResourceAccess:getApplicationRequiredResourceAccess": {
             "properties": {
@@ -564,7 +612,12 @@
             "required": [
                 "resourceAccesses",
                 "resourceAppId"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getApplicationRequiredResourceAccessResourceAccess:getApplicationRequiredResourceAccessResourceAccess": {
             "properties": {
@@ -591,7 +644,12 @@
             "required": [
                 "id",
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getDomainsDomain:getDomainsDomain": {
             "properties": {
@@ -648,7 +706,12 @@
                 "isDefault",
                 "isInitial",
                 "isVerified"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getServicePrincipalAppRole:getServicePrincipalAppRole": {
             "properties": {
@@ -718,7 +781,12 @@
                 "id",
                 "isEnabled",
                 "value"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "azuread:/getServicePrincipalOauth2Permission:getServicePrincipalOauth2Permission": {
             "properties": {
@@ -805,7 +873,12 @@
                 "userConsentDescription",
                 "userConsentDisplayName",
                 "value"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -2322,6 +2395,7 @@
             },
             "packageDescription": "A Pulumi package for creating and managing azuread cloud resources.",
             "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-azuread)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-azuread` repo](https://github.com/pulumi/pulumi-azuread/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-azuread` repo](https://github.com/terraform-providers/terraform-provider-azuread/issues).",
             "typescriptVersion": ""
         },
         "python": {
