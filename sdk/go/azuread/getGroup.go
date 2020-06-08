@@ -10,6 +10,8 @@ import (
 // Gets information about an Azure Active Directory group.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
+//
+// ## Example Usage (by Group Display Name)
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azuread:index/getGroup:getGroup", args, &rv, opts...)
