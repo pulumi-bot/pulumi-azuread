@@ -135,7 +135,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -144,7 +144,7 @@
                 },
                 "isEnabled": {
                     "type": "boolean",
-                    "description": "Determines if the permission is enabled: defaults to `true`.\n",
+                    "description": "Determines if the permission is enabled: defaults to ``true``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -209,7 +209,7 @@
                 },
                 "isEnabled": {
                     "type": "boolean",
-                    "description": "Determines if the app role is enabled: Defaults to `true`.\n",
+                    "description": "Determines if the app role is enabled: Defaults to ``true``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -218,7 +218,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.\n",
+                    "description": "Type of an application: `webapp/api` or ``native``. Defaults to `webapp/api`. For ``native`` apps type ``identifierUris`` property can not not be set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -274,7 +274,7 @@
                 "accessTokens": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationOptionalClaimsAccessToken:ApplicationOptionalClaimsAccessToken"
+                        "$ref": "#/types/azuread:%2FApplicationOptionalClaimsAccessToken:ApplicationOptionalClaimsAccessToken"
                     },
                     "language": {
                         "python": {
@@ -285,7 +285,7 @@
                 "idTokens": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationOptionalClaimsIdToken:ApplicationOptionalClaimsIdToken"
+                        "$ref": "#/types/azuread:%2FApplicationOptionalClaimsIdToken:ApplicationOptionalClaimsIdToken"
                     },
                     "language": {
                         "python": {
@@ -330,7 +330,7 @@
                 },
                 "source": {
                     "type": "string",
-                    "description": "The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.\n",
+                    "description": "The source of the claim. If `[source](#/types/azuread:%2FApplicationOptionalClaimsAccessToken:ApplicationOptionalClaimsAccessToken/properties/source)` is absent, the claim is a predefined optional claim. If `[source](#/types/azuread:%2FApplicationOptionalClaimsAccessToken:ApplicationOptionalClaimsAccessToken/properties/source)` is ``user``, the value of `[name](#/types/azuread:%2FApplicationOptionalClaimsAccessToken:ApplicationOptionalClaimsAccessToken/properties/name)` is the extension property from the user object.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -377,7 +377,7 @@
                 },
                 "source": {
                     "type": "string",
-                    "description": "The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.\n",
+                    "description": "The source of the claim. If `[source](#/types/azuread:%2FApplicationOptionalClaimsIdToken:ApplicationOptionalClaimsIdToken/properties/source)` is absent, the claim is a predefined optional claim. If `[source](#/types/azuread:%2FApplicationOptionalClaimsIdToken:ApplicationOptionalClaimsIdToken/properties/source)` is ``user``, the value of `[name](#/types/azuread:%2FApplicationOptionalClaimsIdToken:ApplicationOptionalClaimsIdToken/properties/name)` is the extension property from the user object.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -395,9 +395,9 @@
                 "resourceAccesses": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationRequiredResourceAccessResourceAccess:ApplicationRequiredResourceAccessResourceAccess"
+                        "$ref": "#/types/azuread:%2FApplicationRequiredResourceAccessResourceAccess:ApplicationRequiredResourceAccessResourceAccess"
                     },
-                    "description": "A collection of `resource_access` blocks as documented below.\n",
+                    "description": "A collection of ``resourceAccess`` blocks as documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -572,7 +572,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -635,7 +635,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -710,7 +710,7 @@
                 "accessTokens": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/getApplicationOptionalClaimsAccessToken:getApplicationOptionalClaimsAccessToken"
+                        "$ref": "#/types/azuread:%2FgetApplicationOptionalClaimsAccessToken:getApplicationOptionalClaimsAccessToken"
                     },
                     "language": {
                         "python": {
@@ -721,7 +721,7 @@
                 "idTokens": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/getApplicationOptionalClaimsIdToken:getApplicationOptionalClaimsIdToken"
+                        "$ref": "#/types/azuread:%2FgetApplicationOptionalClaimsIdToken:getApplicationOptionalClaimsIdToken"
                     },
                     "language": {
                         "python": {
@@ -766,7 +766,7 @@
                 },
                 "source": {
                     "type": "string",
-                    "description": "The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.\n",
+                    "description": "The source of the claim. If `[source](#/types/azuread:%2FgetApplicationOptionalClaimsAccessToken:getApplicationOptionalClaimsAccessToken/properties/source)` is absent, the claim is a predefined optional claim. If `[source](#/types/azuread:%2FgetApplicationOptionalClaimsAccessToken:getApplicationOptionalClaimsAccessToken/properties/source)` is ``user``, the value of `[name](#/types/azuread:%2FgetApplicationOptionalClaimsAccessToken:getApplicationOptionalClaimsAccessToken/properties/name)` is the extension property from the user object.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -813,7 +813,7 @@
                 },
                 "source": {
                     "type": "string",
-                    "description": "The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.\n",
+                    "description": "The source of the claim. If `[source](#/types/azuread:%2FgetApplicationOptionalClaimsIdToken:getApplicationOptionalClaimsIdToken/properties/source)` is absent, the claim is a predefined optional claim. If `[source](#/types/azuread:%2FgetApplicationOptionalClaimsIdToken:getApplicationOptionalClaimsIdToken/properties/source)` is ``user``, the value of `[name](#/types/azuread:%2FgetApplicationOptionalClaimsIdToken:getApplicationOptionalClaimsIdToken/properties/name)` is the extension property from the user object.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -831,9 +831,9 @@
                 "resourceAccesses": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/getApplicationRequiredResourceAccessResourceAccess:getApplicationRequiredResourceAccessResourceAccess"
+                        "$ref": "#/types/azuread:%2FgetApplicationRequiredResourceAccessResourceAccess:getApplicationRequiredResourceAccessResourceAccess"
                     },
-                    "description": "A collection of `resource_access` blocks as documented below\n",
+                    "description": "A collection of ``resourceAccess`` blocks as documented below\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -865,7 +865,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -989,7 +989,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1052,7 +1052,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier of the `app_role`.\n",
+                    "description": "The unique identifier of the ``appRole``.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1216,9 +1216,9 @@
                 "appRoles": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationAppRole:ApplicationAppRole"
+                        "$ref": "#/types/azuread:%2FApplicationAppRole:ApplicationAppRole"
                     },
-                    "description": "A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
+                    "description": "A collection of ``appRole`` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
                 },
                 "applicationId": {
                     "type": "string",
@@ -1226,11 +1226,11 @@
                 },
                 "availableToOtherTenants": {
                     "type": "boolean",
-                    "description": "Is this Azure AD Application available to other tenants? Defaults to `false`.\n"
+                    "description": "Is this Azure AD Application available to other tenants? Defaults to ``false``.\n"
                 },
                 "groupMembershipClaims": {
                     "type": "string",
-                    "description": "Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
+                    "description": "Configures the ``groups`` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
                 },
                 "homepage": {
                     "type": "string",
@@ -1253,22 +1253,22 @@
                 },
                 "oauth2AllowImplicitFlow": {
                     "type": "boolean",
-                    "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.\n"
+                    "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to ``false``.\n"
                 },
                 "oauth2Permissions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationOauth2Permission:ApplicationOauth2Permission"
+                        "$ref": "#/types/azuread:%2FApplicationOauth2Permission:ApplicationOauth2Permission"
                     },
-                    "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.\n"
+                    "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `[oauth2Permissions](#/resources/azuread:index%2Fapplication:Application/properties/oauth2Permissions)` blocks as documented below.\n"
                 },
                 "objectId": {
                     "type": "string",
                     "description": "The Application's Object ID.\n"
                 },
                 "optionalClaims": {
-                    "$ref": "#/types/azuread:/ApplicationOptionalClaims:ApplicationOptionalClaims",
-                    "description": "A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
+                    "$ref": "#/types/azuread:%2FApplicationOptionalClaims:ApplicationOptionalClaims",
+                    "description": "A collection of ``accessToken`` or ``idToken`` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
                 },
                 "owners": {
                     "type": "array",
@@ -1279,7 +1279,7 @@
                 },
                 "publicClient": {
                     "type": "boolean",
-                    "description": "Is this Azure AD Application a public client? Defaults to `false`.\n"
+                    "description": "Is this Azure AD Application a public client? Defaults to ``false``.\n"
                 },
                 "replyUrls": {
                     "type": "array",
@@ -1291,13 +1291,13 @@
                 "requiredResourceAccesses": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
+                        "$ref": "#/types/azuread:%2FApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
                     },
-                    "description": "A collection of `required_resource_access` blocks as documented below.\n"
+                    "description": "A collection of ``requiredResourceAccess`` blocks as documented below.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.\n"
+                    "description": "Type of an application: `webapp/api` or ``native``. Defaults to `webapp/api`. For ``native`` apps type `[identifierUris](#/resources/azuread:index%2Fapplication:Application/properties/identifierUris)` property can not not be set.\n"
                 }
             },
             "required": [
@@ -1315,17 +1315,17 @@
                 "appRoles": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationAppRole:ApplicationAppRole"
+                        "$ref": "#/types/azuread:%2FApplicationAppRole:ApplicationAppRole"
                     },
-                    "description": "A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
+                    "description": "A collection of ``appRole`` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
                 },
                 "availableToOtherTenants": {
                     "type": "boolean",
-                    "description": "Is this Azure AD Application available to other tenants? Defaults to `false`.\n"
+                    "description": "Is this Azure AD Application available to other tenants? Defaults to ``false``.\n"
                 },
                 "groupMembershipClaims": {
                     "type": "string",
-                    "description": "Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
+                    "description": "Configures the ``groups`` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
                 },
                 "homepage": {
                     "type": "string",
@@ -1348,18 +1348,18 @@
                 },
                 "oauth2AllowImplicitFlow": {
                     "type": "boolean",
-                    "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.\n"
+                    "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to ``false``.\n"
                 },
                 "oauth2Permissions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationOauth2Permission:ApplicationOauth2Permission"
+                        "$ref": "#/types/azuread:%2FApplicationOauth2Permission:ApplicationOauth2Permission"
                     },
-                    "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.\n"
+                    "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `[oauth2Permissions](#/resources/azuread:index%2Fapplication:Application/inputProperties/oauth2Permissions)` blocks as documented below.\n"
                 },
                 "optionalClaims": {
-                    "$ref": "#/types/azuread:/ApplicationOptionalClaims:ApplicationOptionalClaims",
-                    "description": "A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
+                    "$ref": "#/types/azuread:%2FApplicationOptionalClaims:ApplicationOptionalClaims",
+                    "description": "A collection of ``accessToken`` or ``idToken`` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
                 },
                 "owners": {
                     "type": "array",
@@ -1370,7 +1370,7 @@
                 },
                 "publicClient": {
                     "type": "boolean",
-                    "description": "Is this Azure AD Application a public client? Defaults to `false`.\n"
+                    "description": "Is this Azure AD Application a public client? Defaults to ``false``.\n"
                 },
                 "replyUrls": {
                     "type": "array",
@@ -1382,13 +1382,13 @@
                 "requiredResourceAccesses": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
+                        "$ref": "#/types/azuread:%2FApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
                     },
-                    "description": "A collection of `required_resource_access` blocks as documented below.\n"
+                    "description": "A collection of ``requiredResourceAccess`` blocks as documented below.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.\n"
+                    "description": "Type of an application: `webapp/api` or ``native``. Defaults to `webapp/api`. For ``native`` apps type `[identifierUris](#/resources/azuread:index%2Fapplication:Application/inputProperties/identifierUris)` property can not not be set.\n"
                 }
             },
             "stateInputs": {
@@ -1397,9 +1397,9 @@
                     "appRoles": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/ApplicationAppRole:ApplicationAppRole"
+                            "$ref": "#/types/azuread:%2FApplicationAppRole:ApplicationAppRole"
                         },
-                        "description": "A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
+                        "description": "A collection of ``appRole`` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
                     },
                     "applicationId": {
                         "type": "string",
@@ -1407,11 +1407,11 @@
                     },
                     "availableToOtherTenants": {
                         "type": "boolean",
-                        "description": "Is this Azure AD Application available to other tenants? Defaults to `false`.\n"
+                        "description": "Is this Azure AD Application available to other tenants? Defaults to ``false``.\n"
                     },
                     "groupMembershipClaims": {
                         "type": "string",
-                        "description": "Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
+                        "description": "Configures the ``groups`` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.\n"
                     },
                     "homepage": {
                         "type": "string",
@@ -1434,22 +1434,22 @@
                     },
                     "oauth2AllowImplicitFlow": {
                         "type": "boolean",
-                        "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.\n"
+                        "description": "Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to ``false``.\n"
                     },
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/ApplicationOauth2Permission:ApplicationOauth2Permission"
+                            "$ref": "#/types/azuread:%2FApplicationOauth2Permission:ApplicationOauth2Permission"
                         },
-                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.\n"
+                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `[oauth2Permissions](#/resources/azuread:index%2Fapplication:Application/properties/oauth2Permissions)` blocks as documented below.\n"
                     },
                     "objectId": {
                         "type": "string",
                         "description": "The Application's Object ID.\n"
                     },
                     "optionalClaims": {
-                        "$ref": "#/types/azuread:/ApplicationOptionalClaims:ApplicationOptionalClaims",
-                        "description": "A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
+                        "$ref": "#/types/azuread:%2FApplicationOptionalClaims:ApplicationOptionalClaims",
+                        "description": "A collection of ``accessToken`` or ``idToken`` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
                     },
                     "owners": {
                         "type": "array",
@@ -1460,7 +1460,7 @@
                     },
                     "publicClient": {
                         "type": "boolean",
-                        "description": "Is this Azure AD Application a public client? Defaults to `false`.\n"
+                        "description": "Is this Azure AD Application a public client? Defaults to ``false``.\n"
                     },
                     "replyUrls": {
                         "type": "array",
@@ -1472,13 +1472,13 @@
                     "requiredResourceAccesses": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/ApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
+                            "$ref": "#/types/azuread:%2FApplicationRequiredResourceAccess:ApplicationRequiredResourceAccess"
                         },
-                        "description": "A collection of `required_resource_access` blocks as documented below.\n"
+                        "description": "A collection of ``requiredResourceAccess`` blocks as documented below.\n"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.\n"
+                        "description": "Type of an application: `webapp/api` or ``native``. Defaults to `webapp/api`. For ``native`` apps type `[identifierUris](#/resources/azuread:index%2Fapplication:Application/properties/identifierUris)` property can not not be set.\n"
                     }
                 },
                 "type": "object"
@@ -1497,7 +1497,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -1534,7 +1534,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -1570,7 +1570,7 @@
                     },
                     "endDateRelative": {
                         "type": "string",
-                        "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                        "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                     },
                     "keyId": {
                         "type": "string",
@@ -1597,7 +1597,7 @@
             "properties": {
                 "applicationId": {
                     "type": "string",
-                    "deprecationMessage": "Deprecated in favour of `application_object_id` to prevent confusion"
+                    "deprecationMessage": "Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/properties/applicationObjectId)` to prevent confusion"
                 },
                 "applicationObjectId": {
                     "type": "string",
@@ -1613,7 +1613,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -1640,7 +1640,7 @@
             "inputProperties": {
                 "applicationId": {
                     "type": "string",
-                    "deprecationMessage": "Deprecated in favour of `application_object_id` to prevent confusion"
+                    "deprecationMessage": "Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/inputProperties/applicationObjectId)` to prevent confusion"
                 },
                 "applicationObjectId": {
                     "type": "string",
@@ -1656,7 +1656,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -1679,7 +1679,7 @@
                 "properties": {
                     "applicationId": {
                         "type": "string",
-                        "deprecationMessage": "Deprecated in favour of `application_object_id` to prevent confusion"
+                        "deprecationMessage": "Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/properties/applicationObjectId)` to prevent confusion"
                     },
                     "applicationObjectId": {
                         "type": "string",
@@ -1695,7 +1695,7 @@
                     },
                     "endDateRelative": {
                         "type": "string",
-                        "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.\n"
+                        "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Changing this field forces a new resource to be created.\n"
                     },
                     "keyId": {
                         "type": "string",
@@ -1853,7 +1853,7 @@
             "properties": {
                 "appRoleAssignmentRequired": {
                     "type": "boolean",
-                    "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.\n"
+                    "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to ``false``.\n"
                 },
                 "applicationId": {
                     "type": "string",
@@ -1866,9 +1866,9 @@
                 "oauth2Permissions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
+                        "$ref": "#/types/azuread:%2FServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
                     },
-                    "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                    "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                 },
                 "objectId": {
                     "type": "string",
@@ -1891,7 +1891,7 @@
             "inputProperties": {
                 "appRoleAssignmentRequired": {
                     "type": "boolean",
-                    "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.\n"
+                    "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to ``false``.\n"
                 },
                 "applicationId": {
                     "type": "string",
@@ -1900,9 +1900,9 @@
                 "oauth2Permissions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuread:/ServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
+                        "$ref": "#/types/azuread:%2FServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
                     },
-                    "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                    "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -1920,7 +1920,7 @@
                 "properties": {
                     "appRoleAssignmentRequired": {
                         "type": "boolean",
-                        "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.\n"
+                        "description": "Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to ``false``.\n"
                     },
                     "applicationId": {
                         "type": "string",
@@ -1933,9 +1933,9 @@
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/ServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
+                            "$ref": "#/types/azuread:%2FServicePrincipalOauth2Permission:ServicePrincipalOauth2Permission"
                         },
-                        "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                        "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                     },
                     "objectId": {
                         "type": "string",
@@ -1961,7 +1961,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -1998,7 +1998,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -2034,7 +2034,7 @@
                     },
                     "endDateRelative": {
                         "type": "string",
-                        "description": "A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                        "description": "A relative duration for which the Certificate is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                     },
                     "keyId": {
                         "type": "string",
@@ -2073,7 +2073,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -2111,7 +2111,7 @@
                 },
                 "endDateRelative": {
                     "type": "string",
-                    "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                    "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                 },
                 "keyId": {
                     "type": "string",
@@ -2147,7 +2147,7 @@
                     },
                     "endDateRelative": {
                         "type": "string",
-                        "description": "A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
+                        "description": "A relative duration for which the Password is valid until, for example ``240h`` (10 days) or ``2400h30m``. Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\". Changing this field forces a new resource to be created.\n"
                     },
                     "keyId": {
                         "type": "string",
@@ -2174,7 +2174,7 @@
             "properties": {
                 "accountEnabled": {
                     "type": "boolean",
-                    "description": "`true` if the account should be enabled, otherwise `false`. Defaults to `true`.\n"
+                    "description": "``true`` if the account should be enabled, otherwise ``false``. Defaults to ``true``.\n"
                 },
                 "displayName": {
                     "type": "string",
@@ -2182,7 +2182,7 @@
                 },
                 "forcePasswordChange": {
                     "type": "boolean",
-                    "description": "`true` if the User is forced to change the password during the next sign-in. Defaults to `false`.\n"
+                    "description": "``true`` if the User is forced to change the password during the next sign-in. Defaults to ``false``.\n"
                 },
                 "immutableId": {
                     "type": "string",
@@ -2236,7 +2236,7 @@
             "inputProperties": {
                 "accountEnabled": {
                     "type": "boolean",
-                    "description": "`true` if the account should be enabled, otherwise `false`. Defaults to `true`.\n"
+                    "description": "``true`` if the account should be enabled, otherwise ``false``. Defaults to ``true``.\n"
                 },
                 "displayName": {
                     "type": "string",
@@ -2244,7 +2244,7 @@
                 },
                 "forcePasswordChange": {
                     "type": "boolean",
-                    "description": "`true` if the User is forced to change the password during the next sign-in. Defaults to `false`.\n"
+                    "description": "``true`` if the User is forced to change the password during the next sign-in. Defaults to ``false``.\n"
                 },
                 "immutableId": {
                     "type": "string",
@@ -2277,7 +2277,7 @@
                 "properties": {
                     "accountEnabled": {
                         "type": "boolean",
-                        "description": "`true` if the account should be enabled, otherwise `false`. Defaults to `true`.\n"
+                        "description": "``true`` if the account should be enabled, otherwise ``false``. Defaults to ``true``.\n"
                     },
                     "displayName": {
                         "type": "string",
@@ -2285,7 +2285,7 @@
                     },
                     "forcePasswordChange": {
                         "type": "boolean",
-                        "description": "`true` if the User is forced to change the password during the next sign-in. Defaults to `false`.\n"
+                        "description": "``true`` if the User is forced to change the password during the next sign-in. Defaults to ``false``.\n"
                     },
                     "immutableId": {
                         "type": "string",
@@ -2341,17 +2341,17 @@
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getApplicationOauth2Permission:getApplicationOauth2Permission"
+                            "$ref": "#/types/azuread:%2FgetApplicationOauth2Permission:getApplicationOauth2Permission"
                         },
-                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                     },
                     "objectId": {
                         "type": "string",
                         "description": "Specifies the Object ID of the Application within Azure Active Directory.\n"
                     },
                     "optionalClaims": {
-                        "$ref": "#/types/azuread:/getApplicationOptionalClaims:getApplicationOptionalClaims",
-                        "description": "A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
+                        "$ref": "#/types/azuread:%2FgetApplicationOptionalClaims:getApplicationOptionalClaims",
+                        "description": "A collection of ``accessToken`` or ``idToken`` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
                     }
                 },
                 "type": "object"
@@ -2362,9 +2362,9 @@
                     "appRoles": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getApplicationAppRole:getApplicationAppRole"
+                            "$ref": "#/types/azuread:%2FgetApplicationAppRole:getApplicationAppRole"
                         },
-                        "description": "A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
+                        "description": "A collection of ``appRole`` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles\n"
                     },
                     "applicationId": {
                         "type": "string",
@@ -2376,7 +2376,7 @@
                     },
                     "groupMembershipClaims": {
                         "type": "string",
-                        "description": "The `groups` claim issued in a user or OAuth 2.0 access token that the app expects.\n"
+                        "description": "The ``groups`` claim issued in a user or OAuth 2.0 access token that the app expects.\n"
                     },
                     "homepage": {
                         "type": "string"
@@ -2407,17 +2407,17 @@
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getApplicationOauth2Permission:getApplicationOauth2Permission"
+                            "$ref": "#/types/azuread:%2FgetApplicationOauth2Permission:getApplicationOauth2Permission"
                         },
-                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                        "description": "A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                     },
                     "objectId": {
                         "type": "string",
                         "description": "the Object ID of the Azure Active Directory Application.\n"
                     },
                     "optionalClaims": {
-                        "$ref": "#/types/azuread:/getApplicationOptionalClaims:getApplicationOptionalClaims",
-                        "description": "A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
+                        "$ref": "#/types/azuread:%2FgetApplicationOptionalClaims:getApplicationOptionalClaims",
+                        "description": "A collection of ``accessToken`` or ``idToken`` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims\n"
                     },
                     "owners": {
                         "type": "array",
@@ -2436,9 +2436,9 @@
                     "requiredResourceAccesses": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getApplicationRequiredResourceAccess:getApplicationRequiredResourceAccess"
+                            "$ref": "#/types/azuread:%2FgetApplicationRequiredResourceAccess:getApplicationRequiredResourceAccess"
                         },
-                        "description": "A collection of `required_resource_access` blocks as documented below.\n"
+                        "description": "A collection of ``requiredResourceAccess`` blocks as documented below.\n"
                     },
                     "type": {
                         "type": "string",
@@ -2505,15 +2505,15 @@
                 "properties": {
                     "includeUnverified": {
                         "type": "boolean",
-                        "description": "Set to `true` if unverified Azure AD Domains should be included. Defaults to `false`.\n"
+                        "description": "Set to ``true`` if unverified Azure AD Domains should be included. Defaults to ``false``.\n"
                     },
                     "onlyDefault": {
                         "type": "boolean",
-                        "description": "Set to `true` to only return the default domain.\n"
+                        "description": "Set to ``true`` to only return the default domain.\n"
                     },
                     "onlyInitial": {
                         "type": "boolean",
-                        "description": "Set to `true` to only return the initial domain, which is your primary Azure Active Directory tenant domain. Defaults to `false`.\n"
+                        "description": "Set to ``true`` to only return the initial domain, which is your primary Azure Active Directory tenant domain. Defaults to ``false``.\n"
                     }
                 },
                 "type": "object"
@@ -2524,9 +2524,9 @@
                     "domains": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getDomainsDomain:getDomainsDomain"
+                            "$ref": "#/types/azuread:%2FgetDomainsDomain:getDomainsDomain"
                         },
-                        "description": "One or more `domain` blocks as defined below.\n"
+                        "description": "One or more ``domain`` blocks as defined below.\n"
                     },
                     "id": {
                         "type": "string",
@@ -2550,7 +2550,7 @@
             }
         },
         "azuread:index/getGroup:getGroup": {
-            "description": "Gets information about an Azure Active Directory group.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.\n\n## Example Usage (by Group Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getGroup({\n    name: \"A-AD-Group\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_group(name=\"A-AD-Group\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetGroup.InvokeAsync(new AzureAD.GetGroupArgs\n        {\n            Name = \"A-AD-Group\",\n        }));\n    }\n\n}\n```\n",
+            "description": "Gets information about an Azure Active Directory group.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### By Group Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getGroup({\n    name: \"A-AD-Group\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_group(name=\"A-AD-Group\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetGroup.InvokeAsync(new AzureAD.GetGroupArgs\n        {\n            Name = \"A-AD-Group\",\n        }));\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getGroup.\n",
                 "properties": {
@@ -2662,7 +2662,7 @@
             }
         },
         "azuread:index/getServicePrincipal:getServicePrincipal": {
-            "description": "Gets information about an existing Service Principal associated with an Application within Azure Active Directory.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.\n\n## Example Usage (by Application Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    displayName: \"my-awesome-application\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(display_name=\"my-awesome-application\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            DisplayName = \"my-awesome-application\",\n        }));\n    }\n\n}\n```\n\n## Example Usage (by Application ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    applicationId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(application_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ApplicationId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n## Example Usage (by Object ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    objectId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(object_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ObjectId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n",
+            "description": "Gets information about an existing Service Principal associated with an Application within Azure Active Directory.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### By Application Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    displayName: \"my-awesome-application\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(display_name=\"my-awesome-application\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            DisplayName = \"my-awesome-application\",\n        }));\n    }\n\n}\n```\n\n\n{{% /example %}}\n{{% example %}}\n### By Application ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    applicationId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(application_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ApplicationId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n\n{{% /example %}}\n{{% example %}}\n### By Object ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    objectId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(object_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ObjectId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getServicePrincipal.\n",
                 "properties": {
@@ -2677,9 +2677,9 @@
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getServicePrincipalOauth2Permission:getServicePrincipalOauth2Permission"
+                            "$ref": "#/types/azuread:%2FgetServicePrincipalOauth2Permission:getServicePrincipalOauth2Permission"
                         },
-                        "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.\n"
+                        "description": "A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a ``oauth2Permission`` block as documented below.\n"
                     },
                     "objectId": {
                         "type": "string",
@@ -2694,7 +2694,7 @@
                     "appRoles": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getServicePrincipalAppRole:getServicePrincipalAppRole"
+                            "$ref": "#/types/azuread:%2FgetServicePrincipalAppRole:getServicePrincipalAppRole"
                         }
                     },
                     "applicationId": {
@@ -2711,7 +2711,7 @@
                     "oauth2Permissions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuread:/getServicePrincipalOauth2Permission:getServicePrincipalOauth2Permission"
+                            "$ref": "#/types/azuread:%2FgetServicePrincipalOauth2Permission:getServicePrincipalOauth2Permission"
                         }
                     },
                     "objectId": {
@@ -2905,6 +2905,7 @@
             "typescriptVersion": ""
         },
         "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-azuread)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-azuread` repo](https://github.com/pulumi/pulumi-azuread/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-azuread` repo](https://github.com/terraform-providers/terraform-provider-azuread/issues).",
             "requires": {
                 "pulumi": "\u003e=2.0.0,\u003c3.0.0"
             }
