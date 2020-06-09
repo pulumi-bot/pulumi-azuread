@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *             type: "User",
  *             userConsentDescription: "Allow the application to access example on your behalf.",
  *             userConsentDisplayName: "Access example",
- *             value: "userImpersonation",
+ *             value: "user_impersonation",
  *         },
  *         {
  *             adminConsentDescription: "Administer the example application",
@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  *             },
  *         ],
  *         idTokens: [{
- *             additionalProperties: ["emitAsRoles"],
+ *             additionalProperties: ["emit_as_roles"],
  *             essential: true,
  *             name: "userclaim",
  *             source: "user",
