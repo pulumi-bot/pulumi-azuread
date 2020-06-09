@@ -40,6 +40,7 @@ namespace Pulumi.AzureAD
         /// }
         /// ```
         /// 
+        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
