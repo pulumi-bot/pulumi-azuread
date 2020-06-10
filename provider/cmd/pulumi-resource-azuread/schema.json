@@ -1275,7 +1275,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list. \n"
+                    "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.\n"
                 },
                 "publicClient": {
                     "type": "boolean",
@@ -1366,7 +1366,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list. \n"
+                    "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.\n"
                 },
                 "publicClient": {
                     "type": "boolean",
@@ -1456,7 +1456,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list. \n"
+                        "description": "A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.\n"
                     },
                     "publicClient": {
                         "type": "boolean",
@@ -1714,6 +1714,7 @@
             }
         },
         "azuread:index/group:Group": {
+            "description": "Manages a Group within Azure Active Directory.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read and write all groups` within the `Windows Azure Active Directory` API. In addition it must also have either the `Company Administrator` or `User Account Administrator` Azure Active Directory roles assigned in order to be able to delete groups. You can assign one of the required Azure Active Directory Roles with the **AzureAD PowerShell Module**, which is available for Windows PowerShell or in the Azure Cloud Shell. Please refer to [this documentation](https://docs.microsoft.com/en-us/powershell/module/azuread/add-azureaddirectoryrolemember) for more details.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n*Basic example*\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = new azuread.Group(\"example\", {});\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.Group(\"example\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new AzureAD.Group(\"example\", new AzureAD.GroupArgs\n        {\n        });\n    }\n\n}\n```\n\n*A group with members*\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst exampleUser = new azuread.User(\"example\", {\n    displayName: \"J Doe\",\n    password: \"notSecure123\",\n    userPrincipalName: \"j.doe@terraform.onmicrosoft.com\",\n});\nconst exampleGroup = new azuread.Group(\"example\", {\n    members: [exampleUser.objectId],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample_user = azuread.User(\"exampleUser\",\n    display_name=\"J Doe\",\n    password=\"notSecure123\",\n    user_principal_name=\"j.doe@terraform.onmicrosoft.com\")\nexample_group = azuread.Group(\"exampleGroup\", members=[example_user.object_id])\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleUser = new AzureAD.User(\"exampleUser\", new AzureAD.UserArgs\n        {\n            DisplayName = \"J Doe\",\n            Password = \"notSecure123\",\n            UserPrincipalName = \"j.doe@terraform.onmicrosoft.com\",\n        });\n        var exampleGroup = new AzureAD.Group(\"exampleGroup\", new AzureAD.GroupArgs\n        {\n            Members = \n            {\n                exampleUser.ObjectId,\n            },\n        });\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "description": {
                     "type": "string",
@@ -2186,7 +2187,7 @@
                 },
                 "immutableId": {
                     "type": "string",
-                    "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account. \n"
+                    "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.\n"
                 },
                 "mail": {
                     "type": "string",
@@ -2214,7 +2215,7 @@
                 },
                 "usageLocation": {
                     "type": "string",
-                    "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set. \n"
+                    "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.\n"
                 },
                 "userPrincipalName": {
                     "type": "string",
@@ -2248,7 +2249,7 @@
                 },
                 "immutableId": {
                     "type": "string",
-                    "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account. \n"
+                    "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.\n"
                 },
                 "mailNickname": {
                     "type": "string",
@@ -2260,7 +2261,7 @@
                 },
                 "usageLocation": {
                     "type": "string",
-                    "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set. \n"
+                    "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.\n"
                 },
                 "userPrincipalName": {
                     "type": "string",
@@ -2289,7 +2290,7 @@
                     },
                     "immutableId": {
                         "type": "string",
-                        "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account. \n"
+                        "description": "The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.\n"
                     },
                     "mail": {
                         "type": "string",
@@ -2317,7 +2318,7 @@
                     },
                     "usageLocation": {
                         "type": "string",
-                        "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set. \n"
+                        "description": "The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.\n"
                     },
                     "userPrincipalName": {
                         "type": "string",
@@ -2550,7 +2551,7 @@
             }
         },
         "azuread:index/getGroup:getGroup": {
-            "description": "Gets information about an Azure Active Directory group.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.\n\n## Example Usage (by Group Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getGroup({\n    name: \"A-AD-Group\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_group(name=\"A-AD-Group\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetGroup.InvokeAsync(new AzureAD.GetGroupArgs\n        {\n            Name = \"A-AD-Group\",\n        }));\n    }\n\n}\n```\n",
+            "description": "Gets information about an Azure Active Directory group.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### By Group Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getGroup({\n    name: \"A-AD-Group\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_group(name=\"A-AD-Group\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetGroup.InvokeAsync(new AzureAD.GetGroupArgs\n        {\n            Name = \"A-AD-Group\",\n        }));\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getGroup.\n",
                 "properties": {
@@ -2662,7 +2663,7 @@
             }
         },
         "azuread:index/getServicePrincipal:getServicePrincipal": {
-            "description": "Gets information about an existing Service Principal associated with an Application within Azure Active Directory.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.\n\n## Example Usage (by Application Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    displayName: \"my-awesome-application\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(display_name=\"my-awesome-application\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            DisplayName = \"my-awesome-application\",\n        }));\n    }\n\n}\n```\n\n## Example Usage (by Application ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    applicationId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(application_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ApplicationId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n## Example Usage (by Object ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    objectId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(object_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ObjectId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n",
+            "description": "Gets information about an existing Service Principal associated with an Application within Azure Active Directory.\n\n\u003e **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### By Application Display Name)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    displayName: \"my-awesome-application\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(display_name=\"my-awesome-application\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            DisplayName = \"my-awesome-application\",\n        }));\n    }\n\n}\n```\n\n\n{{% /example %}}\n{{% example %}}\n### By Application ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    applicationId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(application_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ApplicationId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n\n{{% /example %}}\n{{% example %}}\n### By Object ID)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuread from \"@pulumi/azuread\";\n\nconst example = pulumi.output(azuread.getServicePrincipal({\n    objectId: \"00000000-0000-0000-0000-000000000000\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_azuread as azuread\n\nexample = azuread.get_service_principal(object_id=\"00000000-0000-0000-0000-000000000000\")\n```\n```csharp\nusing Pulumi;\nusing AzureAD = Pulumi.AzureAD;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs\n        {\n            ObjectId = \"00000000-0000-0000-0000-000000000000\",\n        }));\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getServicePrincipal.\n",
                 "properties": {
@@ -2905,6 +2906,7 @@
             "typescriptVersion": ""
         },
         "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-azuread)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-azuread` repo](https://github.com/pulumi/pulumi-azuread/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-azuread` repo](https://github.com/terraform-providers/terraform-provider-azuread/issues).",
             "requires": {
                 "pulumi": "\u003e=2.0.0,\u003c3.0.0"
             }
