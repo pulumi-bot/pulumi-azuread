@@ -66,7 +66,6 @@ class ApplicationPassword(pulumi.CustomResource):
             value="VT=uSgbTanZhyz@%nL9Hpd+Tfay_MRV#")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_object_id: The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.
@@ -95,8 +94,8 @@ class ApplicationPassword(pulumi.CustomResource):
             __props__ = dict()
 
             if application_id is not None:
-                warnings.warn("Deprecated in favour of `application_object_id` to prevent confusion", DeprecationWarning)
-                pulumi.log.warn("application_id is deprecated: Deprecated in favour of `application_object_id` to prevent confusion")
+                warnings.warn("Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/inputProperties/applicationObjectId)` to prevent confusion", DeprecationWarning)
+                pulumi.log.warn("application_id is deprecated: Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/inputProperties/applicationObjectId)` to prevent confusion")
             __props__['application_id'] = application_id
             __props__['application_object_id'] = application_object_id
             __props__['description'] = description
