@@ -66,7 +66,9 @@ def get_group(name=None,object_id=None,opts=None):
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
 
-    ## Example Usage (by Group Display Name)
+    ## Example Usage
+
+    ### By Group Display Name)
 
     ```python
     import pulumi
@@ -74,6 +76,7 @@ def get_group(name=None,object_id=None,opts=None):
 
     example = azuread.get_group(name="A-AD-Group")
     ```
+
 
 
     :param str name: The Name of the AD Group we want to lookup.
