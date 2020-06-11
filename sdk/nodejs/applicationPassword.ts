@@ -61,7 +61,7 @@ export class ApplicationPassword extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     * @deprecated Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/properties/applicationObjectId)` to prevent confusion
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class ApplicationPassword extends pulumi.CustomResource {
  */
 export interface ApplicationPasswordState {
     /**
-     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     * @deprecated Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/properties/applicationObjectId)` to prevent confusion
      */
     readonly applicationId?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface ApplicationPasswordState {
  */
 export interface ApplicationPasswordArgs {
     /**
-     * @deprecated Deprecated in favour of `application_object_id` to prevent confusion
+     * @deprecated Deprecated in favour of `[applicationObjectId](#/resources/azuread:index%2FapplicationPassword:ApplicationPassword/inputProperties/applicationObjectId)` to prevent confusion
      */
     readonly applicationId?: pulumi.Input<string>;
     /**
