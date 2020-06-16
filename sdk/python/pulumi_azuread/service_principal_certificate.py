@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class ServicePrincipalCertificate(pulumi.CustomResource):
     end_date: pulumi.Output[str]
     """
@@ -43,10 +44,7 @@ class ServicePrincipalCertificate(pulumi.CustomResource):
         Manages a Certificate associated with a Service Principal within Azure Active Directory.
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
-
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -61,6 +59,8 @@ class ServicePrincipalCertificate(pulumi.CustomResource):
             value=(lambda path: open(path).read())("cert.pem"))
         ```
 
+        {{% examples %}}
+        {{% /examples %}}
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +135,9 @@ class ServicePrincipalCertificate(pulumi.CustomResource):
         __props__["type"] = type
         __props__["value"] = value
         return ServicePrincipalCertificate(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

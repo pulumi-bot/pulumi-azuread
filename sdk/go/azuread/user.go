@@ -13,6 +13,9 @@ import (
 // Manages a User within Azure Active Directory.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.ReadWrite.All` within the `Windows Azure Active Directory` API.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type User struct {
 	pulumi.CustomResourceState
 

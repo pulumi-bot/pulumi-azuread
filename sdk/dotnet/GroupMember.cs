@@ -13,10 +13,7 @@ namespace Pulumi.AzureAD
     /// Manages a single Group Membership within Azure Active Directory.
     /// 
     /// &gt; **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -42,6 +39,9 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// {{% examples %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class GroupMember : Pulumi.CustomResource
     {

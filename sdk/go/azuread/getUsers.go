@@ -10,6 +10,9 @@ import (
 // Gets Object IDs or UPNs for multiple Azure Active Directory users.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
+//
+// {{% examples %}}
+// {{% /examples %}}
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult
 	err := ctx.Invoke("azuread:index/getUsers:getUsers", args, &rv, opts...)

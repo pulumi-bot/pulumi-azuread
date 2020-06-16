@@ -13,6 +13,9 @@ import (
 // Manages a single Group Membership within Azure Active Directory.
 //
 // > **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type GroupMember struct {
 	pulumi.CustomResourceState
 

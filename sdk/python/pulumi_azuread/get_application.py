@@ -142,10 +142,7 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,optional_cl
     Use this data source to access information about an existing Application within Azure Active Directory.
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all (or owned by) applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
-
     ## Example Usage
-
-
 
     ```python
     import pulumi
@@ -155,6 +152,8 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,optional_cl
     pulumi.export("azureAdObjectId", example.id)
     ```
 
+    {{% examples %}}
+    {{% /examples %}}
 
 
     :param str name: Specifies the name of the Application within Azure Active Directory.

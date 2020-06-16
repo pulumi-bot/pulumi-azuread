@@ -100,10 +100,7 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     Gets information about an Azure Active Directory user.
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
-
     ## Example Usage
-
-
 
     ```python
     import pulumi
@@ -112,6 +109,8 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     example = azuread.get_user(user_principal_name="user@hashicorp.com")
     ```
 
+    {{% examples %}}
+    {{% /examples %}}
 
 
     :param str mail_nickname: The email alias of the Azure AD User.

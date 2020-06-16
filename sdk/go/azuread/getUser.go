@@ -10,6 +10,9 @@ import (
 // Gets information about an Azure Active Directory user.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
+//
+// {{% examples %}}
+// {{% /examples %}}
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azuread:index/getUser:getUser", args, &rv, opts...)

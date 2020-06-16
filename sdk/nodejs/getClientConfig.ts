@@ -8,10 +8,7 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access the configuration of the AzureRM provider.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,6 +17,9 @@ import * as utilities from "./utilities";
  * const current = azuread.getClientConfig({});
  * export const accountId = current.then(current => current.clientId);
  * ```
+ *
+ * {{% examples %}}
+ * {{% /examples %}}
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     if (!opts) {

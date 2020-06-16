@@ -47,10 +47,7 @@ def get_groups(names=None,object_ids=None,opts=None):
     Gets Object IDs or Display Names for multiple Azure Active Directory groups.
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
-
     ## Example Usage
-
-
 
     ```python
     import pulumi
@@ -62,6 +59,8 @@ def get_groups(names=None,object_ids=None,opts=None):
     ])
     ```
 
+    {{% examples %}}
+    {{% /examples %}}
 
 
     :param list names: The Display Names of the Azure AD Groups.
