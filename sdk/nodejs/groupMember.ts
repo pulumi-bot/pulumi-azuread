@@ -8,10 +8,7 @@ import * as utilities from "./utilities";
  * Manages a single Group Membership within Azure Active Directory.
  *
  * > **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

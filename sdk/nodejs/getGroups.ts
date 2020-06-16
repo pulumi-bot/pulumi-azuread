@@ -10,10 +10,7 @@ import * as utilities from "./utilities";
  * Gets Object IDs or Display Names for multiple Azure Active Directory groups.
  *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -52,10 +52,7 @@ def get_domains(include_unverified=None,only_default=None,only_initial=None,opts
     Use this data source to access information about an existing Domains within Azure Active Directory.
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.Read.All` within the `Windows Azure Active Directory` API.
-
     ## Example Usage
-
-
 
     ```python
     import pulumi
@@ -64,7 +61,6 @@ def get_domains(include_unverified=None,only_default=None,only_initial=None,opts
     aad_domains = azuread.get_domains()
     pulumi.export("domains", aad_domains.domains)
     ```
-
 
 
     :param bool include_unverified: Set to `true` if unverified Azure AD Domains should be included. Defaults to `false`.

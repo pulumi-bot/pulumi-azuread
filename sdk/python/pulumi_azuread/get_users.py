@@ -54,10 +54,7 @@ def get_users(mail_nicknames=None,object_ids=None,user_principal_names=None,opts
     Gets Object IDs or UPNs for multiple Azure Active Directory users.
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
-
     ## Example Usage
-
-
 
     ```python
     import pulumi
@@ -68,7 +65,6 @@ def get_users(mail_nicknames=None,object_ids=None,user_principal_names=None,opts
         "byte@hashicorp.com",
     ])
     ```
-
 
 
     :param list mail_nicknames: The email aliases of the Azure AD Users.
