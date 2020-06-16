@@ -9,9 +9,9 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.ReadWrite.All` within the `Windows Azure Active Directory` API.
  *
+ * {{% examples %}}
  * ## Example Usage
- *
- *
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,6 +24,8 @@ import * as utilities from "./utilities";
  *     userPrincipalName: "jdo@hashicorp.com",
  * });
  * ```
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class User extends pulumi.CustomResource {
     /**

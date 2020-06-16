@@ -48,9 +48,9 @@ def get_client_config(opts=None):
     """
     Use this data source to access the configuration of the AzureRM provider.
 
+    {{% examples %}}
     ## Example Usage
-
-
+    {{% example %}}
 
     ```python
     import pulumi
@@ -59,6 +59,8 @@ def get_client_config(opts=None):
     current = azuread.get_client_config()
     pulumi.export("accountId", current.client_id)
     ```
+    {{% /example %}}
+    {{% /examples %}}
     """
     __args__ = dict()
 

@@ -14,9 +14,9 @@ namespace Pulumi.AzureAD
     /// 
     /// &gt; **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
-    /// 
-    /// 
+    /// {{% example %}}
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -42,6 +42,8 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class GroupMember : Pulumi.CustomResource
     {

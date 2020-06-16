@@ -48,9 +48,9 @@ def get_groups(names=None,object_ids=None,opts=None):
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
 
+    {{% examples %}}
     ## Example Usage
-
-
+    {{% example %}}
 
     ```python
     import pulumi
@@ -61,7 +61,8 @@ def get_groups(names=None,object_ids=None,opts=None):
         "group-b",
     ])
     ```
-
+    {{% /example %}}
+    {{% /examples %}}
 
 
     :param list names: The Display Names of the Azure AD Groups.

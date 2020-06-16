@@ -9,9 +9,9 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
  *
+ * {{% examples %}}
  * ## Example Usage
- *
- *
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,6 +26,8 @@ import * as utilities from "./utilities";
  *     memberObjectId: exampleUser.id,
  * });
  * ```
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class GroupMember extends pulumi.CustomResource {
     /**

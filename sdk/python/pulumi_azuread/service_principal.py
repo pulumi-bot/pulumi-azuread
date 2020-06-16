@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class ServicePrincipal(pulumi.CustomResource):
     app_role_assignment_required: pulumi.Output[bool]
     """
@@ -49,9 +50,9 @@ class ServicePrincipal(pulumi.CustomResource):
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API. Please see The Granting a Service Principal permission to manage AAD for the required steps.
 
+        {{% examples %}}
         ## Example Usage
-
-
+        {{% example %}}
 
         ```python
         import pulumi
@@ -72,7 +73,8 @@ class ServicePrincipal(pulumi.CustomResource):
                 "here",
             ])
         ```
-
+        {{% /example %}}
+        {{% /examples %}}
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,9 +163,9 @@ class ServicePrincipal(pulumi.CustomResource):
         __props__["object_id"] = object_id
         __props__["tags"] = tags
         return ServicePrincipal(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
