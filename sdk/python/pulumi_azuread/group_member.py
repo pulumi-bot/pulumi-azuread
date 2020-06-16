@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class GroupMember(pulumi.CustomResource):
     group_object_id: pulumi.Output[str]
     """
@@ -93,9 +94,9 @@ class GroupMember(pulumi.CustomResource):
         __props__["group_object_id"] = group_object_id
         __props__["member_object_id"] = member_object_id
         return GroupMember(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
