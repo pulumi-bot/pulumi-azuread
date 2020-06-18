@@ -145,8 +145,6 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,optional_cl
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azuread as azuread
@@ -154,7 +152,6 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,optional_cl
     example = azuread.get_application(name="My First AzureAD Application")
     pulumi.export("azureAdObjectId", example.id)
     ```
-
 
 
     :param str name: Specifies the name of the Application within Azure Active Directory.
