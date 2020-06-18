@@ -50,8 +50,6 @@ def get_groups(names=None,object_ids=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azuread as azuread
@@ -61,7 +59,6 @@ def get_groups(names=None,object_ids=None,opts=None):
         "group-b",
     ])
     ```
-
 
 
     :param list names: The Display Names of the Azure AD Groups.

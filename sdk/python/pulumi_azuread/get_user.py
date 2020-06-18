@@ -103,15 +103,12 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azuread as azuread
 
     example = azuread.get_user(user_principal_name="user@hashicorp.com")
     ```
-
 
 
     :param str mail_nickname: The email alias of the Azure AD User.
