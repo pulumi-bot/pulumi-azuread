@@ -4,8 +4,8 @@
 
 import importlib
 # Make subpackages available:
-__all__ = ['config']
-for pkg in __all__:
+submodules = ['config']
+for pkg in submodules:
     if pkg != 'config':
         importlib.import_module(f'{__name__}.{pkg}')
 
