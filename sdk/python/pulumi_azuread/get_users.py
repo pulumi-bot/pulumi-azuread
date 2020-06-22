@@ -57,8 +57,6 @@ def get_users(mail_nicknames=None,object_ids=None,user_principal_names=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azuread as azuread
@@ -68,7 +66,6 @@ def get_users(mail_nicknames=None,object_ids=None,user_principal_names=None,opts
         "byte@hashicorp.com",
     ])
     ```
-
 
 
     :param list mail_nicknames: The email aliases of the Azure AD Users.
