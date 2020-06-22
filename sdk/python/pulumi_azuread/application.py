@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class Application(pulumi.CustomResource):
     app_roles: pulumi.Output[list]
     """
@@ -120,8 +121,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azuread as azuread
@@ -205,7 +204,6 @@ class Application(pulumi.CustomResource):
             ],
             type="webapp/api")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -398,9 +396,9 @@ class Application(pulumi.CustomResource):
         __props__["required_resource_accesses"] = required_resource_accesses
         __props__["type"] = type
         return Application(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
