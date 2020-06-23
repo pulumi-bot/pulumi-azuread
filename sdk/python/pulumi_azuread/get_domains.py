@@ -55,8 +55,6 @@ def get_domains(include_unverified=None,only_default=None,only_initial=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azuread as azuread
@@ -64,7 +62,6 @@ def get_domains(include_unverified=None,only_default=None,only_initial=None,opts
     aad_domains = azuread.get_domains()
     pulumi.export("domains", aad_domains.domains)
     ```
-
 
 
     :param bool include_unverified: Set to `true` if unverified Azure AD Domains should be included. Defaults to `false`.
