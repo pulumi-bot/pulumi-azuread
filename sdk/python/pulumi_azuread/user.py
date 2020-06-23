@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class User(pulumi.CustomResource):
     account_enabled: pulumi.Output[bool]
     """
@@ -66,8 +67,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azuread as azuread
@@ -78,7 +77,6 @@ class User(pulumi.CustomResource):
             password="SecretP@sswd99!",
             user_principal_name="jdo@hashicorp.com")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,9 +169,9 @@ class User(pulumi.CustomResource):
         __props__["usage_location"] = usage_location
         __props__["user_principal_name"] = user_principal_name
         return User(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
