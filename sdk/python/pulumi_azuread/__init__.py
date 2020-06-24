@@ -3,12 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import importlib
-# Make subpackages available:
-__all__ = ['config']
-for pkg in __all__:
-    if pkg != 'config':
-        importlib.import_module(f'{__name__}.{pkg}')
-
 # Export this package's modules as members:
 from .application import *
 from .application_certificate import *
@@ -28,3 +22,11 @@ from .service_principal import *
 from .service_principal_certificate import *
 from .service_principal_password import *
 from .user import *
+
+# Make subpackages available:
+submodules = [
+    'config',
+]
+for pkg in submodules:
+    if pkg != 'config':
+        importlib.import_module(f'{__name__}.{pkg}')
