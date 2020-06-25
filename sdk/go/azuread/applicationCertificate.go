@@ -13,6 +13,8 @@ import (
 // Manages a Certificate associated with an Application within Azure Active Directory.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
+//
+// ## Example Usage
 type ApplicationCertificate struct {
 	pulumi.CustomResourceState
 
