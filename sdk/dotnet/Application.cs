@@ -73,28 +73,28 @@ namespace Pulumi.AzureAD
     ///             },
     ///             OptionalClaims = new AzureAD.Inputs.ApplicationOptionalClaimsArgs
     ///             {
-    ///                 AccessToken = 
+    ///                 AccessTokens = 
     ///                 {
-    ///                     
+    ///                     new AzureAD.Inputs.ApplicationOptionalClaimsAccessTokenArgs
     ///                     {
-    ///                         { "name", "myclaim" },
+    ///                         Name = "myclaim",
     ///                     },
-    ///                     
+    ///                     new AzureAD.Inputs.ApplicationOptionalClaimsAccessTokenArgs
     ///                     {
-    ///                         { "name", "otherclaim" },
+    ///                         Name = "otherclaim",
     ///                     },
     ///                 },
-    ///                 IdToken = 
+    ///                 IdTokens = 
     ///                 {
-    ///                     
+    ///                     new AzureAD.Inputs.ApplicationOptionalClaimsIdTokenArgs
     ///                     {
-    ///                         { "additionalProperties", 
+    ///                         AdditionalProperties = 
     ///                         {
     ///                             "emit_as_roles",
-    ///                         } },
-    ///                         { "essential", true },
-    ///                         { "name", "userclaim" },
-    ///                         { "source", "user" },
+    ///                         },
+    ///                         Essential = true,
+    ///                         Name = "userclaim",
+    ///                         Source = "user",
     ///                     },
     ///                 },
     ///             },
@@ -110,34 +110,34 @@ namespace Pulumi.AzureAD
     ///             {
     ///                 new AzureAD.Inputs.ApplicationRequiredResourceAccessArgs
     ///                 {
-    ///                     ResourceAccess = 
+    ///                     ResourceAccesses = 
     ///                     {
-    ///                         
+    ///                         new AzureAD.Inputs.ApplicationRequiredResourceAccessResourceAccessArgs
     ///                         {
-    ///                             { "id", "..." },
-    ///                             { "type", "Role" },
+    ///                             Id = "...",
+    ///                             Type = "Role",
     ///                         },
-    ///                         
+    ///                         new AzureAD.Inputs.ApplicationRequiredResourceAccessResourceAccessArgs
     ///                         {
-    ///                             { "id", "..." },
-    ///                             { "type", "Scope" },
+    ///                             Id = "...",
+    ///                             Type = "Scope",
     ///                         },
-    ///                         
+    ///                         new AzureAD.Inputs.ApplicationRequiredResourceAccessResourceAccessArgs
     ///                         {
-    ///                             { "id", "..." },
-    ///                             { "type", "Scope" },
+    ///                             Id = "...",
+    ///                             Type = "Scope",
     ///                         },
     ///                     },
     ///                     ResourceAppId = "00000003-0000-0000-c000-000000000000",
     ///                 },
     ///                 new AzureAD.Inputs.ApplicationRequiredResourceAccessArgs
     ///                 {
-    ///                     ResourceAccess = 
+    ///                     ResourceAccesses = 
     ///                     {
-    ///                         
+    ///                         new AzureAD.Inputs.ApplicationRequiredResourceAccessResourceAccessArgs
     ///                         {
-    ///                             { "id", "..." },
-    ///                             { "type", "Scope" },
+    ///                             Id = "...",
+    ///                             Type = "Scope",
     ///                         },
     ///                     },
     ///                     ResourceAppId = "00000002-0000-0000-c000-000000000000",

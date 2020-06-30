@@ -160,7 +160,7 @@ class Application(pulumi.CustomResource):
                 },
             ],
             optional_claims={
-                "accessToken": [
+                "accessTokens": [
                     {
                         "name": "myclaim",
                     },
@@ -168,7 +168,7 @@ class Application(pulumi.CustomResource):
                         "name": "otherclaim",
                     },
                 ],
-                "idToken": [{
+                "idTokens": [{
                     "additionalProperties": ["emit_as_roles"],
                     "essential": True,
                     "name": "userclaim",
@@ -179,7 +179,7 @@ class Application(pulumi.CustomResource):
             reply_urls=["https://replyurl"],
             required_resource_accesses=[
                 {
-                    "resourceAccess": [
+                    "resourceAccesses": [
                         {
                             "id": "...",
                             "type": "Role",
@@ -196,7 +196,7 @@ class Application(pulumi.CustomResource):
                     "resourceAppId": "00000003-0000-0000-c000-000000000000",
                 },
                 {
-                    "resourceAccess": [{
+                    "resourceAccesses": [{
                         "id": "...",
                         "type": "Scope",
                     }],
