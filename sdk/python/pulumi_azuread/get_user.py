@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class GetUserResult:
     """
     A collection of values returned by getUser.
@@ -76,6 +77,8 @@ class GetUserResult:
         """
         The User Principal Name of the Azure AD User.
         """
+
+
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -93,6 +96,7 @@ class AwaitableGetUserResult(GetUserResult):
             onpremises_user_principal_name=self.onpremises_user_principal_name,
             usage_location=self.usage_location,
             user_principal_name=self.user_principal_name)
+
 
 def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=None):
     """
@@ -115,7 +119,6 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     :param str user_principal_name: The User Principal Name of the Azure AD User.
     """
     __args__ = dict()
-
 
     __args__['mailNickname'] = mail_nickname
     __args__['objectId'] = object_id

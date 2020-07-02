@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class GetApplicationResult:
     """
     A collection of values returned by getApplication.
@@ -112,6 +113,8 @@ class GetApplicationResult:
         """
         The type of the permission
         """
+
+
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -135,6 +138,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             reply_urls=self.reply_urls,
             required_resource_accesses=self.required_resource_accesses,
             type=self.type)
+
 
 def get_application(name=None,oauth2_permissions=None,object_id=None,optional_claims=None,opts=None):
     """
@@ -184,7 +188,6 @@ def get_application(name=None,oauth2_permissions=None,object_id=None,optional_cl
         * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
     """
     __args__ = dict()
-
 
     __args__['name'] = name
     __args__['oauth2Permissions'] = oauth2_permissions
