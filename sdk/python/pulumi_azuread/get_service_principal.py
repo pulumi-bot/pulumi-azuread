@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class GetServicePrincipalResult:
     """
     A collection of values returned by getServicePrincipal.
@@ -37,6 +38,8 @@ class GetServicePrincipalResult:
         if object_id and not isinstance(object_id, str):
             raise TypeError("Expected argument 'object_id' to be a str")
         __self__.object_id = object_id
+
+
 class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -50,7 +53,8 @@ class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
             oauth2_permissions=self.oauth2_permissions,
             object_id=self.object_id)
 
-def get_service_principal(application_id=None,display_name=None,oauth2_permissions=None,object_id=None,opts=None):
+
+def get_service_principal(application_id=None, display_name=None, oauth2_permissions=None, object_id=None, opts=None):
     """
     Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
 
@@ -100,8 +104,6 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
       * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['oauth2Permissions'] = oauth2_permissions
