@@ -23,12 +23,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuread.GetGroups(ctx, &azuread.GetGroupsArgs{
+// 		_, err := azuread.GetGroups(ctx, "azuread::getGroups", &azuread.GetGroupsArgs{
 // 			Names: []string{
 // 				"group-a",
 // 				"group-b",
 // 			},
-// 		}, nil)
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

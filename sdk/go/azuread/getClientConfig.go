@@ -21,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := azuread.GetClientConfig(ctx, nil, nil)
+// 		current, err := azuread.GetClientConfig(ctx, "azuread::getClientConfig", nil)
 // 		if err != nil {
 // 			return err
 // 		}
