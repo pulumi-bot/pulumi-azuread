@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class GetGroupResult:
     """
     A collection of values returned by getGroup.
@@ -46,6 +47,8 @@ class GetGroupResult:
         """
         The Object IDs of the Azure AD Group owners.
         """
+
+
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -59,7 +62,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             object_id=self.object_id,
             owners=self.owners)
 
-def get_group(name=None,object_id=None,opts=None):
+
+def get_group(name=None, object_id=None, opts=None):
     """
     Gets information about an Azure Active Directory group.
 
@@ -80,8 +84,6 @@ def get_group(name=None,object_id=None,opts=None):
     :param str object_id: Specifies the Object ID of the AD Group within Azure Active Directory.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['objectId'] = object_id
     if opts is None:
