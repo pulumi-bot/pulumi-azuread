@@ -5,14 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+from ._inputs import *
+from . import outputs
+
 
 class GetServicePrincipalResult:
     """
     A collection of values returned by getServicePrincipal.
     """
-    def __init__(__self__, app_roles=None, application_id=None, display_name=None, id=None, oauth2_permissions=None, object_id=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, app_roles=None, application_id=None, display_name=None, id=None, oauth2_permissions=None, object_id=None) -> None:
         if app_roles and not isinstance(app_roles, list):
             raise TypeError("Expected argument 'app_roles' to be a list")
         __self__.app_roles = app_roles
@@ -37,6 +41,8 @@ class GetServicePrincipalResult:
         if object_id and not isinstance(object_id, str):
             raise TypeError("Expected argument 'object_id' to be a str")
         __self__.object_id = object_id
+
+
 class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -50,7 +56,8 @@ class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
             oauth2_permissions=self.oauth2_permissions,
             object_id=self.object_id)
 
-def get_service_principal(application_id=None,display_name=None,oauth2_permissions=None,object_id=None,opts=None):
+
+def get_service_principal(application_id=None, display_name=None, oauth2_permissions=None, object_id=None, opts=None):
     """
     Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
 
@@ -85,23 +92,10 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
 
     :param str application_id: The ID of the Azure AD Application.
     :param str display_name: The Display Name of the Azure AD Application associated with this Service Principal.
-    :param list oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
+    :param List['GetServicePrincipalOauth2PermissionArgs'] oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
     :param str object_id: The ID of the Azure AD Service Principal.
-
-    The **oauth2_permissions** object supports the following:
-
-      * `adminConsentDescription` (`str`) - The description of the admin consent
-      * `adminConsentDisplayName` (`str`) - The display name of the admin consent
-      * `id` (`str`) - The unique identifier of the `app_role`.
-      * `isEnabled` (`bool`) - Determines if the app role is enabled.
-      * `type` (`str`) - The type of the permission
-      * `userConsentDescription` (`str`) - The description of the user consent
-      * `userConsentDisplayName` (`str`) - The display name of the user consent
-      * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['oauth2Permissions'] = oauth2_permissions
@@ -109,7 +103,7 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getServicePrincipal:getServicePrincipal', __args__, opts=opts).value
 
     return AwaitableGetServicePrincipalResult(

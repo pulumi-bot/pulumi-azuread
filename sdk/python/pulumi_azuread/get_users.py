@@ -5,14 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+from ._inputs import *
+from . import outputs
+
 
 class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, ignore_missing=None, mail_nicknames=None, object_ids=None, user_principal_names=None, users=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, id=None, ignore_missing=None, mail_nicknames=None, object_ids=None, user_principal_names=None, users=None) -> None:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -46,6 +50,8 @@ class GetUsersResult:
         """
         An Array of Azure AD Users. Each `user` object consists of the fields documented below.
         """
+
+
 class AwaitableGetUsersResult(GetUsersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -59,7 +65,8 @@ class AwaitableGetUsersResult(GetUsersResult):
             user_principal_names=self.user_principal_names,
             users=self.users)
 
-def get_users(ignore_missing=None,mail_nicknames=None,object_ids=None,user_principal_names=None,opts=None):
+
+def get_users(ignore_missing=None, mail_nicknames=None, object_ids=None, user_principal_names=None, opts=None):
     """
     Gets Object IDs or UPNs for multiple Azure Active Directory users.
 
@@ -79,13 +86,11 @@ def get_users(ignore_missing=None,mail_nicknames=None,object_ids=None,user_princ
 
 
     :param bool ignore_missing: Ignore missing users and return users that were found. The data source will still fail if no users are found. Defaults to false.
-    :param list mail_nicknames: The email aliases of the Azure AD Users.
-    :param list object_ids: The Object IDs of the Azure AD Users.
-    :param list user_principal_names: The User Principal Names of the Azure AD Users.
+    :param List[str] mail_nicknames: The email aliases of the Azure AD Users.
+    :param List[str] object_ids: The Object IDs of the Azure AD Users.
+    :param List[str] user_principal_names: The User Principal Names of the Azure AD Users.
     """
     __args__ = dict()
-
-
     __args__['ignoreMissing'] = ignore_missing
     __args__['mailNicknames'] = mail_nicknames
     __args__['objectIds'] = object_ids
@@ -93,7 +98,7 @@ def get_users(ignore_missing=None,mail_nicknames=None,object_ids=None,user_princ
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getUsers:getUsers', __args__, opts=opts).value
 
     return AwaitableGetUsersResult(
