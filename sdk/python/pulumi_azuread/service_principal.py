@@ -5,45 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 
 class ServicePrincipal(pulumi.CustomResource):
-    app_role_assignment_required: pulumi.Output[bool]
+    app_role_assignment_required: pulumi.Output[Optional[bool]] = pulumi.output_property("appRoleAssignmentRequired")
     """
     Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.
     """
-    application_id: pulumi.Output[str]
+    application_id: pulumi.Output[str] = pulumi.output_property("applicationId")
     """
     The ID of the Azure AD Application for which to create a Service Principal.
     """
-    display_name: pulumi.Output[str]
+    display_name: pulumi.Output[str] = pulumi.output_property("displayName")
     """
     The Display Name of the Azure Active Directory Application associated with this Service Principal.
     """
-    oauth2_permissions: pulumi.Output[list]
+    oauth2_permissions: pulumi.Output[List['outputs.ServicePrincipalOauth2Permission']] = pulumi.output_property("oauth2Permissions")
     """
     A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
-
-      * `adminConsentDescription` (`str`) - The description of the admin consent.
-      * `adminConsentDisplayName` (`str`) - The display name of the admin consent.
-      * `id` (`str`) - The unique identifier for one of the `OAuth2Permission`.
-      * `isEnabled` (`bool`) - Is this permission enabled?
-      * `type` (`str`) - The type of the permission.
-      * `userConsentDescription` (`str`) - The description of the user consent.
-      * `userConsentDisplayName` (`str`) - The display name of the user consent.
-      * `value` (`str`) - The name of this permission.
     """
-    object_id: pulumi.Output[str]
+    object_id: pulumi.Output[str] = pulumi.output_property("objectId")
     """
     The Service Principal's Object ID.
     """
-    tags: pulumi.Output[list]
+    tags: pulumi.Output[Optional[List[str]]] = pulumi.output_property("tags")
     """
     A list of tags to apply to the Service Principal.
     """
-    def __init__(__self__, resource_name, opts=None, app_role_assignment_required=None, application_id=None, oauth2_permissions=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, app_role_assignment_required=None, application_id=None, oauth2_permissions=None, tags=None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         Manages a Service Principal associated with an Application within Azure Active Directory.
 
@@ -75,19 +69,8 @@ class ServicePrincipal(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] app_role_assignment_required: Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.
         :param pulumi.Input[str] application_id: The ID of the Azure AD Application for which to create a Service Principal.
-        :param pulumi.Input[list] oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
-        :param pulumi.Input[list] tags: A list of tags to apply to the Service Principal.
-
-        The **oauth2_permissions** object supports the following:
-
-          * `adminConsentDescription` (`pulumi.Input[str]`) - The description of the admin consent.
-          * `adminConsentDisplayName` (`pulumi.Input[str]`) - The display name of the admin consent.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission`.
-          * `isEnabled` (`pulumi.Input[bool]`) - Is this permission enabled?
-          * `type` (`pulumi.Input[str]`) - The type of the permission.
-          * `userConsentDescription` (`pulumi.Input[str]`) - The description of the user consent.
-          * `userConsentDisplayName` (`pulumi.Input[str]`) - The display name of the user consent.
-          * `value` (`pulumi.Input[str]`) - The name of this permission.
+        :param pulumi.Input[List[pulumi.Input['ServicePrincipalOauth2PermissionArgs']]] oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to apply to the Service Principal.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,7 +83,7 @@ class ServicePrincipal(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -132,20 +115,9 @@ class ServicePrincipal(pulumi.CustomResource):
         :param pulumi.Input[bool] app_role_assignment_required: Does this Service Principal require an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application? Defaults to `false`.
         :param pulumi.Input[str] application_id: The ID of the Azure AD Application for which to create a Service Principal.
         :param pulumi.Input[str] display_name: The Display Name of the Azure Active Directory Application associated with this Service Principal.
-        :param pulumi.Input[list] oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
+        :param pulumi.Input[List[pulumi.Input['ServicePrincipalOauth2PermissionArgs']]] oauth2_permissions: A collection of OAuth 2.0 permissions exposed by the associated application. Each permission is covered by a `oauth2_permission` block as documented below.
         :param pulumi.Input[str] object_id: The Service Principal's Object ID.
-        :param pulumi.Input[list] tags: A list of tags to apply to the Service Principal.
-
-        The **oauth2_permissions** object supports the following:
-
-          * `adminConsentDescription` (`pulumi.Input[str]`) - The description of the admin consent.
-          * `adminConsentDisplayName` (`pulumi.Input[str]`) - The display name of the admin consent.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission`.
-          * `isEnabled` (`pulumi.Input[bool]`) - Is this permission enabled?
-          * `type` (`pulumi.Input[str]`) - The type of the permission.
-          * `userConsentDescription` (`pulumi.Input[str]`) - The description of the user consent.
-          * `userConsentDisplayName` (`pulumi.Input[str]`) - The display name of the user consent.
-          * `value` (`pulumi.Input[str]`) - The name of this permission.
+        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to apply to the Service Principal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -160,7 +132,8 @@ class ServicePrincipal(pulumi.CustomResource):
         return ServicePrincipal(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

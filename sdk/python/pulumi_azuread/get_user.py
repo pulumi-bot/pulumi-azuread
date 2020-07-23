@@ -5,14 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+
 
 class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, account_enabled=None, display_name=None, id=None, immutable_id=None, mail=None, mail_nickname=None, object_id=None, onpremises_sam_account_name=None, onpremises_user_principal_name=None, usage_location=None, user_principal_name=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, account_enabled=None, display_name=None, id=None, immutable_id=None, mail=None, mail_nickname=None, object_id=None, onpremises_sam_account_name=None, onpremises_user_principal_name=None, usage_location=None, user_principal_name=None) -> None:
         if account_enabled and not isinstance(account_enabled, bool):
             raise TypeError("Expected argument 'account_enabled' to be a bool")
         __self__.account_enabled = account_enabled
@@ -76,6 +78,8 @@ class GetUserResult:
         """
         The User Principal Name of the Azure AD User.
         """
+
+
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -94,7 +98,8 @@ class AwaitableGetUserResult(GetUserResult):
             usage_location=self.usage_location,
             user_principal_name=self.user_principal_name)
 
-def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=None):
+
+def get_user(mail_nickname=None, object_id=None, user_principal_name=None, opts=None):
     """
     Gets information about an Azure Active Directory user.
 
@@ -115,15 +120,13 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     :param str user_principal_name: The User Principal Name of the Azure AD User.
     """
     __args__ = dict()
-
-
     __args__['mailNickname'] = mail_nickname
     __args__['objectId'] = object_id
     __args__['userPrincipalName'] = user_principal_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getUser:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(

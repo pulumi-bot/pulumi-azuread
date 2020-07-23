@@ -5,60 +5,61 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
-    account_enabled: pulumi.Output[bool]
+    account_enabled: pulumi.Output[Optional[bool]] = pulumi.output_property("accountEnabled")
     """
     `true` if the account should be enabled, otherwise `false`. Defaults to `true`.
     """
-    display_name: pulumi.Output[str]
+    display_name: pulumi.Output[str] = pulumi.output_property("displayName")
     """
     The name to display in the address book for the user.
     """
-    force_password_change: pulumi.Output[bool]
+    force_password_change: pulumi.Output[Optional[bool]] = pulumi.output_property("forcePasswordChange")
     """
     `true` if the User is forced to change the password during the next sign-in. Defaults to `false`.
     """
-    immutable_id: pulumi.Output[str]
+    immutable_id: pulumi.Output[str] = pulumi.output_property("immutableId")
     """
     The value used to associate an on-premises Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.
     """
-    mail: pulumi.Output[str]
+    mail: pulumi.Output[str] = pulumi.output_property("mail")
     """
     The primary email address of the Azure AD User.
     """
-    mail_nickname: pulumi.Output[str]
+    mail_nickname: pulumi.Output[str] = pulumi.output_property("mailNickname")
     """
     The mail alias for the user. Defaults to the user name part of the User Principal Name.
     """
-    object_id: pulumi.Output[str]
+    object_id: pulumi.Output[str] = pulumi.output_property("objectId")
     """
     The Object ID of the Azure AD User.
     """
-    onpremises_sam_account_name: pulumi.Output[str]
+    onpremises_sam_account_name: pulumi.Output[str] = pulumi.output_property("onpremisesSamAccountName")
     """
     The on premise sam account name of the Azure AD User.
     """
-    onpremises_user_principal_name: pulumi.Output[str]
+    onpremises_user_principal_name: pulumi.Output[str] = pulumi.output_property("onpremisesUserPrincipalName")
     """
     The on premise user principal name of the Azure AD User.
     """
-    password: pulumi.Output[str]
+    password: pulumi.Output[str] = pulumi.output_property("password")
     """
     The password for the User. The password must satisfy minimum requirements as specified by the password policy. The maximum length is 256 characters.
     """
-    usage_location: pulumi.Output[str]
+    usage_location: pulumi.Output[str] = pulumi.output_property("usageLocation")
     """
     The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.
     """
-    user_principal_name: pulumi.Output[str]
+    user_principal_name: pulumi.Output[str] = pulumi.output_property("userPrincipalName")
     """
     The User Principal Name of the Azure AD User.
     """
-    def __init__(__self__, resource_name, opts=None, account_enabled=None, display_name=None, force_password_change=None, immutable_id=None, mail_nickname=None, password=None, usage_location=None, user_principal_name=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, account_enabled=None, display_name=None, force_password_change=None, immutable_id=None, mail_nickname=None, password=None, usage_location=None, user_principal_name=None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         Manages a User within Azure Active Directory.
 
@@ -99,7 +100,7 @@ class User(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -170,7 +171,8 @@ class User(pulumi.CustomResource):
         return User(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

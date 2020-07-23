@@ -5,14 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
 
 class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, app_roles=None, application_id=None, available_to_other_tenants=None, group_membership_claims=None, homepage=None, id=None, identifier_uris=None, logout_url=None, name=None, oauth2_allow_implicit_flow=None, oauth2_permissions=None, object_id=None, optional_claims=None, owners=None, reply_urls=None, required_resource_accesses=None, type=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, app_roles=None, application_id=None, available_to_other_tenants=None, group_membership_claims=None, homepage=None, id=None, identifier_uris=None, logout_url=None, name=None, oauth2_allow_implicit_flow=None, oauth2_permissions=None, object_id=None, optional_claims=None, owners=None, reply_urls=None, required_resource_accesses=None, type=None) -> None:
         if app_roles and not isinstance(app_roles, list):
             raise TypeError("Expected argument 'app_roles' to be a list")
         __self__.app_roles = app_roles
@@ -112,6 +116,8 @@ class GetApplicationResult:
         """
         The type of the permission
         """
+
+
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -136,7 +142,8 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             required_resource_accesses=self.required_resource_accesses,
             type=self.type)
 
-def get_application(application_id=None,name=None,oauth2_permissions=None,object_id=None,optional_claims=None,opts=None):
+
+def get_application(application_id=None, name=None, oauth2_permissions=None, object_id=None, optional_claims=None, opts=None):
     """
     Use this data source to access information about an existing Application within Azure Active Directory.
 
@@ -155,38 +162,11 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
 
     :param str application_id: Specifies the Application ID of the Azure Active Directory Application.
     :param str name: Specifies the name of the Application within Azure Active Directory.
-    :param list oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.
+    :param List['GetApplicationOauth2PermissionArgs'] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.
     :param str object_id: Specifies the Object ID of the Application within Azure Active Directory.
-    :param dict optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-
-    The **oauth2_permissions** object supports the following:
-
-      * `adminConsentDescription` (`str`) - The description of the admin consent
-      * `adminConsentDisplayName` (`str`) - The display name of the admin consent
-      * `id` (`str`) - The unique identifier of the `app_role`.
-      * `isEnabled` (`bool`) - Determines if the app role is enabled.
-      * `type` (`str`) - The type of the permission
-      * `userConsentDescription` (`str`) - The description of the user consent
-      * `userConsentDisplayName` (`str`) - The display name of the user consent
-      * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
-
-    The **optional_claims** object supports the following:
-
-      * `accessTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - Specifies the name of the Application within Azure Active Directory.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-      * `idTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - Specifies the name of the Application within Azure Active Directory.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
+    :param 'GetApplicationOptionalClaimsArgs' optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['name'] = name
     __args__['oauth2Permissions'] = oauth2_permissions
@@ -195,7 +175,7 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getApplication:getApplication', __args__, opts=opts).value
 
     return AwaitableGetApplicationResult(

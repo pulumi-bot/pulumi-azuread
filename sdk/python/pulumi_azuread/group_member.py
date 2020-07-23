@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
 
 
 class GroupMember(pulumi.CustomResource):
-    group_object_id: pulumi.Output[str]
+    group_object_id: pulumi.Output[str] = pulumi.output_property("groupObjectId")
     """
     The Object ID of the Azure AD Group you want to add the Member to.  Changing this forces a new resource to be created.
     """
-    member_object_id: pulumi.Output[str]
+    member_object_id: pulumi.Output[str] = pulumi.output_property("memberObjectId")
     """
     The Object ID of the Azure AD Object you want to add as a Member to the Group. Supported Object types are Users, Groups or Service Principals. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, group_object_id=None, member_object_id=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, group_object_id=None, member_object_id=None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         Manages a single Group Membership within Azure Active Directory.
 
@@ -53,7 +54,7 @@ class GroupMember(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -92,7 +93,8 @@ class GroupMember(pulumi.CustomResource):
         return GroupMember(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
