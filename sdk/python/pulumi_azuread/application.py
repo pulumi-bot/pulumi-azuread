@@ -5,118 +5,89 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    app_roles: pulumi.Output[list]
+    app_roles: pulumi.Output[Optional[List['outputs.ApplicationAppRole']]] = pulumi.output_property("appRoles")
     """
     A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
-
-      * `allowedMemberTypes` (`list`) - Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in daemon service scenarios) by setting to `Application`, or to both.
-      * `description` (`str`) - Permission help text that appears in the admin app assignment and consent experiences.
-      * `display_name` (`str`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-      * `id` (`str`) - The unique identifier of the `app_role`.
-      * `isEnabled` (`bool`) - Determines if the permission is enabled: defaults to `true`.
-      * `value` (`str`) - The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
     """
-    application_id: pulumi.Output[str]
+    application_id: pulumi.Output[str] = pulumi.output_property("applicationId")
     """
     The Application ID.
     """
-    available_to_other_tenants: pulumi.Output[bool]
+    available_to_other_tenants: pulumi.Output[Optional[bool]] = pulumi.output_property("availableToOtherTenants")
     """
     Is this Azure AD Application available to other tenants? Defaults to `false`.
     """
-    group_membership_claims: pulumi.Output[str]
+    group_membership_claims: pulumi.Output[Optional[str]] = pulumi.output_property("groupMembershipClaims")
     """
     Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.
     """
-    homepage: pulumi.Output[str]
+    homepage: pulumi.Output[str] = pulumi.output_property("homepage")
     """
     The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
     """
-    identifier_uris: pulumi.Output[list]
+    identifier_uris: pulumi.Output[List[str]] = pulumi.output_property("identifierUris")
     """
     A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
     """
-    logout_url: pulumi.Output[str]
+    logout_url: pulumi.Output[Optional[str]] = pulumi.output_property("logoutUrl")
     """
     The URL of the logout page.
     """
-    name: pulumi.Output[str]
+    name: pulumi.Output[str] = pulumi.output_property("name")
     """
     The display name for the application.
     """
-    oauth2_allow_implicit_flow: pulumi.Output[bool]
+    oauth2_allow_implicit_flow: pulumi.Output[Optional[bool]] = pulumi.output_property("oauth2AllowImplicitFlow")
     """
     Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
     """
-    oauth2_permissions: pulumi.Output[list]
+    oauth2_permissions: pulumi.Output[List['outputs.ApplicationOauth2Permission']] = pulumi.output_property("oauth2Permissions")
     """
     A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.
-
-      * `adminConsentDescription` (`str`) - Permission help text that appears in the admin consent and app assignment experiences.
-      * `adminConsentDisplayName` (`str`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-      * `id` (`str`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-      * `isEnabled` (`bool`) - Determines if the app role is enabled: Defaults to `true`.
-      * `type` (`str`) - Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
-      * `userConsentDescription` (`str`) - Permission help text that appears in the end user consent experience.
-      * `userConsentDisplayName` (`str`) - Display name for the permission that appears in the end user consent experience.
-      * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
     """
-    object_id: pulumi.Output[str]
+    object_id: pulumi.Output[str] = pulumi.output_property("objectId")
     """
     The Application's Object ID.
     """
-    optional_claims: pulumi.Output[dict]
+    optional_claims: pulumi.Output[Optional['outputs.ApplicationOptionalClaims']] = pulumi.output_property("optionalClaims")
     """
     A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-
-      * `accessTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - The name of the optional claim.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-      * `idTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - The display name for the application.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
     """
-    owners: pulumi.Output[list]
+    owners: pulumi.Output[List[str]] = pulumi.output_property("owners")
     """
     A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
     """
-    prevent_duplicate_names: pulumi.Output[bool]
+    prevent_duplicate_names: pulumi.Output[Optional[bool]] = pulumi.output_property("preventDuplicateNames")
     """
     If `true`, will return an error when an existing Application is found with the same name. Defaults to `false`.
     """
-    public_client: pulumi.Output[bool]
+    public_client: pulumi.Output[bool] = pulumi.output_property("publicClient")
     """
     Is this Azure AD Application a public client? Defaults to `false`.
     """
-    reply_urls: pulumi.Output[list]
+    reply_urls: pulumi.Output[List[str]] = pulumi.output_property("replyUrls")
     """
     A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
     """
-    required_resource_accesses: pulumi.Output[list]
+    required_resource_accesses: pulumi.Output[Optional[List['outputs.ApplicationRequiredResourceAccess']]] = pulumi.output_property("requiredResourceAccesses")
     """
     A collection of `required_resource_access` blocks as documented below.
-
-      * `resourceAccesses` (`list`) - A collection of `resource_access` blocks as documented below.
-        * `id` (`str`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-        * `type` (`str`) - Specifies whether the id property references an `OAuth2Permission` or an `AppRole`. Possible values are `Scope` or `Role`.
-
-      * `resourceAppId` (`str`) - The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
     """
-    type: pulumi.Output[str]
+    type: pulumi.Output[Optional[str]] = pulumi.output_property("type")
     """
     Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
     """
-    def __init__(__self__, resource_name, opts=None, app_roles=None, available_to_other_tenants=None, group_membership_claims=None, homepage=None, identifier_uris=None, logout_url=None, name=None, oauth2_allow_implicit_flow=None, oauth2_permissions=None, optional_claims=None, owners=None, prevent_duplicate_names=None, public_client=None, reply_urls=None, required_resource_accesses=None, type=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, app_roles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppRoleArgs']]]]] = None, available_to_other_tenants: Optional[pulumi.Input[bool]] = None, group_membership_claims: Optional[pulumi.Input[str]] = None, homepage: Optional[pulumi.Input[str]] = None, identifier_uris: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, logout_url: Optional[pulumi.Input[str]] = None, name: Optional[pulumi.Input[str]] = None, oauth2_allow_implicit_flow: Optional[pulumi.Input[bool]] = None, oauth2_permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationOauth2PermissionArgs']]]]] = None, optional_claims: Optional[pulumi.Input[pulumi.InputType['ApplicationOptionalClaimsArgs']]] = None, owners: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, prevent_duplicate_names: Optional[pulumi.Input[bool]] = None, public_client: Optional[pulumi.Input[bool]] = None, reply_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, required_resource_accesses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationRequiredResourceAccessArgs']]]]] = None, type: Optional[pulumi.Input[str]] = None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         Manages an Application within Azure Active Directory.
 
@@ -210,64 +181,22 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] app_roles: A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppRoleArgs']]]] app_roles: A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
         :param pulumi.Input[bool] available_to_other_tenants: Is this Azure AD Application available to other tenants? Defaults to `false`.
         :param pulumi.Input[str] group_membership_claims: Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.
         :param pulumi.Input[str] homepage: The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
-        :param pulumi.Input[list] identifier_uris: A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
+        :param pulumi.Input[List[pulumi.Input[str]]] identifier_uris: A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
         :param pulumi.Input[str] logout_url: The URL of the logout page.
         :param pulumi.Input[str] name: The display name for the application.
         :param pulumi.Input[bool] oauth2_allow_implicit_flow: Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
-        :param pulumi.Input[list] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.
-        :param pulumi.Input[dict] optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-        :param pulumi.Input[list] owners: A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationOauth2PermissionArgs']]]] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['ApplicationOptionalClaimsArgs']] optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
+        :param pulumi.Input[List[pulumi.Input[str]]] owners: A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
         :param pulumi.Input[bool] prevent_duplicate_names: If `true`, will return an error when an existing Application is found with the same name. Defaults to `false`.
         :param pulumi.Input[bool] public_client: Is this Azure AD Application a public client? Defaults to `false`.
-        :param pulumi.Input[list] reply_urls: A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-        :param pulumi.Input[list] required_resource_accesses: A collection of `required_resource_access` blocks as documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] reply_urls: A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationRequiredResourceAccessArgs']]]] required_resource_accesses: A collection of `required_resource_access` blocks as documented below.
         :param pulumi.Input[str] type: Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
-
-        The **app_roles** object supports the following:
-
-          * `allowedMemberTypes` (`pulumi.Input[list]`) - Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in daemon service scenarios) by setting to `Application`, or to both.
-          * `description` (`pulumi.Input[str]`) - Permission help text that appears in the admin app assignment and consent experiences.
-          * `display_name` (`pulumi.Input[str]`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-          * `id` (`pulumi.Input[str]`) - The unique identifier of the `app_role`.
-          * `isEnabled` (`pulumi.Input[bool]`) - Determines if the permission is enabled: defaults to `true`.
-          * `value` (`pulumi.Input[str]`) - The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
-
-        The **oauth2_permissions** object supports the following:
-
-          * `adminConsentDescription` (`pulumi.Input[str]`) - Permission help text that appears in the admin consent and app assignment experiences.
-          * `adminConsentDisplayName` (`pulumi.Input[str]`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-          * `isEnabled` (`pulumi.Input[bool]`) - Determines if the app role is enabled: Defaults to `true`.
-          * `type` (`pulumi.Input[str]`) - Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
-          * `userConsentDescription` (`pulumi.Input[str]`) - Permission help text that appears in the end user consent experience.
-          * `userConsentDisplayName` (`pulumi.Input[str]`) - Display name for the permission that appears in the end user consent experience.
-          * `value` (`pulumi.Input[str]`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
-
-        The **optional_claims** object supports the following:
-
-          * `accessTokens` (`pulumi.Input[list]`)
-            * `additionalProperties` (`pulumi.Input[list]`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-            * `essential` (`pulumi.Input[bool]`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-            * `name` (`pulumi.Input[str]`) - The name of the optional claim.
-            * `source` (`pulumi.Input[str]`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-          * `idTokens` (`pulumi.Input[list]`)
-            * `additionalProperties` (`pulumi.Input[list]`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-            * `essential` (`pulumi.Input[bool]`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-            * `name` (`pulumi.Input[str]`) - The display name for the application.
-            * `source` (`pulumi.Input[str]`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-        The **required_resource_accesses** object supports the following:
-
-          * `resourceAccesses` (`pulumi.Input[list]`) - A collection of `resource_access` blocks as documented below.
-            * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-            * `type` (`pulumi.Input[str]`) - Specifies whether the id property references an `OAuth2Permission` or an `AppRole`. Possible values are `Scope` or `Role`.
-
-          * `resourceAppId` (`pulumi.Input[str]`) - The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -280,7 +209,7 @@ class Application(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -311,7 +240,7 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_roles=None, application_id=None, available_to_other_tenants=None, group_membership_claims=None, homepage=None, identifier_uris=None, logout_url=None, name=None, oauth2_allow_implicit_flow=None, oauth2_permissions=None, object_id=None, optional_claims=None, owners=None, prevent_duplicate_names=None, public_client=None, reply_urls=None, required_resource_accesses=None, type=None):
+    def get(resource_name: str, id: str, opts: Optional[pulumi.ResourceOptions] = None, app_roles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppRoleArgs']]]]] = None, application_id: Optional[pulumi.Input[str]] = None, available_to_other_tenants: Optional[pulumi.Input[bool]] = None, group_membership_claims: Optional[pulumi.Input[str]] = None, homepage: Optional[pulumi.Input[str]] = None, identifier_uris: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, logout_url: Optional[pulumi.Input[str]] = None, name: Optional[pulumi.Input[str]] = None, oauth2_allow_implicit_flow: Optional[pulumi.Input[bool]] = None, oauth2_permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationOauth2PermissionArgs']]]]] = None, object_id: Optional[pulumi.Input[str]] = None, optional_claims: Optional[pulumi.Input[pulumi.InputType['ApplicationOptionalClaimsArgs']]] = None, owners: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, prevent_duplicate_names: Optional[pulumi.Input[bool]] = None, public_client: Optional[pulumi.Input[bool]] = None, reply_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None, required_resource_accesses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationRequiredResourceAccessArgs']]]]] = None, type: Optional[pulumi.Input[str]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -319,66 +248,24 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] app_roles: A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppRoleArgs']]]] app_roles: A collection of `app_role` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
         :param pulumi.Input[str] application_id: The Application ID.
         :param pulumi.Input[bool] available_to_other_tenants: Is this Azure AD Application available to other tenants? Defaults to `false`.
         :param pulumi.Input[str] group_membership_claims: Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.
         :param pulumi.Input[str] homepage: The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
-        :param pulumi.Input[list] identifier_uris: A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
+        :param pulumi.Input[List[pulumi.Input[str]]] identifier_uris: A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
         :param pulumi.Input[str] logout_url: The URL of the logout page.
         :param pulumi.Input[str] name: The display name for the application.
         :param pulumi.Input[bool] oauth2_allow_implicit_flow: Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
-        :param pulumi.Input[list] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationOauth2PermissionArgs']]]] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2_permissions` blocks as documented below.
         :param pulumi.Input[str] object_id: The Application's Object ID.
-        :param pulumi.Input[dict] optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-        :param pulumi.Input[list] owners: A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
+        :param pulumi.Input[pulumi.InputType['ApplicationOptionalClaimsArgs']] optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
+        :param pulumi.Input[List[pulumi.Input[str]]] owners: A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
         :param pulumi.Input[bool] prevent_duplicate_names: If `true`, will return an error when an existing Application is found with the same name. Defaults to `false`.
         :param pulumi.Input[bool] public_client: Is this Azure AD Application a public client? Defaults to `false`.
-        :param pulumi.Input[list] reply_urls: A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-        :param pulumi.Input[list] required_resource_accesses: A collection of `required_resource_access` blocks as documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] reply_urls: A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationRequiredResourceAccessArgs']]]] required_resource_accesses: A collection of `required_resource_access` blocks as documented below.
         :param pulumi.Input[str] type: Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
-
-        The **app_roles** object supports the following:
-
-          * `allowedMemberTypes` (`pulumi.Input[list]`) - Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in daemon service scenarios) by setting to `Application`, or to both.
-          * `description` (`pulumi.Input[str]`) - Permission help text that appears in the admin app assignment and consent experiences.
-          * `display_name` (`pulumi.Input[str]`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-          * `id` (`pulumi.Input[str]`) - The unique identifier of the `app_role`.
-          * `isEnabled` (`pulumi.Input[bool]`) - Determines if the permission is enabled: defaults to `true`.
-          * `value` (`pulumi.Input[str]`) - The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
-
-        The **oauth2_permissions** object supports the following:
-
-          * `adminConsentDescription` (`pulumi.Input[str]`) - Permission help text that appears in the admin consent and app assignment experiences.
-          * `adminConsentDisplayName` (`pulumi.Input[str]`) - Display name for the permission that appears in the admin consent and app assignment experiences.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-          * `isEnabled` (`pulumi.Input[bool]`) - Determines if the app role is enabled: Defaults to `true`.
-          * `type` (`pulumi.Input[str]`) - Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifier_uris` property can not not be set.
-          * `userConsentDescription` (`pulumi.Input[str]`) - Permission help text that appears in the end user consent experience.
-          * `userConsentDisplayName` (`pulumi.Input[str]`) - Display name for the permission that appears in the end user consent experience.
-          * `value` (`pulumi.Input[str]`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
-
-        The **optional_claims** object supports the following:
-
-          * `accessTokens` (`pulumi.Input[list]`)
-            * `additionalProperties` (`pulumi.Input[list]`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-            * `essential` (`pulumi.Input[bool]`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-            * `name` (`pulumi.Input[str]`) - The name of the optional claim.
-            * `source` (`pulumi.Input[str]`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-          * `idTokens` (`pulumi.Input[list]`)
-            * `additionalProperties` (`pulumi.Input[list]`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-            * `essential` (`pulumi.Input[bool]`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-            * `name` (`pulumi.Input[str]`) - The display name for the application.
-            * `source` (`pulumi.Input[str]`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-        The **required_resource_accesses** object supports the following:
-
-          * `resourceAccesses` (`pulumi.Input[list]`) - A collection of `resource_access` blocks as documented below.
-            * `id` (`pulumi.Input[str]`) - The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-            * `type` (`pulumi.Input[str]`) - Specifies whether the id property references an `OAuth2Permission` or an `AppRole`. Possible values are `Scope` or `Role`.
-
-          * `resourceAppId` (`pulumi.Input[str]`) - The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -405,7 +292,8 @@ class Application(pulumi.CustomResource):
         return Application(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
