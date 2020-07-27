@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetClientConfigResult:
     """
@@ -35,6 +36,8 @@ class GetClientConfigResult:
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         __self__.tenant_id = tenant_id
+
+
 class AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,6 +49,7 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             object_id=self.object_id,
             subscription_id=self.subscription_id,
             tenant_id=self.tenant_id)
+
 
 def get_client_config(opts=None):
     """
@@ -62,12 +66,10 @@ def get_client_config(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getClientConfig:getClientConfig', __args__, opts=opts).value
 
     return AwaitableGetClientConfigResult(
