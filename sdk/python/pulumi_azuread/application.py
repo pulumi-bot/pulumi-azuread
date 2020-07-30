@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
@@ -129,81 +129,81 @@ class Application(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         example = azuread.Application("example",
-            app_roles=[{
-                "allowedMemberTypes": [
+            app_roles=[azuread.ApplicationAppRoleArgs(
+                allowed_member_types=[
                     "User",
                     "Application",
                 ],
-                "description": "Admins can manage roles and perform all task actions",
-                "display_name": "Admin",
-                "isEnabled": True,
-                "value": "Admin",
-            }],
+                description="Admins can manage roles and perform all task actions",
+                display_name="Admin",
+                is_enabled=True,
+                value="Admin",
+            )],
             available_to_other_tenants=False,
             homepage="https://homepage",
             identifier_uris=["https://uri"],
             oauth2_allow_implicit_flow=True,
             oauth2_permissions=[
-                {
-                    "adminConsentDescription": "Allow the application to access example on behalf of the signed-in user.",
-                    "adminConsentDisplayName": "Access example",
-                    "isEnabled": True,
-                    "type": "User",
-                    "userConsentDescription": "Allow the application to access example on your behalf.",
-                    "userConsentDisplayName": "Access example",
-                    "value": "user_impersonation",
-                },
-                {
-                    "adminConsentDescription": "Administer the example application",
-                    "adminConsentDisplayName": "Administer",
-                    "isEnabled": True,
-                    "type": "Admin",
-                    "value": "administer",
-                },
+                azuread.ApplicationOauth2PermissionArgs(
+                    admin_consent_description="Allow the application to access example on behalf of the signed-in user.",
+                    admin_consent_display_name="Access example",
+                    is_enabled=True,
+                    type="User",
+                    user_consent_description="Allow the application to access example on your behalf.",
+                    user_consent_display_name="Access example",
+                    value="user_impersonation",
+                ),
+                azuread.ApplicationOauth2PermissionArgs(
+                    admin_consent_description="Administer the example application",
+                    admin_consent_display_name="Administer",
+                    is_enabled=True,
+                    type="Admin",
+                    value="administer",
+                ),
             ],
-            optional_claims={
-                "accessTokens": [
-                    {
-                        "name": "myclaim",
-                    },
-                    {
-                        "name": "otherclaim",
-                    },
+            optional_claims=azuread.ApplicationOptionalClaimsArgs(
+                access_tokens=[
+                    azuread.ApplicationOptionalClaimsAccessTokenArgs(
+                        name="myclaim",
+                    ),
+                    azuread.ApplicationOptionalClaimsAccessTokenArgs(
+                        name="otherclaim",
+                    ),
                 ],
-                "idTokens": [{
-                    "additionalProperties": ["emit_as_roles"],
-                    "essential": True,
-                    "name": "userclaim",
-                    "source": "user",
-                }],
-            },
+                id_tokens=[azuread.ApplicationOptionalClaimsIdTokenArgs(
+                    additional_properties=["emit_as_roles"],
+                    essential=True,
+                    name="userclaim",
+                    source="user",
+                )],
+            ),
             owners=["00000004-0000-0000-c000-000000000000"],
             reply_urls=["https://replyurl"],
             required_resource_accesses=[
-                {
-                    "resourceAccesses": [
-                        {
-                            "id": "...",
-                            "type": "Role",
-                        },
-                        {
-                            "id": "...",
-                            "type": "Scope",
-                        },
-                        {
-                            "id": "...",
-                            "type": "Scope",
-                        },
+                azuread.ApplicationRequiredResourceAccessArgs(
+                    resource_accesses=[
+                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
+                            id="...",
+                            type="Role",
+                        ),
+                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
+                            id="...",
+                            type="Scope",
+                        ),
+                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
+                            id="...",
+                            type="Scope",
+                        ),
                     ],
-                    "resourceAppId": "00000003-0000-0000-c000-000000000000",
-                },
-                {
-                    "resourceAccesses": [{
-                        "id": "...",
-                        "type": "Scope",
-                    }],
-                    "resourceAppId": "00000002-0000-0000-c000-000000000000",
-                },
+                    resource_app_id="00000003-0000-0000-c000-000000000000",
+                ),
+                azuread.ApplicationRequiredResourceAccessArgs(
+                    resource_accesses=[azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
+                        id="...",
+                        type="Scope",
+                    )],
+                    resource_app_id="00000002-0000-0000-c000-000000000000",
+                ),
             ],
             type="webapp/api")
         ```
@@ -280,7 +280,7 @@ class Application(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -405,7 +405,7 @@ class Application(pulumi.CustomResource):
         return Application(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

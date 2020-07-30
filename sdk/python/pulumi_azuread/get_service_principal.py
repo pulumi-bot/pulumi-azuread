@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetServicePrincipalResult:
     """
@@ -37,6 +38,8 @@ class GetServicePrincipalResult:
         if object_id and not isinstance(object_id, str):
             raise TypeError("Expected argument 'object_id' to be a str")
         __self__.object_id = object_id
+
+
 class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -50,7 +53,8 @@ class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
             oauth2_permissions=self.oauth2_permissions,
             object_id=self.object_id)
 
-def get_service_principal(application_id=None,display_name=None,oauth2_permissions=None,object_id=None,opts=None):
+
+def get_service_principal(application_id=None, display_name=None, oauth2_permissions=None, object_id=None, opts=None):
     """
     Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
 
@@ -63,7 +67,9 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
     import pulumi
     import pulumi_azuread as azuread
 
-    example = azuread.get_service_principal(display_name="my-awesome-application")
+    example = azuread.get_service_principal(azuread.GetServicePrincipalArgsArgs(
+        display_name="my-awesome-application",
+    ))
     ```
     ### By Application ID)
 
@@ -71,7 +77,9 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
     import pulumi
     import pulumi_azuread as azuread
 
-    example = azuread.get_service_principal(application_id="00000000-0000-0000-0000-000000000000")
+    example = azuread.get_service_principal(azuread.GetServicePrincipalArgsArgs(
+        application_id="00000000-0000-0000-0000-000000000000",
+    ))
     ```
     ### By Object ID)
 
@@ -79,7 +87,9 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
     import pulumi
     import pulumi_azuread as azuread
 
-    example = azuread.get_service_principal(object_id="00000000-0000-0000-0000-000000000000")
+    example = azuread.get_service_principal(azuread.GetServicePrincipalArgsArgs(
+        object_id="00000000-0000-0000-0000-000000000000",
+    ))
     ```
 
 
@@ -100,8 +110,6 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
       * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['oauth2Permissions'] = oauth2_permissions
@@ -109,7 +117,7 @@ def get_service_principal(application_id=None,display_name=None,oauth2_permissio
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getServicePrincipal:getServicePrincipal', __args__, opts=opts).value
 
     return AwaitableGetServicePrincipalResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetApplicationResult:
     """
@@ -112,6 +113,8 @@ class GetApplicationResult:
         """
         The type of the permission
         """
+
+
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -136,7 +139,8 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             required_resource_accesses=self.required_resource_accesses,
             type=self.type)
 
-def get_application(application_id=None,name=None,oauth2_permissions=None,object_id=None,optional_claims=None,opts=None):
+
+def get_application(application_id=None, name=None, oauth2_permissions=None, object_id=None, optional_claims=None, opts=None):
     """
     Use this data source to access information about an existing Application within Azure Active Directory.
 
@@ -148,7 +152,9 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
     import pulumi
     import pulumi_azuread as azuread
 
-    example = azuread.get_application(name="My First AzureAD Application")
+    example = azuread.get_application(azuread.GetApplicationArgsArgs(
+        name="My First AzureAD Application",
+    ))
     pulumi.export("azureAdObjectId", example.id)
     ```
 
@@ -185,8 +191,6 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
         * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['name'] = name
     __args__['oauth2Permissions'] = oauth2_permissions
@@ -195,7 +199,7 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getApplication:getApplication', __args__, opts=opts).value
 
     return AwaitableGetApplicationResult(
