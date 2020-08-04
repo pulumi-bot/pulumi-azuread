@@ -21,3 +21,8 @@ from .service_principal import *
 from .service_principal_certificate import *
 from .service_principal_password import *
 from .user import *
+
+# Make subpackages available:
+from . import (
+    config,
+)
