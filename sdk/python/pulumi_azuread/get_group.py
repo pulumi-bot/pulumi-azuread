@@ -5,8 +5,15 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = [
+    'GetGroupResult',
+    'AwaitableGetGroupResult',
+    'get_group',
+]
+
 
 class GetGroupResult:
     """
@@ -46,6 +53,8 @@ class GetGroupResult:
         """
         The Object IDs of the Azure AD Group owners.
         """
+
+
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -59,7 +68,10 @@ class AwaitableGetGroupResult(GetGroupResult):
             object_id=self.object_id,
             owners=self.owners)
 
-def get_group(name=None,object_id=None,opts=None):
+
+def get_group(name: Optional[str] = None,
+              object_id: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Gets information about an Azure Active Directory group.
 
@@ -80,14 +92,12 @@ def get_group(name=None,object_id=None,opts=None):
     :param str object_id: Specifies the Object ID of the AD Group within Azure Active Directory.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['objectId'] = object_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getGroup:getGroup', __args__, opts=opts).value
 
     return AwaitableGetGroupResult(
