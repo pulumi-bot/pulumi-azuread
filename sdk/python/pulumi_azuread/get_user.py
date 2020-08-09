@@ -5,8 +5,15 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = [
+    'GetUserResult',
+    'AwaitableGetUserResult',
+    'get_user',
+]
+
 
 class GetUserResult:
     """
@@ -76,6 +83,8 @@ class GetUserResult:
         """
         The User Principal Name of the Azure AD User.
         """
+
+
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -94,7 +103,11 @@ class AwaitableGetUserResult(GetUserResult):
             usage_location=self.usage_location,
             user_principal_name=self.user_principal_name)
 
-def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=None):
+
+def get_user(mail_nickname: Optional[str] = None,
+             object_id: Optional[str] = None,
+             user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Gets information about an Azure Active Directory user.
 
@@ -115,15 +128,13 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     :param str user_principal_name: The User Principal Name of the Azure AD User.
     """
     __args__ = dict()
-
-
     __args__['mailNickname'] = mail_nickname
     __args__['objectId'] = object_id
     __args__['userPrincipalName'] = user_principal_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getUser:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(
