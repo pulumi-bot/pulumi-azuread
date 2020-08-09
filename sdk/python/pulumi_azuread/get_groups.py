@@ -5,8 +5,15 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = [
+    'GetGroupsResult',
+    'AwaitableGetGroupsResult',
+    'get_groups',
+]
+
 
 class GetGroupsResult:
     """
@@ -31,6 +38,8 @@ class GetGroupsResult:
         """
         The Object IDs of the Azure AD Groups.
         """
+
+
 class AwaitableGetGroupsResult(GetGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -41,7 +50,10 @@ class AwaitableGetGroupsResult(GetGroupsResult):
             names=self.names,
             object_ids=self.object_ids)
 
-def get_groups(names=None,object_ids=None,opts=None):
+
+def get_groups(names: Optional[List[str]] = None,
+               object_ids: Optional[List[str]] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupsResult:
     """
     Gets Object IDs or Display Names for multiple Azure Active Directory groups.
 
@@ -60,18 +72,16 @@ def get_groups(names=None,object_ids=None,opts=None):
     ```
 
 
-    :param list names: The Display Names of the Azure AD Groups.
-    :param list object_ids: The Object IDs of the Azure AD Groups.
+    :param List[str] names: The Display Names of the Azure AD Groups.
+    :param List[str] object_ids: The Object IDs of the Azure AD Groups.
     """
     __args__ = dict()
-
-
     __args__['names'] = names
     __args__['objectIds'] = object_ids
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuread:index/getGroups:getGroups', __args__, opts=opts).value
 
     return AwaitableGetGroupsResult(
