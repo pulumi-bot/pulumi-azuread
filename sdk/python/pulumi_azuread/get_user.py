@@ -5,8 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = [
+    'GetUserResult',
+    'AwaitableGetUserResult',
+    'get_user',
+]
+
+
+@pulumi.output_type
+class _GetUserResult(dict):
+    account_enabled: bool = pulumi.property("accountEnabled")
+    display_name: str = pulumi.property("displayName")
+    id: str = pulumi.property("id")
+    immutable_id: str = pulumi.property("immutableId")
+    mail: str = pulumi.property("mail")
+    mail_nickname: str = pulumi.property("mailNickname")
+    object_id: str = pulumi.property("objectId")
+    onpremises_sam_account_name: str = pulumi.property("onpremisesSamAccountName")
+    onpremises_user_principal_name: str = pulumi.property("onpremisesUserPrincipalName")
+    usage_location: str = pulumi.property("usageLocation")
+    user_principal_name: str = pulumi.property("userPrincipalName")
+
 
 class GetUserResult:
     """
@@ -76,6 +98,8 @@ class GetUserResult:
         """
         The User Principal Name of the Azure AD User.
         """
+
+
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -94,7 +118,11 @@ class AwaitableGetUserResult(GetUserResult):
             usage_location=self.usage_location,
             user_principal_name=self.user_principal_name)
 
-def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=None):
+
+def get_user(mail_nickname: Optional[str] = None,
+             object_id: Optional[str] = None,
+             user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Gets information about an Azure Active Directory user.
 
@@ -115,26 +143,24 @@ def get_user(mail_nickname=None,object_id=None,user_principal_name=None,opts=Non
     :param str user_principal_name: The User Principal Name of the Azure AD User.
     """
     __args__ = dict()
-
-
     __args__['mailNickname'] = mail_nickname
     __args__['objectId'] = object_id
     __args__['userPrincipalName'] = user_principal_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuread:index/getUser:getUser', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuread:index/getUser:getUser', __args__, opts=opts, typ=_GetUserResult).value
 
     return AwaitableGetUserResult(
-        account_enabled=__ret__.get('accountEnabled'),
-        display_name=__ret__.get('displayName'),
-        id=__ret__.get('id'),
-        immutable_id=__ret__.get('immutableId'),
-        mail=__ret__.get('mail'),
-        mail_nickname=__ret__.get('mailNickname'),
-        object_id=__ret__.get('objectId'),
-        onpremises_sam_account_name=__ret__.get('onpremisesSamAccountName'),
-        onpremises_user_principal_name=__ret__.get('onpremisesUserPrincipalName'),
-        usage_location=__ret__.get('usageLocation'),
-        user_principal_name=__ret__.get('userPrincipalName'))
+        account_enabled=_utilities.get_dict_value(__ret__, 'accountEnabled'),
+        display_name=_utilities.get_dict_value(__ret__, 'displayName'),
+        id=_utilities.get_dict_value(__ret__, 'id'),
+        immutable_id=_utilities.get_dict_value(__ret__, 'immutableId'),
+        mail=_utilities.get_dict_value(__ret__, 'mail'),
+        mail_nickname=_utilities.get_dict_value(__ret__, 'mailNickname'),
+        object_id=_utilities.get_dict_value(__ret__, 'objectId'),
+        onpremises_sam_account_name=_utilities.get_dict_value(__ret__, 'onpremisesSamAccountName'),
+        onpremises_user_principal_name=_utilities.get_dict_value(__ret__, 'onpremisesUserPrincipalName'),
+        usage_location=_utilities.get_dict_value(__ret__, 'usageLocation'),
+        user_principal_name=_utilities.get_dict_value(__ret__, 'userPrincipalName'))

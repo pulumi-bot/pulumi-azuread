@@ -5,8 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = [
+    'GetClientConfigResult',
+    'AwaitableGetClientConfigResult',
+    'get_client_config',
+]
+
+
+@pulumi.output_type
+class _GetClientConfigResult(dict):
+    client_id: str = pulumi.property("clientId")
+    id: str = pulumi.property("id")
+    object_id: str = pulumi.property("objectId")
+    subscription_id: str = pulumi.property("subscriptionId")
+    tenant_id: str = pulumi.property("tenantId")
+
 
 class GetClientConfigResult:
     """
@@ -35,6 +51,8 @@ class GetClientConfigResult:
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         __self__.tenant_id = tenant_id
+
+
 class AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -47,7 +65,8 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             subscription_id=self.subscription_id,
             tenant_id=self.tenant_id)
 
-def get_client_config(opts=None):
+
+def get_client_config(                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
     """
     Use this data source to access the configuration of the AzureRM provider.
 
@@ -62,17 +81,15 @@ def get_client_config(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuread:index/getClientConfig:getClientConfig', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuread:index/getClientConfig:getClientConfig', __args__, opts=opts, typ=_GetClientConfigResult).value
 
     return AwaitableGetClientConfigResult(
-        client_id=__ret__.get('clientId'),
-        id=__ret__.get('id'),
-        object_id=__ret__.get('objectId'),
-        subscription_id=__ret__.get('subscriptionId'),
-        tenant_id=__ret__.get('tenantId'))
+        client_id=_utilities.get_dict_value(__ret__, 'clientId'),
+        id=_utilities.get_dict_value(__ret__, 'id'),
+        object_id=_utilities.get_dict_value(__ret__, 'objectId'),
+        subscription_id=_utilities.get_dict_value(__ret__, 'subscriptionId'),
+        tenant_id=_utilities.get_dict_value(__ret__, 'tenantId'))

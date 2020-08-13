@@ -5,8 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = [
+    'GetApplicationResult',
+    'AwaitableGetApplicationResult',
+    'get_application',
+]
+
+
+@pulumi.output_type
+class _GetApplicationResult(dict):
+    app_roles: List['outputs.GetApplicationAppRoleResult'] = pulumi.property("appRoles")
+    application_id: str = pulumi.property("applicationId")
+    available_to_other_tenants: bool = pulumi.property("availableToOtherTenants")
+    group_membership_claims: str = pulumi.property("groupMembershipClaims")
+    homepage: str = pulumi.property("homepage")
+    id: str = pulumi.property("id")
+    identifier_uris: List[str] = pulumi.property("identifierUris")
+    logout_url: str = pulumi.property("logoutUrl")
+    name: str = pulumi.property("name")
+    oauth2_allow_implicit_flow: bool = pulumi.property("oauth2AllowImplicitFlow")
+    oauth2_permissions: List['outputs.GetApplicationOauth2PermissionResult'] = pulumi.property("oauth2Permissions")
+    object_id: str = pulumi.property("objectId")
+    optional_claims: Optional['outputs.GetApplicationOptionalClaimsResult'] = pulumi.property("optionalClaims")
+    owners: List[str] = pulumi.property("owners")
+    reply_urls: List[str] = pulumi.property("replyUrls")
+    required_resource_accesses: List['outputs.GetApplicationRequiredResourceAccessResult'] = pulumi.property("requiredResourceAccesses")
+    type: str = pulumi.property("type")
+
 
 class GetApplicationResult:
     """
@@ -112,6 +142,8 @@ class GetApplicationResult:
         """
         The type of the permission
         """
+
+
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -136,7 +168,13 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             required_resource_accesses=self.required_resource_accesses,
             type=self.type)
 
-def get_application(application_id=None,name=None,oauth2_permissions=None,object_id=None,optional_claims=None,opts=None):
+
+def get_application(application_id: Optional[str] = None,
+                    name: Optional[str] = None,
+                    oauth2_permissions: Optional[List[pulumi.InputType['GetApplicationOauth2PermissionArgs']]] = None,
+                    object_id: Optional[str] = None,
+                    optional_claims: Optional[pulumi.InputType['GetApplicationOptionalClaimsArgs']] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Use this data source to access information about an existing Application within Azure Active Directory.
 
@@ -155,38 +193,11 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
 
     :param str application_id: Specifies the Application ID of the Azure Active Directory Application.
     :param str name: Specifies the name of the Application within Azure Active Directory.
-    :param list oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.
+    :param List[pulumi.InputType['GetApplicationOauth2PermissionArgs']] oauth2_permissions: A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by a `oauth2_permission` block as documented below.
     :param str object_id: Specifies the Object ID of the Application within Azure Active Directory.
-    :param dict optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-
-    The **oauth2_permissions** object supports the following:
-
-      * `adminConsentDescription` (`str`) - The description of the admin consent
-      * `adminConsentDisplayName` (`str`) - The display name of the admin consent
-      * `id` (`str`) - The unique identifier of the `app_role`.
-      * `isEnabled` (`bool`) - Determines if the app role is enabled.
-      * `type` (`str`) - The type of the permission
-      * `userConsentDescription` (`str`) - The description of the user consent
-      * `userConsentDisplayName` (`str`) - The display name of the user consent
-      * `value` (`str`) - Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
-
-    The **optional_claims** object supports the following:
-
-      * `accessTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - Specifies the name of the Application within Azure Active Directory.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
-
-      * `idTokens` (`list`)
-        * `additionalProperties` (`list`) - List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        * `essential` (`bool`) - Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        * `name` (`str`) - Specifies the name of the Application within Azure Active Directory.
-        * `source` (`str`) - The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
+    :param pulumi.InputType['GetApplicationOptionalClaimsArgs'] optional_claims: A collection of `access_token` or `id_token` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
     """
     __args__ = dict()
-
-
     __args__['applicationId'] = application_id
     __args__['name'] = name
     __args__['oauth2Permissions'] = oauth2_permissions
@@ -195,24 +206,24 @@ def get_application(application_id=None,name=None,oauth2_permissions=None,object
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuread:index/getApplication:getApplication', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuread:index/getApplication:getApplication', __args__, opts=opts, typ=_GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        app_roles=__ret__.get('appRoles'),
-        application_id=__ret__.get('applicationId'),
-        available_to_other_tenants=__ret__.get('availableToOtherTenants'),
-        group_membership_claims=__ret__.get('groupMembershipClaims'),
-        homepage=__ret__.get('homepage'),
-        id=__ret__.get('id'),
-        identifier_uris=__ret__.get('identifierUris'),
-        logout_url=__ret__.get('logoutUrl'),
-        name=__ret__.get('name'),
-        oauth2_allow_implicit_flow=__ret__.get('oauth2AllowImplicitFlow'),
-        oauth2_permissions=__ret__.get('oauth2Permissions'),
-        object_id=__ret__.get('objectId'),
-        optional_claims=__ret__.get('optionalClaims'),
-        owners=__ret__.get('owners'),
-        reply_urls=__ret__.get('replyUrls'),
-        required_resource_accesses=__ret__.get('requiredResourceAccesses'),
-        type=__ret__.get('type'))
+        app_roles=_utilities.get_dict_value(__ret__, 'appRoles'),
+        application_id=_utilities.get_dict_value(__ret__, 'applicationId'),
+        available_to_other_tenants=_utilities.get_dict_value(__ret__, 'availableToOtherTenants'),
+        group_membership_claims=_utilities.get_dict_value(__ret__, 'groupMembershipClaims'),
+        homepage=_utilities.get_dict_value(__ret__, 'homepage'),
+        id=_utilities.get_dict_value(__ret__, 'id'),
+        identifier_uris=_utilities.get_dict_value(__ret__, 'identifierUris'),
+        logout_url=_utilities.get_dict_value(__ret__, 'logoutUrl'),
+        name=_utilities.get_dict_value(__ret__, 'name'),
+        oauth2_allow_implicit_flow=_utilities.get_dict_value(__ret__, 'oauth2AllowImplicitFlow'),
+        oauth2_permissions=_utilities.get_dict_value(__ret__, 'oauth2Permissions'),
+        object_id=_utilities.get_dict_value(__ret__, 'objectId'),
+        optional_claims=_utilities.get_dict_value(__ret__, 'optionalClaims'),
+        owners=_utilities.get_dict_value(__ret__, 'owners'),
+        reply_urls=_utilities.get_dict_value(__ret__, 'replyUrls'),
+        required_resource_accesses=_utilities.get_dict_value(__ret__, 'requiredResourceAccesses'),
+        type=_utilities.get_dict_value(__ret__, 'type'))

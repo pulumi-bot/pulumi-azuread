@@ -5,8 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+
+__all__ = [
+    'GetDomainsResult',
+    'AwaitableGetDomainsResult',
+    'get_domains',
+]
+
+
+@pulumi.output_type
+class _GetDomainsResult(dict):
+    domains: List['outputs.GetDomainsDomainResult'] = pulumi.property("domains")
+    id: str = pulumi.property("id")
+    include_unverified: Optional[bool] = pulumi.property("includeUnverified")
+    only_default: Optional[bool] = pulumi.property("onlyDefault")
+    only_initial: Optional[bool] = pulumi.property("onlyInitial")
+
 
 class GetDomainsResult:
     """
@@ -34,6 +51,8 @@ class GetDomainsResult:
         if only_initial and not isinstance(only_initial, bool):
             raise TypeError("Expected argument 'only_initial' to be a bool")
         __self__.only_initial = only_initial
+
+
 class AwaitableGetDomainsResult(GetDomainsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,7 +65,11 @@ class AwaitableGetDomainsResult(GetDomainsResult):
             only_default=self.only_default,
             only_initial=self.only_initial)
 
-def get_domains(include_unverified=None,only_default=None,only_initial=None,opts=None):
+
+def get_domains(include_unverified: Optional[bool] = None,
+                only_default: Optional[bool] = None,
+                only_initial: Optional[bool] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainsResult:
     """
     Use this data source to access information about an existing Domains within Azure Active Directory.
 
@@ -68,20 +91,18 @@ def get_domains(include_unverified=None,only_default=None,only_initial=None,opts
     :param bool only_initial: Set to `true` to only return the initial domain, which is your primary Azure Active Directory tenant domain. Defaults to `false`.
     """
     __args__ = dict()
-
-
     __args__['includeUnverified'] = include_unverified
     __args__['onlyDefault'] = only_default
     __args__['onlyInitial'] = only_initial
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuread:index/getDomains:getDomains', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuread:index/getDomains:getDomains', __args__, opts=opts, typ=_GetDomainsResult).value
 
     return AwaitableGetDomainsResult(
-        domains=__ret__.get('domains'),
-        id=__ret__.get('id'),
-        include_unverified=__ret__.get('includeUnverified'),
-        only_default=__ret__.get('onlyDefault'),
-        only_initial=__ret__.get('onlyInitial'))
+        domains=_utilities.get_dict_value(__ret__, 'domains'),
+        id=_utilities.get_dict_value(__ret__, 'id'),
+        include_unverified=_utilities.get_dict_value(__ret__, 'includeUnverified'),
+        only_default=_utilities.get_dict_value(__ret__, 'onlyDefault'),
+        only_initial=_utilities.get_dict_value(__ret__, 'onlyInitial'))
