@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
@@ -99,26 +99,26 @@ class User(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['account_enabled'] = account_enabled
+            __props__['accountEnabled'] = account_enabled
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['force_password_change'] = force_password_change
-            __props__['immutable_id'] = immutable_id
-            __props__['mail_nickname'] = mail_nickname
+            __props__['displayName'] = display_name
+            __props__['forcePasswordChange'] = force_password_change
+            __props__['immutableId'] = immutable_id
+            __props__['mailNickname'] = mail_nickname
             if password is None:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            __props__['usage_location'] = usage_location
+            __props__['usageLocation'] = usage_location
             if user_principal_name is None:
                 raise TypeError("Missing required property 'user_principal_name'")
-            __props__['user_principal_name'] = user_principal_name
+            __props__['userPrincipalName'] = user_principal_name
             __props__['mail'] = None
             __props__['object_id'] = None
             __props__['onpremises_sam_account_name'] = None
@@ -170,7 +170,7 @@ class User(pulumi.CustomResource):
         return User(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

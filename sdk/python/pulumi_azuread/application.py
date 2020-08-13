@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
@@ -280,27 +280,27 @@ class Application(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['app_roles'] = app_roles
-            __props__['available_to_other_tenants'] = available_to_other_tenants
-            __props__['group_membership_claims'] = group_membership_claims
+            __props__['appRoles'] = app_roles
+            __props__['availableToOtherTenants'] = available_to_other_tenants
+            __props__['groupMembershipClaims'] = group_membership_claims
             __props__['homepage'] = homepage
-            __props__['identifier_uris'] = identifier_uris
-            __props__['logout_url'] = logout_url
+            __props__['identifierUris'] = identifier_uris
+            __props__['logoutUrl'] = logout_url
             __props__['name'] = name
-            __props__['oauth2_allow_implicit_flow'] = oauth2_allow_implicit_flow
-            __props__['oauth2_permissions'] = oauth2_permissions
-            __props__['optional_claims'] = optional_claims
+            __props__['oauth2AllowImplicitFlow'] = oauth2_allow_implicit_flow
+            __props__['oauth2Permissions'] = oauth2_permissions
+            __props__['optionalClaims'] = optional_claims
             __props__['owners'] = owners
-            __props__['prevent_duplicate_names'] = prevent_duplicate_names
-            __props__['public_client'] = public_client
-            __props__['reply_urls'] = reply_urls
-            __props__['required_resource_accesses'] = required_resource_accesses
+            __props__['preventDuplicateNames'] = prevent_duplicate_names
+            __props__['publicClient'] = public_client
+            __props__['replyUrls'] = reply_urls
+            __props__['requiredResourceAccesses'] = required_resource_accesses
             __props__['type'] = type
             __props__['application_id'] = None
             __props__['object_id'] = None
@@ -405,7 +405,7 @@ class Application(pulumi.CustomResource):
         return Application(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class ApplicationCertificate(pulumi.CustomResource):
@@ -79,7 +79,7 @@ class ApplicationCertificate(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -87,11 +87,11 @@ class ApplicationCertificate(pulumi.CustomResource):
 
             if application_object_id is None:
                 raise TypeError("Missing required property 'application_object_id'")
-            __props__['application_object_id'] = application_object_id
-            __props__['end_date'] = end_date
-            __props__['end_date_relative'] = end_date_relative
-            __props__['key_id'] = key_id
-            __props__['start_date'] = start_date
+            __props__['applicationObjectId'] = application_object_id
+            __props__['endDate'] = end_date
+            __props__['endDateRelative'] = end_date_relative
+            __props__['keyId'] = key_id
+            __props__['startDate'] = start_date
             __props__['type'] = type
             if value is None:
                 raise TypeError("Missing required property 'value'")
@@ -133,7 +133,7 @@ class ApplicationCertificate(pulumi.CustomResource):
         return ApplicationCertificate(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
