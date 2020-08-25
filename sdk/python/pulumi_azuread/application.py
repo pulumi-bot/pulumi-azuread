@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_roles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppRoleArgs']]]]] = None,
                  available_to_other_tenants: Optional[pulumi.Input[bool]] = None,
