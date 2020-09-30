@@ -33,6 +33,7 @@
         "servicePrincipal.ts",
         "servicePrincipalCertificate.ts",
         "servicePrincipalPassword.ts",
+        "types/enums.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
