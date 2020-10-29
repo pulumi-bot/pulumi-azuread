@@ -13,35 +13,6 @@ namespace Pulumi.AzureAD
     /// Manages a Password associated with a Service Principal within Azure Active Directory.
     /// 
     /// &gt; **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureAD = Pulumi.AzureAD;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleApplication = new AzureAD.Application("exampleApplication", new AzureAD.ApplicationArgs
-    ///         {
-    ///         });
-    ///         var exampleServicePrincipal = new AzureAD.ServicePrincipal("exampleServicePrincipal", new AzureAD.ServicePrincipalArgs
-    ///         {
-    ///             ApplicationId = exampleApplication.ApplicationId,
-    ///         });
-    ///         var exampleServicePrincipalPassword = new AzureAD.ServicePrincipalPassword("exampleServicePrincipalPassword", new AzureAD.ServicePrincipalPasswordArgs
-    ///         {
-    ///             ServicePrincipalId = exampleServicePrincipal.Id,
-    ///             Description = "My managed password",
-    ///             Value = "VT=uSgbTanZhyz@%nL9Hpd+Tfay_MRV#",
-    ///             EndDate = "2099-01-01T01:02:03Z",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class ServicePrincipalPassword : Pulumi.CustomResource
     {

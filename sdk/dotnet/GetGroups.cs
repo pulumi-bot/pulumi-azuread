@@ -15,33 +15,6 @@ namespace Pulumi.AzureAD
         /// Gets Object IDs or Display Names for multiple Azure Active Directory groups.
         /// 
         /// &gt; **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var groups = Output.Create(AzureAD.GetGroups.InvokeAsync(new AzureAD.GetGroupsArgs
-        ///         {
-        ///             Names = 
-        ///             {
-        ///                 "group-a",
-        ///                 "group-b",
-        ///             },
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupsResult> InvokeAsync(GetGroupsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupsResult>("azuread:index/getGroups:getGroups", args ?? new GetGroupsArgs(), options.WithVersion());

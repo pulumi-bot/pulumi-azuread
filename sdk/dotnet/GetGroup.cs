@@ -18,26 +18,6 @@ namespace Pulumi.AzureAD
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Group Display Name)
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureAD.GetGroup.InvokeAsync(new AzureAD.GetGroupArgs
-        ///         {
-        ///             Name = "A-AD-Group",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)

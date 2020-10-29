@@ -30,20 +30,6 @@ class ApplicationCertificate(pulumi.CustomResource):
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuread as azuread
-
-        example_application = azuread.Application("exampleApplication")
-        example_application_certificate = azuread.ApplicationCertificate("exampleApplicationCertificate",
-            application_object_id=example_application.id,
-            type="AsymmetricX509Cert",
-            value=(lambda path: open(path).read())("cert.pem"),
-            end_date="2021-05-01T01:02:03Z")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_object_id: The Object ID of the Application for which this Certificate should be created. Changing this field forces a new resource to be created.

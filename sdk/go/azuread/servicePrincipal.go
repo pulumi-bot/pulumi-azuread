@@ -13,49 +13,6 @@ import (
 // Manages a Service Principal associated with an Application within Azure Active Directory.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API. Please see The Granting a Service Principal permission to manage AAD for the required steps.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
-// 			Homepage: pulumi.String("http://homepage"),
-// 			IdentifierUris: pulumi.StringArray{
-// 				pulumi.String("http://uri"),
-// 			},
-// 			ReplyUrls: pulumi.StringArray{
-// 				pulumi.String("http://replyurl"),
-// 			},
-// 			AvailableToOtherTenants: pulumi.Bool(false),
-// 			Oauth2AllowImplicitFlow: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuread.NewServicePrincipal(ctx, "exampleServicePrincipal", &azuread.ServicePrincipalArgs{
-// 			ApplicationId:             exampleApplication.ApplicationId,
-// 			AppRoleAssignmentRequired: pulumi.Bool(false),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("example"),
-// 				pulumi.String("tags"),
-// 				pulumi.String("here"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type ServicePrincipal struct {
 	pulumi.CustomResourceState
 

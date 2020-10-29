@@ -13,46 +13,6 @@ namespace Pulumi.AzureAD
     /// Manages a Service Principal associated with an Application within Azure Active Directory.
     /// 
     /// &gt; **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API. Please see The Granting a Service Principal permission to manage AAD for the required steps.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureAD = Pulumi.AzureAD;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleApplication = new AzureAD.Application("exampleApplication", new AzureAD.ApplicationArgs
-    ///         {
-    ///             Homepage = "http://homepage",
-    ///             IdentifierUris = 
-    ///             {
-    ///                 "http://uri",
-    ///             },
-    ///             ReplyUrls = 
-    ///             {
-    ///                 "http://replyurl",
-    ///             },
-    ///             AvailableToOtherTenants = false,
-    ///             Oauth2AllowImplicitFlow = true,
-    ///         });
-    ///         var exampleServicePrincipal = new AzureAD.ServicePrincipal("exampleServicePrincipal", new AzureAD.ServicePrincipalArgs
-    ///         {
-    ///             ApplicationId = exampleApplication.ApplicationId,
-    ///             AppRoleAssignmentRequired = false,
-    ///             Tags = 
-    ///             {
-    ///                 "example",
-    ///                 "tags",
-    ///                 "here",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class ServicePrincipal : Pulumi.CustomResource
     {

@@ -8,22 +8,6 @@ import * as utilities from "./utilities";
  * Manages a single Group Membership within Azure Active Directory.
  *
  * > **NOTE:** Do not use this resource at the same time as `azuread_group.members`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleUser = azuread.getUser({
- *     userPrincipalName: "jdoe@hashicorp.com",
- * });
- * const exampleGroup = new azuread.Group("exampleGroup", {});
- * const exampleGroupMember = new azuread.GroupMember("exampleGroupMember", {
- *     groupObjectId: exampleGroup.id,
- *     memberObjectId: exampleUser.then(exampleUser => exampleUser.id),
- * });
- * ```
  */
 export class GroupMember extends pulumi.CustomResource {
     /**

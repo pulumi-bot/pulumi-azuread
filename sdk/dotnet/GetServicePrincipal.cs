@@ -18,68 +18,6 @@ namespace Pulumi.AzureAD
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Application Display Name)
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-        ///         {
-        ///             DisplayName = "my-awesome-application",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// 
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Application ID)
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-        ///         {
-        ///             ApplicationId = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// 
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Object ID)
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-        ///         {
-        ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServicePrincipalResult> InvokeAsync(GetServicePrincipalArgs? args = null, InvokeOptions? options = null)
