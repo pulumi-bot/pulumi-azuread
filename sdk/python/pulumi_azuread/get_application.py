@@ -244,16 +244,6 @@ def get_application(application_id: Optional[str] = None,
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all (or owned by) applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    example = azuread.get_application(name="My First AzureAD Application")
-    pulumi.export("azureAdObjectId", example.id)
-    ```
-
 
     :param str application_id: Specifies the Application ID of the Azure Active Directory Application.
     :param str name: Specifies the name of the Application within Azure Active Directory.

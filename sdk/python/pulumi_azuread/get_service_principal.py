@@ -103,30 +103,6 @@ def get_service_principal(application_id: Optional[str] = None,
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 
     ## Example Usage
-    ### By Application Display Name)
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    example = azuread.get_service_principal(display_name="my-awesome-application")
-    ```
-    ### By Application ID)
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    example = azuread.get_service_principal(application_id="00000000-0000-0000-0000-000000000000")
-    ```
-    ### By Object ID)
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    example = azuread.get_service_principal(object_id="00000000-0000-0000-0000-000000000000")
-    ```
 
 
     :param str application_id: The ID of the Azure AD Application.

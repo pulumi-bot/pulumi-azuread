@@ -91,16 +91,6 @@ def get_domains(include_unverified: Optional[bool] = None,
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.Read.All` within the `Windows Azure Active Directory` API.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    aad_domains = azuread.get_domains()
-    pulumi.export("domains", aad_domains.domains)
-    ```
-
 
     :param bool include_unverified: Set to `true` if unverified Azure AD Domains should be included. Defaults to `false`.
     :param bool only_default: Set to `true` to only return the default domain.

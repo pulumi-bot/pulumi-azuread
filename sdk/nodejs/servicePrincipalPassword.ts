@@ -8,22 +8,6 @@ import * as utilities from "./utilities";
  * Manages a Password associated with a Service Principal within Azure Active Directory.
  *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleApplication = new azuread.Application("exampleApplication", {});
- * const exampleServicePrincipal = new azuread.ServicePrincipal("exampleServicePrincipal", {applicationId: exampleApplication.applicationId});
- * const exampleServicePrincipalPassword = new azuread.ServicePrincipalPassword("exampleServicePrincipalPassword", {
- *     servicePrincipalId: exampleServicePrincipal.id,
- *     description: "My managed password",
- *     value: `VT=uSgbTanZhyz@%nL9Hpd+Tfay_MRV#`,
- *     endDate: "2099-01-01T01:02:03Z",
- * });
- * ```
  */
 export class ServicePrincipalPassword extends pulumi.CustomResource {
     /**

@@ -30,21 +30,6 @@ class ServicePrincipalPassword(pulumi.CustomResource):
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuread as azuread
-
-        example_application = azuread.Application("exampleApplication")
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id=example_application.application_id)
-        example_service_principal_password = azuread.ServicePrincipalPassword("exampleServicePrincipalPassword",
-            service_principal_id=example_service_principal.id,
-            description="My managed password",
-            value="VT=uSgbTanZhyz@%nL9Hpd+Tfay_MRV#",
-            end_date="2099-01-01T01:02:03Z")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Password.

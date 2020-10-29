@@ -8,22 +8,6 @@ import * as utilities from "./utilities";
  * Manages a Certificate associated with an Application within Azure Active Directory.
  *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuread from "@pulumi/azuread";
- * import * from "fs";
- *
- * const exampleApplication = new azuread.Application("exampleApplication", {});
- * const exampleApplicationCertificate = new azuread.ApplicationCertificate("exampleApplicationCertificate", {
- *     applicationObjectId: exampleApplication.id,
- *     type: "AsymmetricX509Cert",
- *     value: fs.readFileSync("cert.pem"),
- *     endDate: "2021-05-01T01:02:03Z",
- * });
- * ```
  */
 export class ApplicationCertificate extends pulumi.CustomResource {
     /**

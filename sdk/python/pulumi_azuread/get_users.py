@@ -110,18 +110,6 @@ def get_users(ignore_missing: Optional[bool] = None,
 
     > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read directory data` within the `Windows Azure Active Directory` API.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuread as azuread
-
-    users = azuread.get_users(user_principal_names=[
-        "kat@hashicorp.com",
-        "byte@hashicorp.com",
-    ])
-    ```
-
 
     :param bool ignore_missing: Ignore missing users and return users that were found. The data source will still fail if no users are found. Defaults to false.
     :param Sequence[str] mail_nicknames: The email aliases of the Azure AD Users.

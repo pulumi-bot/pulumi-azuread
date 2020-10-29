@@ -15,29 +15,6 @@ namespace Pulumi.AzureAD
         /// Use this data source to access information about an existing Domains within Azure Active Directory.
         /// 
         /// &gt; **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Directory.Read.All` within the `Windows Azure Active Directory` API.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureAD = Pulumi.AzureAD;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var aadDomains = Output.Create(AzureAD.GetDomains.InvokeAsync());
-        ///         this.Domains = aadDomains.Apply(aadDomains =&gt; aadDomains.Domains);
-        ///     }
-        /// 
-        ///     [Output("domains")]
-        ///     public Output&lt;string&gt; Domains { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainsResult> InvokeAsync(GetDomainsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainsResult>("azuread:index/getDomains:getDomains", args ?? new GetDomainsArgs(), options.WithVersion());

@@ -30,21 +30,6 @@ class ServicePrincipalCertificate(pulumi.CustomResource):
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuread as azuread
-
-        example_application = azuread.Application("exampleApplication")
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id=example_application.application_id)
-        example_service_principal_certificate = azuread.ServicePrincipalCertificate("exampleServicePrincipalCertificate",
-            service_principal_id=example_service_principal.id,
-            type="AsymmetricX509Cert",
-            value=(lambda path: open(path).read())("cert.pem"),
-            end_date="2021-05-01T01:02:03Z")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_date: The End Date which the Certificate is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.

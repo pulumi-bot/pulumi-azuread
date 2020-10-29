@@ -28,30 +28,6 @@ class Group(pulumi.CustomResource):
 
         > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to `Read and write all groups` within the `Windows Azure Active Directory` API. In addition it must also have either the `Company Administrator` or `User Account Administrator` Azure Active Directory roles assigned in order to be able to delete groups. You can assign one of the required Azure Active Directory Roles with the **AzureAD PowerShell Module**, which is available for Windows PowerShell or in the Azure Cloud Shell. Please refer to [this documentation](https://docs.microsoft.com/en-us/powershell/module/azuread/add-azureaddirectoryrolemember) for more details.
 
-        ## Example Usage
-
-        *Basic example*
-
-        ```python
-        import pulumi
-        import pulumi_azuread as azuread
-
-        example = azuread.Group("example")
-        ```
-
-        *A group with members*
-
-        ```python
-        import pulumi
-        import pulumi_azuread as azuread
-
-        example_user = azuread.User("exampleUser",
-            display_name="J Doe",
-            password="notSecure123",
-            user_principal_name="jdoe@hashicorp.com")
-        example_group = azuread.Group("exampleGroup", members=[example_user.object_id])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description for the Group.  Changing this forces a new resource to be created.
