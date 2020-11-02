@@ -23,6 +23,12 @@ import * as utilities from "./utilities";
  *     endDate: "2099-01-01T01:02:03Z",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Passwords can be imported using the `object id` of an Application and the `key id` of the password, e.g. shell
+ *
+ *  -> **NOTE:** This ID format is unique to Terraform and is composed of the Application's Object ID, the string "password" and the Password's Key ID in the format `{ObjectId}/password/{PasswordKeyId}`.
  */
 export class ApplicationPassword extends pulumi.CustomResource {
     /**

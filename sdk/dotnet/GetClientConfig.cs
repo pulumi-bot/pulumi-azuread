@@ -14,6 +14,7 @@ namespace Pulumi.AzureAD
         /// <summary>
         /// Use this data source to access the configuration of the AzureRM provider.
         /// 
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

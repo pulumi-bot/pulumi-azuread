@@ -35,6 +35,10 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Active Directory Users can be imported using the `object id`, e.g. shell
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

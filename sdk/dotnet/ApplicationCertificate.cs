@@ -39,6 +39,12 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Certificates can be imported using the `object id` of an Application and the `key id` of the certificate, e.g. shell
+    /// 
+    ///  -&gt; **NOTE:** This ID format is unique to Terraform and is composed of the Application's Object ID, the string "certificate" and the Certificate's Key ID in the format `{ObjectId}/certificate/{CertificateKeyId}`.
     /// </summary>
     public partial class ApplicationCertificate : Pulumi.CustomResource
     {

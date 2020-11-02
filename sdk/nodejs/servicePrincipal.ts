@@ -34,6 +34,10 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Azure Active Directory Service Principals can be imported using the `object id`, e.g. shell
  */
 export class ServicePrincipal extends pulumi.CustomResource {
     /**

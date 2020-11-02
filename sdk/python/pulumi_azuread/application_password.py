@@ -45,6 +45,12 @@ class ApplicationPassword(pulumi.CustomResource):
             end_date="2099-01-01T01:02:03Z")
         ```
 
+        ## Import
+
+        Passwords can be imported using the `object id` of an Application and the `key id` of the password, e.g. shell
+
+         -> **NOTE:** This ID format is unique to Terraform and is composed of the Application's Object ID, the string "password" and the Password's Key ID in the format `{ObjectId}/password/{PasswordKeyId}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_object_id: The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.
