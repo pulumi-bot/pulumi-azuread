@@ -53,6 +53,10 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Active Directory Service Principals can be imported using the `object id`, e.g.
     /// </summary>
     public partial class ServicePrincipal : Pulumi.CustomResource
     {

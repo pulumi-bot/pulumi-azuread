@@ -147,6 +147,10 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Active Directory Applications can be imported using the `object id`, e.g.
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

@@ -125,6 +125,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Azure Active Directory Applications can be imported using the `object id`, e.g.
 type Application struct {
 	pulumi.CustomResourceState
 

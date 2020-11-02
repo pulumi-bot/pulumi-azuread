@@ -97,6 +97,10 @@ import * as utilities from "./utilities";
  *     type: "webapp/api",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Azure Active Directory Applications can be imported using the `object id`, e.g.
  */
 export class Application extends pulumi.CustomResource {
     /**

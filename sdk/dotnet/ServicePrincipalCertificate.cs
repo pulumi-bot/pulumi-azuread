@@ -43,6 +43,12 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Certificates can be imported using the `object id` of the Service Principal and the `key id` of the certificate, e.g.
+    /// 
+    ///  -&gt; **NOTE:** This ID format is unique to Terraform and is composed of the Service Principal's Object ID, the string "certificate" and the Certificate's Key ID in the format `{ServicePrincipalObjectId}/certificate/{CertificateKeyId}`.
     /// </summary>
     public partial class ServicePrincipalCertificate : Pulumi.CustomResource
     {

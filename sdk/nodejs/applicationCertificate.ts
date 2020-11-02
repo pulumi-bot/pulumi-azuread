@@ -24,6 +24,12 @@ import * as utilities from "./utilities";
  *     endDate: "2021-05-01T01:02:03Z",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Certificates can be imported using the `object id` of an Application and the `key id` of the certificate, e.g.
+ *
+ *  -> **NOTE:** This ID format is unique to Terraform and is composed of the Application's Object ID, the string "certificate" and the Certificate's Key ID in the format `{ObjectId}/certificate/{CertificateKeyId}`.
  */
 export class ApplicationCertificate extends pulumi.CustomResource {
     /**

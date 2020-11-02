@@ -61,6 +61,10 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Active Directory Groups can be imported using the `object id`, e.g.
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {
