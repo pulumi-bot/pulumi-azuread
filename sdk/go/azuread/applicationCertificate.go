@@ -13,6 +13,12 @@ import (
 // Manages a Certificate associated with an Application within Azure Active Directory.
 //
 // > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
+//
+// ## Import
+//
+// Certificates can be imported using the `object id` of an Application and the `key id` of the certificate, e.g. ell
+//
+//  -> **NOTE:** This ID format is unique to Terraform and is composed of the Application's Object ID, the string "certificate" and the Certificate's Key ID in the format `{ObjectId}/certificate/{CertificateKeyId}`.
 type ApplicationCertificate struct {
 	pulumi.CustomResourceState
 

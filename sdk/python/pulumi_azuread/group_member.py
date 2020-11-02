@@ -38,6 +38,12 @@ class GroupMember(pulumi.CustomResource):
             member_object_id=example_user.id)
         ```
 
+        ## Import
+
+        Azure Active Directory Group Members can be imported using the `object id`, e.g. ell
+
+         -> **NOTE:** This ID format is unique to Terraform and is composed of the Azure AD Group Object ID and the target Member Object ID in the format `{GroupObjectID}/member/{MemberObjectID}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_object_id: The Object ID of the Azure AD Group you want to add the Member to.  Changing this forces a new resource to be created.

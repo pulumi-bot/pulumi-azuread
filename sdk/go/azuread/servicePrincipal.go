@@ -56,6 +56,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Azure Active Directory Service Principals can be imported using the `object id`, e.g. ell
 type ServicePrincipal struct {
 	pulumi.CustomResourceState
 

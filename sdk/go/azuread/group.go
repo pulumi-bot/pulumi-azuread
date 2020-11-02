@@ -68,6 +68,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Azure Active Directory Groups can be imported using the `object id`, e.g. ell
 type Group struct {
 	pulumi.CustomResourceState
 

@@ -51,6 +51,12 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// PPasswords can be imported using the `object id` of a Service Principal and the `key id` of the password, e.g. ell
+//
+//  -> **NOTE:** This ID format is unique to Terraform and is composed of the Service Principal's Object ID, the string "password" and the Password's Key ID in the format `{ServicePrincipalObjectId}/password/{PasswordKeyId}`.
 type ServicePrincipalPassword struct {
 	pulumi.CustomResourceState
 

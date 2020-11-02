@@ -40,6 +40,12 @@ namespace Pulumi.AzureAD
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Active Directory Group Members can be imported using the `object id`, e.g. ell
+    /// 
+    ///  -&gt; **NOTE:** This ID format is unique to Terraform and is composed of the Azure AD Group Object ID and the target Member Object ID in the format `{GroupObjectID}/member/{MemberObjectID}`.
     /// </summary>
     public partial class GroupMember : Pulumi.CustomResource
     {

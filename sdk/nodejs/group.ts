@@ -33,6 +33,10 @@ import * as utilities from "./utilities";
  * });
  * const exampleGroup = new azuread.Group("exampleGroup", {members: [exampleUser.objectId]});
  * ```
+ *
+ * ## Import
+ *
+ * Azure Active Directory Groups can be imported using the `object id`, e.g. ell
  */
 export class Group extends pulumi.CustomResource {
     /**
