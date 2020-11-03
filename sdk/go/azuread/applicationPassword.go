@@ -72,9 +72,6 @@ func NewApplicationPassword(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	if args == nil {
-		args = &ApplicationPasswordArgs{}
-	}
 	var resource ApplicationPassword
 	err := ctx.RegisterResource("azuread:index/applicationPassword:ApplicationPassword", name, args, &resource, opts...)
 	if err != nil {

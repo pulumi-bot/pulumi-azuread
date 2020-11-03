@@ -41,9 +41,6 @@ func NewServicePrincipalCertificate(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	if args == nil {
-		args = &ServicePrincipalCertificateArgs{}
-	}
 	var resource ServicePrincipalCertificate
 	err := ctx.RegisterResource("azuread:index/servicePrincipalCertificate:ServicePrincipalCertificate", name, args, &resource, opts...)
 	if err != nil {

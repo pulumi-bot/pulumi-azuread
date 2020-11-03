@@ -66,9 +66,6 @@ func NewGroupMember(ctx *pulumi.Context,
 	if args == nil || args.MemberObjectId == nil {
 		return nil, errors.New("missing required argument 'MemberObjectId'")
 	}
-	if args == nil {
-		args = &GroupMemberArgs{}
-	}
 	var resource GroupMember
 	err := ctx.RegisterResource("azuread:index/groupMember:GroupMember", name, args, &resource, opts...)
 	if err != nil {

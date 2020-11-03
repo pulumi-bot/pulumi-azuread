@@ -79,9 +79,6 @@ func NewServicePrincipal(ctx *pulumi.Context,
 	if args == nil || args.ApplicationId == nil {
 		return nil, errors.New("missing required argument 'ApplicationId'")
 	}
-	if args == nil {
-		args = &ServicePrincipalArgs{}
-	}
 	var resource ServicePrincipal
 	err := ctx.RegisterResource("azuread:index/servicePrincipal:ServicePrincipal", name, args, &resource, opts...)
 	if err != nil {

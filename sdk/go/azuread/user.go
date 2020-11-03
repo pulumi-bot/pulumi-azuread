@@ -80,9 +80,6 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil || args.UserPrincipalName == nil {
 		return nil, errors.New("missing required argument 'UserPrincipalName'")
 	}
-	if args == nil {
-		args = &UserArgs{}
-	}
 	var resource User
 	err := ctx.RegisterResource("azuread:index/user:User", name, args, &resource, opts...)
 	if err != nil {

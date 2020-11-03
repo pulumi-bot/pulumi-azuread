@@ -41,9 +41,6 @@ func NewApplicationCertificate(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	if args == nil {
-		args = &ApplicationCertificateArgs{}
-	}
 	var resource ApplicationCertificate
 	err := ctx.RegisterResource("azuread:index/applicationCertificate:ApplicationCertificate", name, args, &resource, opts...)
 	if err != nil {
