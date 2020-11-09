@@ -73,7 +73,7 @@ class ApplicationPassword(pulumi.CustomResource):
             __props__ = dict()
 
             if application_id is not None:
-                warnings.warn("Deprecated in favour of `application_object_id` to prevent confusion", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `application_object_id` to prevent confusion""", DeprecationWarning)
                 pulumi.log.warn("application_id is deprecated: Deprecated in favour of `application_object_id` to prevent confusion")
             __props__['application_id'] = application_id
             __props__['application_object_id'] = application_object_id
