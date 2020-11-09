@@ -45,6 +45,16 @@ class ServicePrincipalPassword(pulumi.CustomResource):
             end_date="2099-01-01T01:02:03Z")
         ```
 
+        ## Import
+
+        PPasswords can be imported using the `object id` of a Service Principal and the `key id` of the password, e.g.
+
+        ```sh
+         $ pulumi import azuread:index/servicePrincipalPassword:ServicePrincipalPassword test 00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111
+        ```
+
+         -> **NOTE:** This ID format is unique to Terraform and is composed of the Service Principal's Object ID, the string "password" and the Password's Key ID in the format `{ServicePrincipalObjectId}/password/{PasswordKeyId}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Password.
