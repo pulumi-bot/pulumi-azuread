@@ -4,6 +4,8 @@
 package azuread
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -81,14 +83,14 @@ type ServicePrincipalPassword struct {
 // NewServicePrincipalPassword registers a new resource with the given unique name, arguments, and options.
 func NewServicePrincipalPassword(ctx *pulumi.Context,
 	name string, args *ServicePrincipalPasswordArgs, opts ...pulumi.ResourceOption) (*ServicePrincipalPassword, error) {
-	if args == nil || args.ServicePrincipalId == nil {
-		return nil, errors.New("missing required argument 'ServicePrincipalId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ServicePrincipalPasswordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.ServicePrincipalId == nil {
+		return nil, errors.New("invalid value for required argument 'ServicePrincipalId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ServicePrincipalPassword
 	err := ctx.RegisterResource("azuread:index/servicePrincipalPassword:ServicePrincipalPassword", name, args, &resource, opts...)
@@ -186,4 +188,43 @@ type ServicePrincipalPasswordArgs struct {
 
 func (ServicePrincipalPasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicePrincipalPasswordArgs)(nil)).Elem()
+}
+
+type ServicePrincipalPasswordInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPasswordOutput() ServicePrincipalPasswordOutput
+	ToServicePrincipalPasswordOutputWithContext(ctx context.Context) ServicePrincipalPasswordOutput
+}
+
+func (ServicePrincipalPassword) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPassword)(nil)).Elem()
+}
+
+func (i ServicePrincipalPassword) ToServicePrincipalPasswordOutput() ServicePrincipalPasswordOutput {
+	return i.ToServicePrincipalPasswordOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPassword) ToServicePrincipalPasswordOutputWithContext(ctx context.Context) ServicePrincipalPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPasswordOutput)
+}
+
+type ServicePrincipalPasswordOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPasswordOutput)(nil)).Elem()
+}
+
+func (o ServicePrincipalPasswordOutput) ToServicePrincipalPasswordOutput() ServicePrincipalPasswordOutput {
+	return o
+}
+
+func (o ServicePrincipalPasswordOutput) ToServicePrincipalPasswordOutputWithContext(ctx context.Context) ServicePrincipalPasswordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServicePrincipalPasswordOutput{})
 }
