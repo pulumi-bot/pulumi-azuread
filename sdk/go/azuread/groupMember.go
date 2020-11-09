@@ -4,6 +4,8 @@
 package azuread
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,14 +70,14 @@ type GroupMember struct {
 // NewGroupMember registers a new resource with the given unique name, arguments, and options.
 func NewGroupMember(ctx *pulumi.Context,
 	name string, args *GroupMemberArgs, opts ...pulumi.ResourceOption) (*GroupMember, error) {
-	if args == nil || args.GroupObjectId == nil {
-		return nil, errors.New("missing required argument 'GroupObjectId'")
-	}
-	if args == nil || args.MemberObjectId == nil {
-		return nil, errors.New("missing required argument 'MemberObjectId'")
-	}
 	if args == nil {
-		args = &GroupMemberArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.GroupObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupObjectId'")
+	}
+	if args.MemberObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'MemberObjectId'")
 	}
 	var resource GroupMember
 	err := ctx.RegisterResource("azuread:index/groupMember:GroupMember", name, args, &resource, opts...)
@@ -133,4 +135,43 @@ type GroupMemberArgs struct {
 
 func (GroupMemberArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMemberArgs)(nil)).Elem()
+}
+
+type GroupMemberInput interface {
+	pulumi.Input
+
+	ToGroupMemberOutput() GroupMemberOutput
+	ToGroupMemberOutputWithContext(ctx context.Context) GroupMemberOutput
+}
+
+func (GroupMember) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMember)(nil)).Elem()
+}
+
+func (i GroupMember) ToGroupMemberOutput() GroupMemberOutput {
+	return i.ToGroupMemberOutputWithContext(context.Background())
+}
+
+func (i GroupMember) ToGroupMemberOutputWithContext(ctx context.Context) GroupMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMemberOutput)
+}
+
+type GroupMemberOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMemberOutput)(nil)).Elem()
+}
+
+func (o GroupMemberOutput) ToGroupMemberOutput() GroupMemberOutput {
+	return o
+}
+
+func (o GroupMemberOutput) ToGroupMemberOutputWithContext(ctx context.Context) GroupMemberOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GroupMemberOutput{})
 }

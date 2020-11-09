@@ -4,6 +4,8 @@
 package azuread
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,14 +45,14 @@ type ApplicationCertificate struct {
 // NewApplicationCertificate registers a new resource with the given unique name, arguments, and options.
 func NewApplicationCertificate(ctx *pulumi.Context,
 	name string, args *ApplicationCertificateArgs, opts ...pulumi.ResourceOption) (*ApplicationCertificate, error) {
-	if args == nil || args.ApplicationObjectId == nil {
-		return nil, errors.New("missing required argument 'ApplicationObjectId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ApplicationCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.ApplicationObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationObjectId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ApplicationCertificate
 	err := ctx.RegisterResource("azuread:index/applicationCertificate:ApplicationCertificate", name, args, &resource, opts...)
@@ -148,4 +150,43 @@ type ApplicationCertificateArgs struct {
 
 func (ApplicationCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationCertificateArgs)(nil)).Elem()
+}
+
+type ApplicationCertificateInput interface {
+	pulumi.Input
+
+	ToApplicationCertificateOutput() ApplicationCertificateOutput
+	ToApplicationCertificateOutputWithContext(ctx context.Context) ApplicationCertificateOutput
+}
+
+func (ApplicationCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCertificate)(nil)).Elem()
+}
+
+func (i ApplicationCertificate) ToApplicationCertificateOutput() ApplicationCertificateOutput {
+	return i.ToApplicationCertificateOutputWithContext(context.Background())
+}
+
+func (i ApplicationCertificate) ToApplicationCertificateOutputWithContext(ctx context.Context) ApplicationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCertificateOutput)
+}
+
+type ApplicationCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCertificateOutput)(nil)).Elem()
+}
+
+func (o ApplicationCertificateOutput) ToApplicationCertificateOutput() ApplicationCertificateOutput {
+	return o
+}
+
+func (o ApplicationCertificateOutput) ToApplicationCertificateOutputWithContext(ctx context.Context) ApplicationCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationCertificateOutput{})
 }

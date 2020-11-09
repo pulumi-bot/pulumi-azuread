@@ -4,6 +4,8 @@
 package azuread
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -77,11 +79,11 @@ type ApplicationPassword struct {
 // NewApplicationPassword registers a new resource with the given unique name, arguments, and options.
 func NewApplicationPassword(ctx *pulumi.Context,
 	name string, args *ApplicationPasswordArgs, opts ...pulumi.ResourceOption) (*ApplicationPassword, error) {
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ApplicationPasswordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ApplicationPassword
 	err := ctx.RegisterResource("azuread:index/applicationPassword:ApplicationPassword", name, args, &resource, opts...)
@@ -187,4 +189,43 @@ type ApplicationPasswordArgs struct {
 
 func (ApplicationPasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationPasswordArgs)(nil)).Elem()
+}
+
+type ApplicationPasswordInput interface {
+	pulumi.Input
+
+	ToApplicationPasswordOutput() ApplicationPasswordOutput
+	ToApplicationPasswordOutputWithContext(ctx context.Context) ApplicationPasswordOutput
+}
+
+func (ApplicationPassword) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPassword)(nil)).Elem()
+}
+
+func (i ApplicationPassword) ToApplicationPasswordOutput() ApplicationPasswordOutput {
+	return i.ToApplicationPasswordOutputWithContext(context.Background())
+}
+
+func (i ApplicationPassword) ToApplicationPasswordOutputWithContext(ctx context.Context) ApplicationPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPasswordOutput)
+}
+
+type ApplicationPasswordOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPasswordOutput)(nil)).Elem()
+}
+
+func (o ApplicationPasswordOutput) ToApplicationPasswordOutput() ApplicationPasswordOutput {
+	return o
+}
+
+func (o ApplicationPasswordOutput) ToApplicationPasswordOutputWithContext(ctx context.Context) ApplicationPasswordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationPasswordOutput{})
 }

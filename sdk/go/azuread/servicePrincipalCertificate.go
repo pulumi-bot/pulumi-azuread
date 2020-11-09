@@ -4,6 +4,8 @@
 package azuread
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,14 +45,14 @@ type ServicePrincipalCertificate struct {
 // NewServicePrincipalCertificate registers a new resource with the given unique name, arguments, and options.
 func NewServicePrincipalCertificate(ctx *pulumi.Context,
 	name string, args *ServicePrincipalCertificateArgs, opts ...pulumi.ResourceOption) (*ServicePrincipalCertificate, error) {
-	if args == nil || args.ServicePrincipalId == nil {
-		return nil, errors.New("missing required argument 'ServicePrincipalId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ServicePrincipalCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.ServicePrincipalId == nil {
+		return nil, errors.New("invalid value for required argument 'ServicePrincipalId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ServicePrincipalCertificate
 	err := ctx.RegisterResource("azuread:index/servicePrincipalCertificate:ServicePrincipalCertificate", name, args, &resource, opts...)
@@ -148,4 +150,43 @@ type ServicePrincipalCertificateArgs struct {
 
 func (ServicePrincipalCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicePrincipalCertificateArgs)(nil)).Elem()
+}
+
+type ServicePrincipalCertificateInput interface {
+	pulumi.Input
+
+	ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput
+	ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput
+}
+
+func (ServicePrincipalCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalCertificate)(nil)).Elem()
+}
+
+func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput {
+	return i.ToServicePrincipalCertificateOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalCertificateOutput)
+}
+
+type ServicePrincipalCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalCertificateOutput)(nil)).Elem()
+}
+
+func (o ServicePrincipalCertificateOutput) ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput {
+	return o
+}
+
+func (o ServicePrincipalCertificateOutput) ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServicePrincipalCertificateOutput{})
 }
