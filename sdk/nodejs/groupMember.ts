@@ -24,6 +24,16 @@ import * as utilities from "./utilities";
  *     memberObjectId: exampleUser.then(exampleUser => exampleUser.id),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Azure Active Directory Group Members can be imported using the `object id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuread:index/groupMember:GroupMember test 00000000-0000-0000-0000-000000000000/member/11111111-1111-1111-1111-111111111111
+ * ```
+ *
+ *  -> **NOTE:** This ID format is unique to Terraform and is composed of the Azure AD Group Object ID and the target Member Object ID in the format `{GroupObjectID}/member/{MemberObjectID}`.
  */
 export class GroupMember extends pulumi.CustomResource {
     /**
