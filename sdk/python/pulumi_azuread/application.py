@@ -48,81 +48,81 @@ class Application(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         example = azuread.Application("example",
-            app_roles=[azuread.ApplicationAppRoleArgs(
-                allowed_member_types=[
+            app_roles=[{
+                "allowedMemberTypes": [
                     "User",
                     "Application",
                 ],
-                description="Admins can manage roles and perform all task actions",
-                display_name="Admin",
-                is_enabled=True,
-                value="Admin",
-            )],
+                "description": "Admins can manage roles and perform all task actions",
+                "display_name": "Admin",
+                "isEnabled": True,
+                "value": "Admin",
+            }],
             available_to_other_tenants=False,
             homepage="https://homepage",
             identifier_uris=["https://uri"],
             oauth2_allow_implicit_flow=True,
             oauth2_permissions=[
-                azuread.ApplicationOauth2PermissionArgs(
-                    admin_consent_description="Allow the application to access example on behalf of the signed-in user.",
-                    admin_consent_display_name="Access example",
-                    is_enabled=True,
-                    type="User",
-                    user_consent_description="Allow the application to access example on your behalf.",
-                    user_consent_display_name="Access example",
-                    value="user_impersonation",
-                ),
-                azuread.ApplicationOauth2PermissionArgs(
-                    admin_consent_description="Administer the example application",
-                    admin_consent_display_name="Administer",
-                    is_enabled=True,
-                    type="Admin",
-                    value="administer",
-                ),
+                {
+                    "adminConsentDescription": "Allow the application to access example on behalf of the signed-in user.",
+                    "adminConsentDisplayName": "Access example",
+                    "isEnabled": True,
+                    "type": "User",
+                    "userConsentDescription": "Allow the application to access example on your behalf.",
+                    "userConsentDisplayName": "Access example",
+                    "value": "user_impersonation",
+                },
+                {
+                    "adminConsentDescription": "Administer the example application",
+                    "adminConsentDisplayName": "Administer",
+                    "isEnabled": True,
+                    "type": "Admin",
+                    "value": "administer",
+                },
             ],
-            optional_claims=azuread.ApplicationOptionalClaimsArgs(
-                access_tokens=[
-                    azuread.ApplicationOptionalClaimsAccessTokenArgs(
-                        name="myclaim",
-                    ),
-                    azuread.ApplicationOptionalClaimsAccessTokenArgs(
-                        name="otherclaim",
-                    ),
+            optional_claims={
+                "accessTokens": [
+                    {
+                        "name": "myclaim",
+                    },
+                    {
+                        "name": "otherclaim",
+                    },
                 ],
-                id_tokens=[azuread.ApplicationOptionalClaimsIdTokenArgs(
-                    additional_properties=["emit_as_roles"],
-                    essential=True,
-                    name="userclaim",
-                    source="user",
-                )],
-            ),
+                "idTokens": [{
+                    "additionalProperties": ["emit_as_roles"],
+                    "essential": True,
+                    "name": "userclaim",
+                    "source": "user",
+                }],
+            },
             owners=["00000004-0000-0000-c000-000000000000"],
             reply_urls=["https://replyurl"],
             required_resource_accesses=[
-                azuread.ApplicationRequiredResourceAccessArgs(
-                    resource_accesses=[
-                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
-                            id="...",
-                            type="Role",
-                        ),
-                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
-                            id="...",
-                            type="Scope",
-                        ),
-                        azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
-                            id="...",
-                            type="Scope",
-                        ),
+                {
+                    "resourceAccesses": [
+                        {
+                            "id": "...",
+                            "type": "Role",
+                        },
+                        {
+                            "id": "...",
+                            "type": "Scope",
+                        },
+                        {
+                            "id": "...",
+                            "type": "Scope",
+                        },
                     ],
-                    resource_app_id="00000003-0000-0000-c000-000000000000",
-                ),
-                azuread.ApplicationRequiredResourceAccessArgs(
-                    resource_accesses=[azuread.ApplicationRequiredResourceAccessResourceAccessArgs(
-                        id="...",
-                        type="Scope",
-                    )],
-                    resource_app_id="00000002-0000-0000-c000-000000000000",
-                ),
+                    "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                },
+                {
+                    "resourceAccesses": [{
+                        "id": "...",
+                        "type": "Scope",
+                    }],
+                    "resourceAppId": "00000002-0000-0000-c000-000000000000",
+                },
             ],
             type="webapp/api")
         ```
