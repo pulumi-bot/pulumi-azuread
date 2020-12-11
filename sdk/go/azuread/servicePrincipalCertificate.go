@@ -159,16 +159,31 @@ type ServicePrincipalCertificateInput interface {
 	ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput
 }
 
-func (ServicePrincipalCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePrincipalCertificate)(nil)).Elem()
+func (*ServicePrincipalCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalCertificate)(nil))
 }
 
-func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput {
+func (i *ServicePrincipalCertificate) ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput {
 	return i.ToServicePrincipalCertificateOutputWithContext(context.Background())
 }
 
-func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput {
+func (i *ServicePrincipalCertificate) ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalCertificateOutput)
+}
+
+func (i *ServicePrincipalCertificate) ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput {
+	return i.ToServicePrincipalCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *ServicePrincipalCertificate) ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalCertificatePtrOutput)
+}
+
+type ServicePrincipalCertificatePtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput
+	ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput
 }
 
 type ServicePrincipalCertificateOutput struct {
@@ -176,7 +191,7 @@ type ServicePrincipalCertificateOutput struct {
 }
 
 func (ServicePrincipalCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePrincipalCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServicePrincipalCertificate)(nil))
 }
 
 func (o ServicePrincipalCertificateOutput) ToServicePrincipalCertificateOutput() ServicePrincipalCertificateOutput {
@@ -187,6 +202,23 @@ func (o ServicePrincipalCertificateOutput) ToServicePrincipalCertificateOutputWi
 	return o
 }
 
+type ServicePrincipalCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalCertificate)(nil))
+}
+
+func (o ServicePrincipalCertificatePtrOutput) ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalCertificatePtrOutput) ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServicePrincipalCertificateOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalCertificatePtrOutput{})
 }
