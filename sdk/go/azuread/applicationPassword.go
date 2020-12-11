@@ -191,6 +191,13 @@ type ApplicationPasswordInput interface {
 	ToApplicationPasswordOutputWithContext(ctx context.Context) ApplicationPasswordOutput
 }
 
+type ApplicationPasswordPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPasswordPtrOutput() ApplicationPasswordPtrOutput
+	ToApplicationPasswordPtrOutputWithContext(ctx context.Context) ApplicationPasswordPtrOutput
+}
+
 func (ApplicationPassword) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationPassword)(nil)).Elem()
 }
@@ -201,6 +208,14 @@ func (i ApplicationPassword) ToApplicationPasswordOutput() ApplicationPasswordOu
 
 func (i ApplicationPassword) ToApplicationPasswordOutputWithContext(ctx context.Context) ApplicationPasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPasswordOutput)
+}
+
+func (i ApplicationPassword) ToApplicationPasswordPtrOutput() ApplicationPasswordPtrOutput {
+	return i.ToApplicationPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPassword) ToApplicationPasswordPtrOutputWithContext(ctx context.Context) ApplicationPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPasswordPtrOutput)
 }
 
 type ApplicationPasswordOutput struct {
@@ -219,6 +234,23 @@ func (o ApplicationPasswordOutput) ToApplicationPasswordOutputWithContext(ctx co
 	return o
 }
 
+type ApplicationPasswordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPassword)(nil)).Elem()
+}
+
+func (o ApplicationPasswordPtrOutput) ToApplicationPasswordPtrOutput() ApplicationPasswordPtrOutput {
+	return o
+}
+
+func (o ApplicationPasswordPtrOutput) ToApplicationPasswordPtrOutputWithContext(ctx context.Context) ApplicationPasswordPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationPasswordOutput{})
+	pulumi.RegisterOutputType(ApplicationPasswordPtrOutput{})
 }

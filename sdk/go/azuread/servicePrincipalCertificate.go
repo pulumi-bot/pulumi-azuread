@@ -159,6 +159,13 @@ type ServicePrincipalCertificateInput interface {
 	ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput
 }
 
+type ServicePrincipalCertificatePtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput
+	ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput
+}
+
 func (ServicePrincipalCertificate) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServicePrincipalCertificate)(nil)).Elem()
 }
@@ -169,6 +176,14 @@ func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutput() Servi
 
 func (i ServicePrincipalCertificate) ToServicePrincipalCertificateOutputWithContext(ctx context.Context) ServicePrincipalCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalCertificateOutput)
+}
+
+func (i ServicePrincipalCertificate) ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput {
+	return i.ToServicePrincipalCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalCertificate) ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalCertificatePtrOutput)
 }
 
 type ServicePrincipalCertificateOutput struct {
@@ -187,6 +202,23 @@ func (o ServicePrincipalCertificateOutput) ToServicePrincipalCertificateOutputWi
 	return o
 }
 
+type ServicePrincipalCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalCertificate)(nil)).Elem()
+}
+
+func (o ServicePrincipalCertificatePtrOutput) ToServicePrincipalCertificatePtrOutput() ServicePrincipalCertificatePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalCertificatePtrOutput) ToServicePrincipalCertificatePtrOutputWithContext(ctx context.Context) ServicePrincipalCertificatePtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServicePrincipalCertificateOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalCertificatePtrOutput{})
 }

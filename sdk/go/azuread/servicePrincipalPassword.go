@@ -197,6 +197,13 @@ type ServicePrincipalPasswordInput interface {
 	ToServicePrincipalPasswordOutputWithContext(ctx context.Context) ServicePrincipalPasswordOutput
 }
 
+type ServicePrincipalPasswordPtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPasswordPtrOutput() ServicePrincipalPasswordPtrOutput
+	ToServicePrincipalPasswordPtrOutputWithContext(ctx context.Context) ServicePrincipalPasswordPtrOutput
+}
+
 func (ServicePrincipalPassword) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServicePrincipalPassword)(nil)).Elem()
 }
@@ -207,6 +214,14 @@ func (i ServicePrincipalPassword) ToServicePrincipalPasswordOutput() ServicePrin
 
 func (i ServicePrincipalPassword) ToServicePrincipalPasswordOutputWithContext(ctx context.Context) ServicePrincipalPasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPasswordOutput)
+}
+
+func (i ServicePrincipalPassword) ToServicePrincipalPasswordPtrOutput() ServicePrincipalPasswordPtrOutput {
+	return i.ToServicePrincipalPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPassword) ToServicePrincipalPasswordPtrOutputWithContext(ctx context.Context) ServicePrincipalPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPasswordPtrOutput)
 }
 
 type ServicePrincipalPasswordOutput struct {
@@ -225,6 +240,23 @@ func (o ServicePrincipalPasswordOutput) ToServicePrincipalPasswordOutputWithCont
 	return o
 }
 
+type ServicePrincipalPasswordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalPassword)(nil)).Elem()
+}
+
+func (o ServicePrincipalPasswordPtrOutput) ToServicePrincipalPasswordPtrOutput() ServicePrincipalPasswordPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPasswordPtrOutput) ToServicePrincipalPasswordPtrOutputWithContext(ctx context.Context) ServicePrincipalPasswordPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServicePrincipalPasswordOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPasswordPtrOutput{})
 }

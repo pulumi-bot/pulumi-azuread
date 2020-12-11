@@ -159,6 +159,13 @@ type ApplicationCertificateInput interface {
 	ToApplicationCertificateOutputWithContext(ctx context.Context) ApplicationCertificateOutput
 }
 
+type ApplicationCertificatePtrInput interface {
+	pulumi.Input
+
+	ToApplicationCertificatePtrOutput() ApplicationCertificatePtrOutput
+	ToApplicationCertificatePtrOutputWithContext(ctx context.Context) ApplicationCertificatePtrOutput
+}
+
 func (ApplicationCertificate) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationCertificate)(nil)).Elem()
 }
@@ -169,6 +176,14 @@ func (i ApplicationCertificate) ToApplicationCertificateOutput() ApplicationCert
 
 func (i ApplicationCertificate) ToApplicationCertificateOutputWithContext(ctx context.Context) ApplicationCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCertificateOutput)
+}
+
+func (i ApplicationCertificate) ToApplicationCertificatePtrOutput() ApplicationCertificatePtrOutput {
+	return i.ToApplicationCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationCertificate) ToApplicationCertificatePtrOutputWithContext(ctx context.Context) ApplicationCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCertificatePtrOutput)
 }
 
 type ApplicationCertificateOutput struct {
@@ -187,6 +202,23 @@ func (o ApplicationCertificateOutput) ToApplicationCertificateOutputWithContext(
 	return o
 }
 
+type ApplicationCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCertificate)(nil)).Elem()
+}
+
+func (o ApplicationCertificatePtrOutput) ToApplicationCertificatePtrOutput() ApplicationCertificatePtrOutput {
+	return o
+}
+
+func (o ApplicationCertificatePtrOutput) ToApplicationCertificatePtrOutputWithContext(ctx context.Context) ApplicationCertificatePtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationCertificateOutput{})
+	pulumi.RegisterOutputType(ApplicationCertificatePtrOutput{})
 }

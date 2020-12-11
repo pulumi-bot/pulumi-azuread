@@ -181,6 +181,13 @@ type ServicePrincipalInput interface {
 	ToServicePrincipalOutputWithContext(ctx context.Context) ServicePrincipalOutput
 }
 
+type ServicePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput
+	ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput
+}
+
 func (ServicePrincipal) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServicePrincipal)(nil)).Elem()
 }
@@ -191,6 +198,14 @@ func (i ServicePrincipal) ToServicePrincipalOutput() ServicePrincipalOutput {
 
 func (i ServicePrincipal) ToServicePrincipalOutputWithContext(ctx context.Context) ServicePrincipalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalOutput)
+}
+
+func (i ServicePrincipal) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return i.ToServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipal) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPtrOutput)
 }
 
 type ServicePrincipalOutput struct {
@@ -209,6 +224,23 @@ func (o ServicePrincipalOutput) ToServicePrincipalOutputWithContext(ctx context.
 	return o
 }
 
+type ServicePrincipalPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServicePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipal)(nil)).Elem()
+}
+
+func (o ServicePrincipalPtrOutput) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPtrOutput) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServicePrincipalOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPtrOutput{})
 }
