@@ -199,16 +199,31 @@ type ApplicationAppRoleInput interface {
 	ToApplicationAppRoleOutputWithContext(ctx context.Context) ApplicationAppRoleOutput
 }
 
-func (ApplicationAppRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationAppRole)(nil)).Elem()
+func (*ApplicationAppRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAppRole)(nil))
 }
 
-func (i ApplicationAppRole) ToApplicationAppRoleOutput() ApplicationAppRoleOutput {
+func (i *ApplicationAppRole) ToApplicationAppRoleOutput() ApplicationAppRoleOutput {
 	return i.ToApplicationAppRoleOutputWithContext(context.Background())
 }
 
-func (i ApplicationAppRole) ToApplicationAppRoleOutputWithContext(ctx context.Context) ApplicationAppRoleOutput {
+func (i *ApplicationAppRole) ToApplicationAppRoleOutputWithContext(ctx context.Context) ApplicationAppRoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppRoleOutput)
+}
+
+func (i *ApplicationAppRole) ToApplicationAppRolePtrOutput() ApplicationAppRolePtrOutput {
+	return i.ToApplicationAppRolePtrOutputWithContext(context.Background())
+}
+
+func (i *ApplicationAppRole) ToApplicationAppRolePtrOutputWithContext(ctx context.Context) ApplicationAppRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppRolePtrOutput)
+}
+
+type ApplicationAppRolePtrInput interface {
+	pulumi.Input
+
+	ToApplicationAppRolePtrOutput() ApplicationAppRolePtrOutput
+	ToApplicationAppRolePtrOutputWithContext(ctx context.Context) ApplicationAppRolePtrOutput
 }
 
 type ApplicationAppRoleOutput struct {
@@ -216,7 +231,7 @@ type ApplicationAppRoleOutput struct {
 }
 
 func (ApplicationAppRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationAppRoleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationAppRole)(nil))
 }
 
 func (o ApplicationAppRoleOutput) ToApplicationAppRoleOutput() ApplicationAppRoleOutput {
@@ -227,6 +242,23 @@ func (o ApplicationAppRoleOutput) ToApplicationAppRoleOutputWithContext(ctx cont
 	return o
 }
 
+type ApplicationAppRolePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationAppRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAppRole)(nil))
+}
+
+func (o ApplicationAppRolePtrOutput) ToApplicationAppRolePtrOutput() ApplicationAppRolePtrOutput {
+	return o
+}
+
+func (o ApplicationAppRolePtrOutput) ToApplicationAppRolePtrOutputWithContext(ctx context.Context) ApplicationAppRolePtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationAppRoleOutput{})
+	pulumi.RegisterOutputType(ApplicationAppRolePtrOutput{})
 }
