@@ -25,7 +25,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "My First AzureAD Application"
 // 		example, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
-// 			Name: &opt0,
+// 			Name: _opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

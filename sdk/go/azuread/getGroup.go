@@ -26,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "A-AD-Group"
 // 		_, err := azuread.LookupGroup(ctx, &azuread.LookupGroupArgs{
-// 			Name: &opt0,
+// 			Name: _opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
