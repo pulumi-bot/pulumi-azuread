@@ -350,7 +350,7 @@ func (i ApplicationOptionalClaimsArgs) ToApplicationOptionalClaimsPtrOutput() Ap
 }
 
 func (i ApplicationOptionalClaimsArgs) ToApplicationOptionalClaimsPtrOutputWithContext(ctx context.Context) ApplicationOptionalClaimsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOptionalClaimsOutput).ToApplicationOptionalClaimsPtrOutputWithContext(ctx)
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOptionalClaimsOutput).ToApplicationOptionalClaimsPtrOutput()
 }
 
 // ApplicationOptionalClaimsPtrInput is an input type that accepts ApplicationOptionalClaimsArgs, ApplicationOptionalClaimsPtr and ApplicationOptionalClaimsPtrOutput values.
@@ -383,7 +383,7 @@ func (i *applicationOptionalClaimsPtrType) ToApplicationOptionalClaimsPtrOutput(
 }
 
 func (i *applicationOptionalClaimsPtrType) ToApplicationOptionalClaimsPtrOutputWithContext(ctx context.Context) ApplicationOptionalClaimsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOptionalClaimsPtrOutput)
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOptionalClaimsOutput).ToApplicationOptionalClaimsPtrOutput()
 }
 
 type ApplicationOptionalClaimsOutput struct{ *pulumi.OutputState }
