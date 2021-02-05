@@ -104,6 +104,95 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "client_certificate_password")
+
+    @property
+    @pulumi.getter(name="clientCertificatePath")
+    def client_certificate_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+        Principal using a Client Certificate.
+        """
+        return pulumi.get(self, "client_certificate_path")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client ID which should be used for service principal authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password to decrypt the Client Certificate. For use when authenticating as a Service Principal using a Client
+        Certificate
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="disableTerraformPartnerId")
+    def disable_terraform_partner_id(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        """
+        return pulumi.get(self, "disable_terraform_partner_id")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Cloud Environment which should be used. Possible values are `public`, `usgovernment`, `german`, and `china`.
+        Defaults to `public`.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="metadataHost")
+    def metadata_host(self) -> pulumi.Output[str]:
+        """
+        The Hostname which should be used for the Azure Metadata Service.
+        """
+        return pulumi.get(self, "metadata_host")
+
+    @property
+    @pulumi.getter(name="msiEndpoint")
+    def msi_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+        automatically.
+        """
+        return pulumi.get(self, "msi_endpoint")
+
+    @property
+    @pulumi.getter(name="partnerId")
+    def partner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        """
+        return pulumi.get(self, "partner_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Tenant ID which should be used. Works with all authentication methods except MSI.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useMsi")
+    def use_msi(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allow Managed Service Identity to be used for Authentication.
+        """
+        return pulumi.get(self, "use_msi")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
