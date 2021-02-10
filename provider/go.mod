@@ -13,3 +13,5 @@ replace (
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 	github.com/terraform-providers/terraform-provider-azuread/shim => ./shim
 )
+
+replace github.com/pulumi/pulumi-terraform-bridge/v2 => ../../pulumi-terraform-bridge
