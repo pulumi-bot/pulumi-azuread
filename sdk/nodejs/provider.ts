@@ -66,30 +66,30 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly clientCertificatePassword?: pulumi.Input<string>;
+    readonly clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
      * Principal using a Client Certificate.
      */
-    readonly clientCertificatePath?: pulumi.Input<string>;
+    readonly clientCertificatePath?: pulumi.Input<string | undefined>;
     /**
      * The Client ID which should be used for service principal authentication.
      */
-    readonly clientId?: pulumi.Input<string>;
+    readonly clientId?: pulumi.Input<string | undefined>;
     /**
      * The password to decrypt the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    readonly clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
      */
-    readonly disableTerraformPartnerId?: pulumi.Input<boolean>;
+    readonly disableTerraformPartnerId?: pulumi.Input<boolean | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are `public`, `usgovernment`, `german`, and `china`.
      * Defaults to `public`.
      */
-    readonly environment?: pulumi.Input<string>;
+    readonly environment?: pulumi.Input<string | undefined>;
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */
@@ -98,17 +98,17 @@ export interface ProviderArgs {
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      */
-    readonly msiEndpoint?: pulumi.Input<string>;
+    readonly msiEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    readonly partnerId?: pulumi.Input<string>;
+    readonly partnerId?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID which should be used. Works with all authentication methods except MSI.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    readonly tenantId?: pulumi.Input<string | undefined>;
     /**
      * Allow Managed Service Identity to be used for Authentication.
      */
-    readonly useMsi?: pulumi.Input<boolean>;
+    readonly useMsi?: pulumi.Input<boolean | undefined>;
 }

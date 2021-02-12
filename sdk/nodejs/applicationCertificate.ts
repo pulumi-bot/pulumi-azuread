@@ -133,35 +133,35 @@ export interface ApplicationCertificateState {
     /**
      * The Object ID of the Application for which this Certificate should be created. Changing this field forces a new resource to be created.
      */
-    readonly applicationObjectId?: pulumi.Input<string>;
+    readonly applicationObjectId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the encoding used for the supplied certificate data. Must be one of `pem`, `base64` or `hex`. Defaults to `pem`.
      */
-    readonly encoding?: pulumi.Input<string>;
+    readonly encoding?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Certificate is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Certificate. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The Start Date which the Certificate is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The type of key/certificate. Must be one of `AsymmetricX509Cert` or `Symmetric`. Changing this fields forces a new resource to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | undefined>;
     /**
      * The certificate data, which can be PEM encoded, base64 encoded DER or hexadecimal encoded DER. See also the `encoding` argument.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,27 +175,27 @@ export interface ApplicationCertificateArgs {
     /**
      * Specifies the encoding used for the supplied certificate data. Must be one of `pem`, `base64` or `hex`. Defaults to `pem`.
      */
-    readonly encoding?: pulumi.Input<string>;
+    readonly encoding?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Certificate is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Certificate is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Certificate. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The Start Date which the Certificate is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The type of key/certificate. Must be one of `AsymmetricX509Cert` or `Symmetric`. Changing this fields forces a new resource to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | undefined>;
     /**
      * The certificate data, which can be PEM encoded, base64 encoded DER or hexadecimal encoded DER. See also the `encoding` argument.
      */

@@ -246,99 +246,99 @@ export interface UserState {
     /**
      * `true` if the account should be enabled, otherwise `false`. Defaults to `true`.
      */
-    readonly accountEnabled?: pulumi.Input<boolean>;
+    readonly accountEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The city in which the user is located.
      */
-    readonly city?: pulumi.Input<string>;
+    readonly city?: pulumi.Input<string | undefined>;
     /**
      * The company name which the user is associated. This property can be useful for describing the company that an external user comes from.
      */
-    readonly companyName?: pulumi.Input<string>;
+    readonly companyName?: pulumi.Input<string | undefined>;
     /**
      * The country/region in which the user is located; for example, “US” or “UK”.
      */
-    readonly country?: pulumi.Input<string>;
+    readonly country?: pulumi.Input<string | undefined>;
     /**
      * The name for the department in which the user works.
      */
-    readonly department?: pulumi.Input<string>;
+    readonly department?: pulumi.Input<string | undefined>;
     /**
      * The name to display in the address book for the user.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * `true` if the User is forced to change the password during the next sign-in. Defaults to `false`.
      */
-    readonly forcePasswordChange?: pulumi.Input<boolean>;
+    readonly forcePasswordChange?: pulumi.Input<boolean | undefined>;
     /**
      * The given name (first name) of the user.
      */
-    readonly givenName?: pulumi.Input<string>;
+    readonly givenName?: pulumi.Input<string | undefined>;
     /**
      * The value used to associate an on-premise Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.
      */
-    readonly immutableId?: pulumi.Input<string>;
+    readonly immutableId?: pulumi.Input<string | undefined>;
     /**
      * The user’s job title.
      */
-    readonly jobTitle?: pulumi.Input<string>;
+    readonly jobTitle?: pulumi.Input<string | undefined>;
     /**
      * The primary email address of the User.
      */
-    readonly mail?: pulumi.Input<string>;
+    readonly mail?: pulumi.Input<string | undefined>;
     /**
      * The mail alias for the user. Defaults to the user name part of the User Principal Name.
      */
-    readonly mailNickname?: pulumi.Input<string>;
+    readonly mailNickname?: pulumi.Input<string | undefined>;
     /**
      * The primary cellular telephone number for the user.
      */
-    readonly mobile?: pulumi.Input<string>;
+    readonly mobile?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the User.
      */
-    readonly objectId?: pulumi.Input<string>;
+    readonly objectId?: pulumi.Input<string | undefined>;
     /**
      * The on-premise SAM account name of the User.
      */
-    readonly onpremisesSamAccountName?: pulumi.Input<string>;
+    readonly onpremisesSamAccountName?: pulumi.Input<string | undefined>;
     /**
      * The on-premise user principal name of the User.
      */
-    readonly onpremisesUserPrincipalName?: pulumi.Input<string>;
+    readonly onpremisesUserPrincipalName?: pulumi.Input<string | undefined>;
     /**
      * The password for the User. The password must satisfy minimum requirements as specified by the password policy. The maximum length is 256 characters.
      */
-    readonly password?: pulumi.Input<string>;
+    readonly password?: pulumi.Input<string | undefined>;
     /**
      * The office location in the user's place of business.
      */
-    readonly physicalDeliveryOfficeName?: pulumi.Input<string>;
+    readonly physicalDeliveryOfficeName?: pulumi.Input<string | undefined>;
     /**
      * The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code.
      */
-    readonly postalCode?: pulumi.Input<string>;
+    readonly postalCode?: pulumi.Input<string | undefined>;
     /**
      * The state or province in the user's address.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | undefined>;
     /**
      * The street address of the user's place of business.
      */
-    readonly streetAddress?: pulumi.Input<string>;
+    readonly streetAddress?: pulumi.Input<string | undefined>;
     /**
      * The user's surname (family name or last name).
      */
-    readonly surname?: pulumi.Input<string>;
+    readonly surname?: pulumi.Input<string | undefined>;
     /**
      * The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.
      */
-    readonly usageLocation?: pulumi.Input<string>;
+    readonly usageLocation?: pulumi.Input<string | undefined>;
     /**
      * The User Principal Name of the User.
      */
-    readonly userPrincipalName?: pulumi.Input<string>;
+    readonly userPrincipalName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -348,23 +348,23 @@ export interface UserArgs {
     /**
      * `true` if the account should be enabled, otherwise `false`. Defaults to `true`.
      */
-    readonly accountEnabled?: pulumi.Input<boolean>;
+    readonly accountEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The city in which the user is located.
      */
-    readonly city?: pulumi.Input<string>;
+    readonly city?: pulumi.Input<string | undefined>;
     /**
      * The company name which the user is associated. This property can be useful for describing the company that an external user comes from.
      */
-    readonly companyName?: pulumi.Input<string>;
+    readonly companyName?: pulumi.Input<string | undefined>;
     /**
      * The country/region in which the user is located; for example, “US” or “UK”.
      */
-    readonly country?: pulumi.Input<string>;
+    readonly country?: pulumi.Input<string | undefined>;
     /**
      * The name for the department in which the user works.
      */
-    readonly department?: pulumi.Input<string>;
+    readonly department?: pulumi.Input<string | undefined>;
     /**
      * The name to display in the address book for the user.
      */
@@ -372,27 +372,27 @@ export interface UserArgs {
     /**
      * `true` if the User is forced to change the password during the next sign-in. Defaults to `false`.
      */
-    readonly forcePasswordChange?: pulumi.Input<boolean>;
+    readonly forcePasswordChange?: pulumi.Input<boolean | undefined>;
     /**
      * The given name (first name) of the user.
      */
-    readonly givenName?: pulumi.Input<string>;
+    readonly givenName?: pulumi.Input<string | undefined>;
     /**
      * The value used to associate an on-premise Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account.
      */
-    readonly immutableId?: pulumi.Input<string>;
+    readonly immutableId?: pulumi.Input<string | undefined>;
     /**
      * The user’s job title.
      */
-    readonly jobTitle?: pulumi.Input<string>;
+    readonly jobTitle?: pulumi.Input<string | undefined>;
     /**
      * The mail alias for the user. Defaults to the user name part of the User Principal Name.
      */
-    readonly mailNickname?: pulumi.Input<string>;
+    readonly mailNickname?: pulumi.Input<string | undefined>;
     /**
      * The primary cellular telephone number for the user.
      */
-    readonly mobile?: pulumi.Input<string>;
+    readonly mobile?: pulumi.Input<string | undefined>;
     /**
      * The password for the User. The password must satisfy minimum requirements as specified by the password policy. The maximum length is 256 characters.
      */
@@ -400,27 +400,27 @@ export interface UserArgs {
     /**
      * The office location in the user's place of business.
      */
-    readonly physicalDeliveryOfficeName?: pulumi.Input<string>;
+    readonly physicalDeliveryOfficeName?: pulumi.Input<string | undefined>;
     /**
      * The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code.
      */
-    readonly postalCode?: pulumi.Input<string>;
+    readonly postalCode?: pulumi.Input<string | undefined>;
     /**
      * The state or province in the user's address.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | undefined>;
     /**
      * The street address of the user's place of business.
      */
-    readonly streetAddress?: pulumi.Input<string>;
+    readonly streetAddress?: pulumi.Input<string | undefined>;
     /**
      * The user's surname (family name or last name).
      */
-    readonly surname?: pulumi.Input<string>;
+    readonly surname?: pulumi.Input<string | undefined>;
     /**
      * The usage location of the User. Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. The usage location is a two letter country code (ISO standard 3166). Examples include: `NO`, `JP`, and `GB`. Cannot be reset to null once set.
      */
-    readonly usageLocation?: pulumi.Input<string>;
+    readonly usageLocation?: pulumi.Input<string | undefined>;
     /**
      * The User Principal Name of the User.
      */

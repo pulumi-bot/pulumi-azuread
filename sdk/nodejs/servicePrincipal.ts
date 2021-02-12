@@ -146,28 +146,28 @@ export interface ServicePrincipalState {
     /**
      * Whether this Service Principal requires an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application. Defaults to `false`.
      */
-    readonly appRoleAssignmentRequired?: pulumi.Input<boolean>;
-    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalAppRole>[]>;
+    readonly appRoleAssignmentRequired?: pulumi.Input<boolean | undefined>;
+    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalAppRole>[] | undefined>;
     /**
      * The App ID of the Application for which to create a Service Principal.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: pulumi.Input<string | undefined>;
     /**
      * The Display Name of the Application associated with this Service Principal.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * A collection of OAuth 2.0 permissions exposed by the associated Application. Each permission is covered by an `oauth2Permission` block as documented below.
      */
-    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalOauth2Permission>[]>;
+    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalOauth2Permission>[] | undefined>;
     /**
      * The Object ID of the Service Principal.
      */
-    readonly objectId?: pulumi.Input<string>;
+    readonly objectId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to apply to the Service Principal.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface ServicePrincipalArgs {
     /**
      * Whether this Service Principal requires an AppRoleAssignment to a user or group before Azure AD will issue a user or access token to the application. Defaults to `false`.
      */
-    readonly appRoleAssignmentRequired?: pulumi.Input<boolean>;
+    readonly appRoleAssignmentRequired?: pulumi.Input<boolean | undefined>;
     /**
      * The App ID of the Application for which to create a Service Principal.
      */
@@ -185,9 +185,9 @@ export interface ServicePrincipalArgs {
     /**
      * A collection of OAuth 2.0 permissions exposed by the associated Application. Each permission is covered by an `oauth2Permission` block as documented below.
      */
-    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalOauth2Permission>[]>;
+    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ServicePrincipalOauth2Permission>[] | undefined>;
     /**
      * A list of tags to apply to the Service Principal.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

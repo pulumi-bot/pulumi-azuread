@@ -150,31 +150,31 @@ export interface ApplicationAppRoleState {
     /**
      * Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in daemon service scenarios) by setting to `Application`, or to both.
      */
-    readonly allowedMemberTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedMemberTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Object ID of the Application for which this App Role should be created. Changing this field forces a new resource to be created.
      */
-    readonly applicationObjectId?: pulumi.Input<string>;
+    readonly applicationObjectId?: pulumi.Input<string | undefined>;
     /**
      * Permission help text that appears in the admin app assignment and consent experiences.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * Display name for the permission that appears in the admin consent and app assignment experiences.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * Determines if the app role is enabled. Defaults to `true`.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    readonly isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a custom UUID for the app role. If omitted, a random UUID will be automatically generated. Changing this field forces a new resource to be created.
      */
-    readonly roleId?: pulumi.Input<string>;
+    readonly roleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,13 +200,13 @@ export interface ApplicationAppRoleArgs {
     /**
      * Determines if the app role is enabled. Defaults to `true`.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    readonly isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a custom UUID for the app role. If omitted, a random UUID will be automatically generated. Changing this field forces a new resource to be created.
      */
-    readonly roleId?: pulumi.Input<string>;
+    readonly roleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }

@@ -142,31 +142,31 @@ export interface ApplicationPasswordState {
     /**
      * The Object ID of the Application for which this password should be created. Changing this field forces a new resource to be created.
      */
-    readonly applicationObjectId?: pulumi.Input<string>;
+    readonly applicationObjectId?: pulumi.Input<string | undefined>;
     /**
      * A description for the Password.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Password. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The Password for this Application.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,23 +180,23 @@ export interface ApplicationPasswordArgs {
     /**
      * A description for the Password.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Password. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The Password for this Application.
      */

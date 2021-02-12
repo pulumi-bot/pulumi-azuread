@@ -143,31 +143,31 @@ export interface ServicePrincipalPasswordState {
     /**
      * A description for the Password.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h". Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
+    readonly servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The Password for this Service Principal.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,19 +177,19 @@ export interface ServicePrincipalPasswordArgs {
     /**
      * A description for the Password.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: pulumi.Input<string | undefined>;
     /**
      * A relative duration for which the Password is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h". Changing this field forces a new resource to be created.
      */
-    readonly endDateRelative?: pulumi.Input<string>;
+    readonly endDateRelative?: pulumi.Input<string | undefined>;
     /**
      * A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
      */
@@ -197,7 +197,7 @@ export interface ServicePrincipalPasswordArgs {
     /**
      * The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: pulumi.Input<string | undefined>;
     /**
      * The Password for this Service Principal.
      */

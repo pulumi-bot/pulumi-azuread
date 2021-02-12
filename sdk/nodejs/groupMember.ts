@@ -113,11 +113,11 @@ export interface GroupMemberState {
     /**
      * The Object ID of the Azure AD Group you want to add the Member to.  Changing this forces a new resource to be created.
      */
-    readonly groupObjectId?: pulumi.Input<string>;
+    readonly groupObjectId?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the Azure AD Object you want to add as a Member to the Group. Supported Object types are Users, Groups or Service Principals. Changing this forces a new resource to be created.
      */
-    readonly memberObjectId?: pulumi.Input<string>;
+    readonly memberObjectId?: pulumi.Input<string | undefined>;
 }
 
 /**

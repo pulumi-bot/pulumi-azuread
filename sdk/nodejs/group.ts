@@ -151,31 +151,31 @@ export interface GroupState {
     /**
      * The description for the Group.  Changing this forces a new resource to be created.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the Group. Changing this forces a new resource to be created.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * A set of members who should be present in this Group. Supported Object types are Users, Groups or Service Principals.
      */
-    readonly members?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated This property has been renamed to `display_name` and will be removed in v2.0 of this provider.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the Group.
      */
-    readonly objectId?: pulumi.Input<string>;
+    readonly objectId?: pulumi.Input<string | undefined>;
     /**
      * A set of owners who own this Group. Supported Object types are Users or Service Principals.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If `true`, will return an error when an existing Group is found with the same name. Defaults to `false`.
      */
-    readonly preventDuplicateNames?: pulumi.Input<boolean>;
+    readonly preventDuplicateNames?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -185,25 +185,25 @@ export interface GroupArgs {
     /**
      * The description for the Group.  Changing this forces a new resource to be created.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the Group. Changing this forces a new resource to be created.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * A set of members who should be present in this Group. Supported Object types are Users, Groups or Service Principals.
      */
-    readonly members?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated This property has been renamed to `display_name` and will be removed in v2.0 of this provider.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string | undefined>;
     /**
      * A set of owners who own this Group. Supported Object types are Users or Service Principals.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If `true`, will return an error when an existing Group is found with the same name. Defaults to `false`.
      */
-    readonly preventDuplicateNames?: pulumi.Input<boolean>;
+    readonly preventDuplicateNames?: pulumi.Input<boolean | undefined>;
 }

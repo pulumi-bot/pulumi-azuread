@@ -173,39 +173,39 @@ export interface ApplicationOAuth2PermissionState {
     /**
      * Permission help text that appears in the admin consent and app assignment experiences.
      */
-    readonly adminConsentDescription?: pulumi.Input<string>;
+    readonly adminConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * Display name for the permission that appears in the admin consent and app assignment experiences.
      */
-    readonly adminConsentDisplayName?: pulumi.Input<string>;
+    readonly adminConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the Application for which this Permission should be created. Changing this field forces a new resource to be created.
      */
-    readonly applicationObjectId?: pulumi.Input<string>;
+    readonly applicationObjectId?: pulumi.Input<string | undefined>;
     /**
      * Determines if the Permission is enabled. Defaults to `true`.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    readonly isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a custom UUID for the Permission. If omitted, a random UUID will be automatically generated. Changing this field forces a new resource to be created.
      */
-    readonly permissionId?: pulumi.Input<string>;
+    readonly permissionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this scope permission can be consented to by an end user, or whether it is a tenant-wide permission that must be consented to by an Administrator. Possible values are "User" or "Admin".
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | undefined>;
     /**
      * Permission help text that appears in the end user consent experience.
      */
-    readonly userConsentDescription?: pulumi.Input<string>;
+    readonly userConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * Display name for the permission that appears in the end user consent experience.
      */
-    readonly userConsentDisplayName?: pulumi.Input<string>;
+    readonly userConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface ApplicationOAuth2PermissionArgs {
     /**
      * Determines if the Permission is enabled. Defaults to `true`.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    readonly isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a custom UUID for the Permission. If omitted, a random UUID will be automatically generated. Changing this field forces a new resource to be created.
      */
-    readonly permissionId?: pulumi.Input<string>;
+    readonly permissionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this scope permission can be consented to by an end user, or whether it is a tenant-wide permission that must be consented to by an Administrator. Possible values are "User" or "Admin".
      */

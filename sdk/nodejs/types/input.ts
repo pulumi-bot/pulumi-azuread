@@ -20,66 +20,66 @@ export interface ApplicationAppRole {
     /**
      * The unique identifier of the permision. This attribute is computed and cannot be specified manually in this block. If you need to specify a custom `id`, it's recommended to use the azuread.ApplicationOAuth2Permission resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Determines if the permission is enabled: defaults to `true`.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApplicationOauth2Permission {
     /**
      * Permission help text that appears in the admin consent and app assignment experiences.
      */
-    adminConsentDescription?: pulumi.Input<string>;
+    adminConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * Display name for the permission that appears in the admin consent and app assignment experiences.
      */
-    adminConsentDisplayName?: pulumi.Input<string>;
+    adminConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the app role. This attribute is computed and cannot be specified manually in this block. If you need to specify a custom `id`, it's recommended to use the azuread.ApplicationAppRole resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Determines if the app role is enabled: Defaults to `true`.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifierUris` property can not not be set.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Permission help text that appears in the end user consent experience.
      */
-    userConsentDescription?: pulumi.Input<string>;
+    userConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * Display name for the permission that appears in the end user consent experience.
      */
-    userConsentDisplayName?: pulumi.Input<string>;
+    userConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value of the roles claim that the application should expect in the authentication and access tokens.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApplicationOptionalClaims {
-    accessTokens?: pulumi.Input<pulumi.Input<inputs.ApplicationOptionalClaimsAccessToken>[]>;
-    idTokens?: pulumi.Input<pulumi.Input<inputs.ApplicationOptionalClaimsIdToken>[]>;
+    accessTokens?: pulumi.Input<pulumi.Input<inputs.ApplicationOptionalClaimsAccessToken>[] | undefined>;
+    idTokens?: pulumi.Input<pulumi.Input<inputs.ApplicationOptionalClaimsIdToken>[] | undefined>;
 }
 
 export interface ApplicationOptionalClaimsAccessToken {
     /**
      * List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
      */
-    additionalProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
      */
-    essential?: pulumi.Input<boolean>;
+    essential?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the optional claim.
      */
@@ -87,18 +87,18 @@ export interface ApplicationOptionalClaimsAccessToken {
     /**
      * The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 export interface ApplicationOptionalClaimsIdToken {
     /**
      * List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
      */
-    additionalProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
      */
-    essential?: pulumi.Input<boolean>;
+    essential?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the optional claim.
      */
@@ -106,7 +106,7 @@ export interface ApplicationOptionalClaimsIdToken {
     /**
      * The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 export interface ApplicationRequiredResourceAccess {
@@ -245,57 +245,57 @@ export interface GetServicePrincipalOauth2Permission {
 }
 
 export interface ServicePrincipalAppRole {
-    allowedMemberTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    description?: pulumi.Input<string>;
+    allowedMemberTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name of the Application associated with this Service Principal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for one of the `OAuth2Permission`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Is this permission enabled?
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of this permission.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicePrincipalOauth2Permission {
     /**
      * The description of the admin consent.
      */
-    adminConsentDescription?: pulumi.Input<string>;
+    adminConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * The display name of the admin consent.
      */
-    adminConsentDisplayName?: pulumi.Input<string>;
+    adminConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for one of the `OAuth2Permission`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Is this permission enabled?
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The type of the permission.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The description of the user consent.
      */
-    userConsentDescription?: pulumi.Input<string>;
+    userConsentDescription?: pulumi.Input<string | undefined>;
     /**
      * The display name of the user consent.
      */
-    userConsentDisplayName?: pulumi.Input<string>;
+    userConsentDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of this permission.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }

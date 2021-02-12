@@ -286,83 +286,83 @@ export interface ApplicationState {
     /**
      * A collection of `appRole` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
      */
-    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ApplicationAppRole>[]>;
+    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ApplicationAppRole>[] | undefined>;
     /**
      * The Application ID (Client ID).
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: pulumi.Input<string | undefined>;
     /**
      * Is this Azure AD Application available to other tenants? Defaults to `false`.
      */
-    readonly availableToOtherTenants?: pulumi.Input<boolean>;
+    readonly availableToOtherTenants?: pulumi.Input<boolean | undefined>;
     /**
      * The display name for the application.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.
      */
-    readonly groupMembershipClaims?: pulumi.Input<string>;
+    readonly groupMembershipClaims?: pulumi.Input<string | undefined>;
     /**
      * The URL to the application's home page.
      */
-    readonly homepage?: pulumi.Input<string>;
+    readonly homepage?: pulumi.Input<string | undefined>;
     /**
      * A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
      */
-    readonly identifierUris?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly identifierUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URL of the logout page.
      */
-    readonly logoutUrl?: pulumi.Input<string>;
+    readonly logoutUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the optional claim.
      *
      * @deprecated This property has been renamed to `display_name` and will be removed in version 2.0 of this provider.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string | undefined>;
     /**
      * Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
      */
-    readonly oauth2AllowImplicitFlow?: pulumi.Input<boolean>;
+    readonly oauth2AllowImplicitFlow?: pulumi.Input<boolean | undefined>;
     /**
      * A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2Permissions` blocks as documented below.
      */
-    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ApplicationOauth2Permission>[]>;
+    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ApplicationOauth2Permission>[] | undefined>;
     /**
      * The Application's Object ID.
      */
-    readonly objectId?: pulumi.Input<string>;
+    readonly objectId?: pulumi.Input<string | undefined>;
     /**
      * A collection of `accessToken` or `idToken` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
      */
-    readonly optionalClaims?: pulumi.Input<inputs.ApplicationOptionalClaims>;
+    readonly optionalClaims?: pulumi.Input<inputs.ApplicationOptionalClaims | undefined>;
     /**
      * A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If `true`, will return an error when an existing Application is found with the same name. Defaults to `false`.
      */
-    readonly preventDuplicateNames?: pulumi.Input<boolean>;
+    readonly preventDuplicateNames?: pulumi.Input<boolean | undefined>;
     /**
      * Is this Azure AD Application a public client? Defaults to `false`.
      */
-    readonly publicClient?: pulumi.Input<boolean>;
+    readonly publicClient?: pulumi.Input<boolean | undefined>;
     /**
      * A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
      */
-    readonly replyUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly replyUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A collection of `requiredResourceAccess` blocks as documented below.
      */
-    readonly requiredResourceAccesses?: pulumi.Input<pulumi.Input<inputs.ApplicationRequiredResourceAccess>[]>;
+    readonly requiredResourceAccesses?: pulumi.Input<pulumi.Input<inputs.ApplicationRequiredResourceAccess>[] | undefined>;
     /**
      * Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifierUris` property can not not be set.
      *
      * @deprecated This property is deprecated and will be removed in version 2.0 of this provider.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -372,73 +372,73 @@ export interface ApplicationArgs {
     /**
      * A collection of `appRole` blocks as documented below. For more information https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles
      */
-    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ApplicationAppRole>[]>;
+    readonly appRoles?: pulumi.Input<pulumi.Input<inputs.ApplicationAppRole>[] | undefined>;
     /**
      * Is this Azure AD Application available to other tenants? Defaults to `false`.
      */
-    readonly availableToOtherTenants?: pulumi.Input<boolean>;
+    readonly availableToOtherTenants?: pulumi.Input<boolean | undefined>;
     /**
      * The display name for the application.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: pulumi.Input<string | undefined>;
     /**
      * Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. Defaults to `SecurityGroup`. Possible values are `None`, `SecurityGroup`, `DirectoryRole`, `ApplicationGroup` or `All`.
      */
-    readonly groupMembershipClaims?: pulumi.Input<string>;
+    readonly groupMembershipClaims?: pulumi.Input<string | undefined>;
     /**
      * The URL to the application's home page.
      */
-    readonly homepage?: pulumi.Input<string>;
+    readonly homepage?: pulumi.Input<string | undefined>;
     /**
      * A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
      */
-    readonly identifierUris?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly identifierUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URL of the logout page.
      */
-    readonly logoutUrl?: pulumi.Input<string>;
+    readonly logoutUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the optional claim.
      *
      * @deprecated This property has been renamed to `display_name` and will be removed in version 2.0 of this provider.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string | undefined>;
     /**
      * Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
      */
-    readonly oauth2AllowImplicitFlow?: pulumi.Input<boolean>;
+    readonly oauth2AllowImplicitFlow?: pulumi.Input<boolean | undefined>;
     /**
      * A collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. Each permission is covered by `oauth2Permissions` blocks as documented below.
      */
-    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ApplicationOauth2Permission>[]>;
+    readonly oauth2Permissions?: pulumi.Input<pulumi.Input<inputs.ApplicationOauth2Permission>[] | undefined>;
     /**
      * A collection of `accessToken` or `idToken` blocks as documented below which list the optional claims configured for each token type. For more information see https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
      */
-    readonly optionalClaims?: pulumi.Input<inputs.ApplicationOptionalClaims>;
+    readonly optionalClaims?: pulumi.Input<inputs.ApplicationOptionalClaims | undefined>;
     /**
      * A list of Azure AD Object IDs that will be granted ownership of the application. Defaults to the Object ID of the caller creating the application. If a list is specified the caller Object ID will no longer be included unless explicitly added to the list.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If `true`, will return an error when an existing Application is found with the same name. Defaults to `false`.
      */
-    readonly preventDuplicateNames?: pulumi.Input<boolean>;
+    readonly preventDuplicateNames?: pulumi.Input<boolean | undefined>;
     /**
      * Is this Azure AD Application a public client? Defaults to `false`.
      */
-    readonly publicClient?: pulumi.Input<boolean>;
+    readonly publicClient?: pulumi.Input<boolean | undefined>;
     /**
      * A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
      */
-    readonly replyUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly replyUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A collection of `requiredResourceAccess` blocks as documented below.
      */
-    readonly requiredResourceAccesses?: pulumi.Input<pulumi.Input<inputs.ApplicationRequiredResourceAccess>[]>;
+    readonly requiredResourceAccesses?: pulumi.Input<pulumi.Input<inputs.ApplicationRequiredResourceAccess>[] | undefined>;
     /**
      * Type of an application: `webapp/api` or `native`. Defaults to `webapp/api`. For `native` apps type `identifierUris` property can not not be set.
      *
      * @deprecated This property is deprecated and will be removed in version 2.0 of this provider.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | undefined>;
 }
