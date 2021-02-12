@@ -35,8 +35,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
-            if ((!args || args.metadataHost === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metadataHost === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metadataHost'");
             }
             inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
@@ -51,12 +52,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("ARM_TENANT_ID") || "");
             inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (<any>utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }
