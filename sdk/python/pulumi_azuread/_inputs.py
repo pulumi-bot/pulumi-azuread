@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
 __all__ = [
@@ -736,23 +736,23 @@ class ServicePrincipalOauth2PermissionArgs:
 @pulumi.input_type
 class GetApplicationOauth2PermissionArgs:
     def __init__(__self__, *,
-                 admin_consent_description: str,
-                 admin_consent_display_name: str,
-                 id: str,
-                 is_enabled: bool,
-                 type: str,
-                 user_consent_description: str,
-                 user_consent_display_name: str,
-                 value: str):
+                 admin_consent_description: pulumi.Input[str],
+                 admin_consent_display_name: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 is_enabled: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 user_consent_description: pulumi.Input[str],
+                 user_consent_display_name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
-        :param str admin_consent_description: The description of the admin consent
-        :param str admin_consent_display_name: The display name of the admin consent
-        :param str id: The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
-        :param bool is_enabled: Is this permission enabled?
-        :param str type: Specifies whether the id property references an `OAuth2Permission` or an `AppRole`.
-        :param str user_consent_description: The description of the user consent
-        :param str user_consent_display_name: The display name of the user consent
-        :param str value: The name of this permission
+        :param pulumi.Input[str] admin_consent_description: The description of the admin consent
+        :param pulumi.Input[str] admin_consent_display_name: The display name of the admin consent
+        :param pulumi.Input[str] id: The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
+        :param pulumi.Input[bool] is_enabled: Is this permission enabled?
+        :param pulumi.Input[str] type: Specifies whether the id property references an `OAuth2Permission` or an `AppRole`.
+        :param pulumi.Input[str] user_consent_description: The description of the user consent
+        :param pulumi.Input[str] user_consent_display_name: The display name of the user consent
+        :param pulumi.Input[str] value: The name of this permission
         """
         pulumi.set(__self__, "admin_consent_description", admin_consent_description)
         pulumi.set(__self__, "admin_consent_display_name", admin_consent_display_name)
@@ -765,106 +765,106 @@ class GetApplicationOauth2PermissionArgs:
 
     @property
     @pulumi.getter(name="adminConsentDescription")
-    def admin_consent_description(self) -> str:
+    def admin_consent_description(self) -> pulumi.Input[str]:
         """
         The description of the admin consent
         """
         return pulumi.get(self, "admin_consent_description")
 
     @admin_consent_description.setter
-    def admin_consent_description(self, value: str):
+    def admin_consent_description(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_consent_description", value)
 
     @property
     @pulumi.getter(name="adminConsentDisplayName")
-    def admin_consent_display_name(self) -> str:
+    def admin_consent_display_name(self) -> pulumi.Input[str]:
         """
         The display name of the admin consent
         """
         return pulumi.get(self, "admin_consent_display_name")
 
     @admin_consent_display_name.setter
-    def admin_consent_display_name(self, value: str):
+    def admin_consent_display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_consent_display_name", value)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> pulumi.Input[str]:
         """
         The unique identifier for one of the `OAuth2Permission` or `AppRole` instances that the resource application exposes.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: str):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
+    def is_enabled(self) -> pulumi.Input[bool]:
         """
         Is this permission enabled?
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: bool):
+    def is_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_enabled", value)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Input[str]:
         """
         Specifies whether the id property references an `OAuth2Permission` or an `AppRole`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: str):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="userConsentDescription")
-    def user_consent_description(self) -> str:
+    def user_consent_description(self) -> pulumi.Input[str]:
         """
         The description of the user consent
         """
         return pulumi.get(self, "user_consent_description")
 
     @user_consent_description.setter
-    def user_consent_description(self, value: str):
+    def user_consent_description(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_consent_description", value)
 
     @property
     @pulumi.getter(name="userConsentDisplayName")
-    def user_consent_display_name(self) -> str:
+    def user_consent_display_name(self) -> pulumi.Input[str]:
         """
         The display name of the user consent
         """
         return pulumi.get(self, "user_consent_display_name")
 
     @user_consent_display_name.setter
-    def user_consent_display_name(self, value: str):
+    def user_consent_display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_consent_display_name", value)
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Input[str]:
         """
         The name of this permission
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: str):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class GetApplicationOptionalClaimsArgs:
     def __init__(__self__, *,
-                 access_tokens: Optional[Sequence['GetApplicationOptionalClaimsAccessTokenArgs']] = None,
-                 id_tokens: Optional[Sequence['GetApplicationOptionalClaimsIdTokenArgs']] = None):
+                 access_tokens: Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsAccessTokenArgs']]]] = None,
+                 id_tokens: Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsIdTokenArgs']]]] = None):
         if access_tokens is not None:
             pulumi.set(__self__, "access_tokens", access_tokens)
         if id_tokens is not None:
@@ -872,35 +872,35 @@ class GetApplicationOptionalClaimsArgs:
 
     @property
     @pulumi.getter(name="accessTokens")
-    def access_tokens(self) -> Optional[Sequence['GetApplicationOptionalClaimsAccessTokenArgs']]:
+    def access_tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsAccessTokenArgs']]]]:
         return pulumi.get(self, "access_tokens")
 
     @access_tokens.setter
-    def access_tokens(self, value: Optional[Sequence['GetApplicationOptionalClaimsAccessTokenArgs']]):
+    def access_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsAccessTokenArgs']]]]):
         pulumi.set(self, "access_tokens", value)
 
     @property
     @pulumi.getter(name="idTokens")
-    def id_tokens(self) -> Optional[Sequence['GetApplicationOptionalClaimsIdTokenArgs']]:
+    def id_tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsIdTokenArgs']]]]:
         return pulumi.get(self, "id_tokens")
 
     @id_tokens.setter
-    def id_tokens(self, value: Optional[Sequence['GetApplicationOptionalClaimsIdTokenArgs']]):
+    def id_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GetApplicationOptionalClaimsIdTokenArgs']]]]):
         pulumi.set(self, "id_tokens", value)
 
 
 @pulumi.input_type
 class GetApplicationOptionalClaimsAccessTokenArgs:
     def __init__(__self__, *,
-                 name: str,
-                 additional_properties: Optional[Sequence[str]] = None,
-                 essential: Optional[bool] = None,
-                 source: Optional[str] = None):
+                 name: pulumi.Input[str],
+                 additional_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 essential: Optional[pulumi.Input[bool]] = None,
+                 source: Optional[pulumi.Input[str]] = None):
         """
-        :param str name: The name of the optional claim.
-        :param Sequence[str] additional_properties: List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        :param bool essential: Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        :param str source: The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
+        :param pulumi.Input[str] name: The name of the optional claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_properties: List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
+        :param pulumi.Input[bool] essential: Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
+        :param pulumi.Input[str] source: The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
         """
         pulumi.set(__self__, "name", name)
         if additional_properties is not None:
@@ -912,65 +912,65 @@ class GetApplicationOptionalClaimsAccessTokenArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Input[str]:
         """
         The name of the optional claim.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: str):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Sequence[str]]:
+    def additional_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[Sequence[str]]):
+    def additional_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @property
     @pulumi.getter
-    def essential(self) -> Optional[bool]:
+    def essential(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
         """
         return pulumi.get(self, "essential")
 
     @essential.setter
-    def essential(self, value: Optional[bool]):
+    def essential(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "essential", value)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[str]:
+    def source(self) -> Optional[pulumi.Input[str]]:
         """
         The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[str]):
+    def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
 class GetApplicationOptionalClaimsIdTokenArgs:
     def __init__(__self__, *,
-                 name: str,
-                 additional_properties: Optional[Sequence[str]] = None,
-                 essential: Optional[bool] = None,
-                 source: Optional[str] = None):
+                 name: pulumi.Input[str],
+                 additional_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 essential: Optional[pulumi.Input[bool]] = None,
+                 source: Optional[pulumi.Input[str]] = None):
         """
-        :param str name: The name of the optional claim.
-        :param Sequence[str] additional_properties: List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
-        :param bool essential: Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
-        :param str source: The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
+        :param pulumi.Input[str] name: The name of the optional claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_properties: List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
+        :param pulumi.Input[bool] essential: Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
+        :param pulumi.Input[str] source: The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
         """
         pulumi.set(__self__, "name", name)
         if additional_properties is not None:
@@ -982,73 +982,73 @@ class GetApplicationOptionalClaimsIdTokenArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Input[str]:
         """
         The name of the optional claim.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: str):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Sequence[str]]:
+    def additional_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of Additional Properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[Sequence[str]]):
+    def additional_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @property
     @pulumi.getter
-    def essential(self) -> Optional[bool]:
+    def essential(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the claim specified by the client is necessary to ensure a smooth authorization experience.
         """
         return pulumi.get(self, "essential")
 
     @essential.setter
-    def essential(self, value: Optional[bool]):
+    def essential(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "essential", value)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[str]:
+    def source(self) -> Optional[pulumi.Input[str]]:
         """
         The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[str]):
+    def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
 class GetServicePrincipalOauth2PermissionArgs:
     def __init__(__self__, *,
-                 admin_consent_description: str,
-                 admin_consent_display_name: str,
-                 id: str,
-                 is_enabled: bool,
-                 type: str,
-                 user_consent_description: str,
-                 user_consent_display_name: str,
-                 value: str):
+                 admin_consent_description: pulumi.Input[str],
+                 admin_consent_display_name: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 is_enabled: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 user_consent_description: pulumi.Input[str],
+                 user_consent_display_name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
-        :param str admin_consent_description: The description of the admin consent
-        :param str admin_consent_display_name: The display name of the admin consent
-        :param str id: The unique identifier for one of the `OAuth2Permission`
-        :param bool is_enabled: Is this permission enabled?
-        :param str type: The type of the permission
-        :param str user_consent_description: The description of the user consent
-        :param str user_consent_display_name: The display name of the user consent
-        :param str value: The name of this permission
+        :param pulumi.Input[str] admin_consent_description: The description of the admin consent
+        :param pulumi.Input[str] admin_consent_display_name: The display name of the admin consent
+        :param pulumi.Input[str] id: The unique identifier for one of the `OAuth2Permission`
+        :param pulumi.Input[bool] is_enabled: Is this permission enabled?
+        :param pulumi.Input[str] type: The type of the permission
+        :param pulumi.Input[str] user_consent_description: The description of the user consent
+        :param pulumi.Input[str] user_consent_display_name: The display name of the user consent
+        :param pulumi.Input[str] value: The name of this permission
         """
         pulumi.set(__self__, "admin_consent_description", admin_consent_description)
         pulumi.set(__self__, "admin_consent_display_name", admin_consent_display_name)
@@ -1061,98 +1061,98 @@ class GetServicePrincipalOauth2PermissionArgs:
 
     @property
     @pulumi.getter(name="adminConsentDescription")
-    def admin_consent_description(self) -> str:
+    def admin_consent_description(self) -> pulumi.Input[str]:
         """
         The description of the admin consent
         """
         return pulumi.get(self, "admin_consent_description")
 
     @admin_consent_description.setter
-    def admin_consent_description(self, value: str):
+    def admin_consent_description(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_consent_description", value)
 
     @property
     @pulumi.getter(name="adminConsentDisplayName")
-    def admin_consent_display_name(self) -> str:
+    def admin_consent_display_name(self) -> pulumi.Input[str]:
         """
         The display name of the admin consent
         """
         return pulumi.get(self, "admin_consent_display_name")
 
     @admin_consent_display_name.setter
-    def admin_consent_display_name(self, value: str):
+    def admin_consent_display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_consent_display_name", value)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> pulumi.Input[str]:
         """
         The unique identifier for one of the `OAuth2Permission`
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: str):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
+    def is_enabled(self) -> pulumi.Input[bool]:
         """
         Is this permission enabled?
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: bool):
+    def is_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_enabled", value)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Input[str]:
         """
         The type of the permission
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: str):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="userConsentDescription")
-    def user_consent_description(self) -> str:
+    def user_consent_description(self) -> pulumi.Input[str]:
         """
         The description of the user consent
         """
         return pulumi.get(self, "user_consent_description")
 
     @user_consent_description.setter
-    def user_consent_description(self, value: str):
+    def user_consent_description(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_consent_description", value)
 
     @property
     @pulumi.getter(name="userConsentDisplayName")
-    def user_consent_display_name(self) -> str:
+    def user_consent_display_name(self) -> pulumi.Input[str]:
         """
         The display name of the user consent
         """
         return pulumi.get(self, "user_consent_display_name")
 
     @user_consent_display_name.setter
-    def user_consent_display_name(self, value: str):
+    def user_consent_display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_consent_display_name", value)
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Input[str]:
         """
         The name of this permission
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: str):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
